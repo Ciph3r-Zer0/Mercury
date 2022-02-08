@@ -1,0 +1,11 @@
+Prefix: "&9Mercury &b||"
+NoPermission: "{prefix} &cYou do not have enough permissions!"
+NoConsole: "{prefix} &cOnly players can execute this command!"
+PlayerNotFound: "{prefix} &cCould not find player"
+
+Modules:
+  Nickname:
+    Usage: "{prefix} &4Usage: &c/Nick <nickname>"
+    Reset: "{prefix} &4Nick name reset!"
+    Changed: "{prefix} &4Your nickname changed!"
+    ChangedOthers: "{prefix} &4Your nickname changed!"

@@ -1,0 +1,10 @@
+DataType: SQLITE
+
+Modules:
+  Nickname:
+    enabled: true
+    reset:
+      - off
+      - reset
+  Chat:
+    enabled: true
