@@ -6,7 +6,7 @@ import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.sql.models.PlayerModel;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
-import ir.ciph3r.mercury.utilities.Utils;
+import ir.ciph3r.mercury.utility.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -67,28 +67,4 @@ public class Nickname extends ModuleBase {
 		}
 		return true;
 	}
-
-//	@Override
-//	public void command(CommandSender sender, Command cmd, String label, String[] args) {
-//		if (!(sender.hasPermission(Permissions.NICKNAME))) {
-//			sender.sendMessage(" ");
-//			return;
-//		}
-//		if (args.length == 0) {
-//			//TODO: send usage
-//		} else if (args.length == 1) {
-//			//TODO: change nick name
-//			if (!(sender instanceof Player)) {
-//				sender.sendMessage("not a player");
-//				return;
-//			}
-//			Player player = (Player) sender;
-//			PlayerModel model = PlayerModel.queryByName(player.getUniqueId().toString());
-//			model.setNickName(args[0]);
-//		} else if (args.length == 2) {
-//			//TODO: change nick name for others
-//		} else {
-//			//TODO: send usage
-//		}
-//	}
 }

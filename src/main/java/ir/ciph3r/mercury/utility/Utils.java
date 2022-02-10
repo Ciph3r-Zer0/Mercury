@@ -1,5 +1,7 @@
-package ir.ciph3r.mercury.utilities;
+package ir.ciph3r.mercury.utility;
 
+import ir.ciph3r.mercury.dependency.Depend;
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -7,7 +9,11 @@ import org.bukkit.entity.Player;
 public class Utils {
 
 	public static void sendColorizedMessage(Player player, String msg) {
-		player.sendMessage(colorize(msg));
+		if (Depend.isPAPIEnabled()) {
+			PlaceholderAPI.setPlaceholders(player, msg);
+		} else {
+			player.sendMessage(colorize(msg));
+		}
 	}
 
 	public static void sendColorizedMessage(CommandSender sender, String msg) {

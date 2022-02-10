@@ -4,7 +4,7 @@ Modules:
   Nickname:
     enabled: true
     reset:
-      - off
-      - reset
+      - "off"
+      - "reset"
   Chat:
     enabled: true

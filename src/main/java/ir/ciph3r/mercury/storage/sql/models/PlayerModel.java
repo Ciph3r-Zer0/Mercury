@@ -72,7 +72,6 @@ public class PlayerModel {
 	}
 
 	public void setNick(String value) {
-		System.out.println(getId());
 		setNickName(value);
 		update();
 	}
