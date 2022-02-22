@@ -18,7 +18,7 @@ import java.util.List;
 
 public class GameMode extends ModuleBase {
     public GameMode(Mercury mercury) {
-        super("GameMode", "GameMode", true, mercury);
+        super("GameMode", "GameMode", Config.GAMEMODE_ENABLED, mercury);
     }
 
     @Override
