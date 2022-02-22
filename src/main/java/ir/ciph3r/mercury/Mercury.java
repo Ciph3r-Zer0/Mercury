@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury;
 
 import ir.ciph3r.mercury.modules.Fly;
-import ir.ciph3r.mercury.modules.Gamemode;
+import ir.ciph3r.mercury.modules.GameMode;
 import ir.ciph3r.mercury.modules.Nickname;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.sql.DataSource;
@@ -21,7 +21,7 @@ public final class Mercury extends JavaPlugin {
 		new DataSource(this).SQLite();
 		new Fly(this).register();
 		new Nickname(this).register();
-		new Gamemode(this).register();
+		new GameMode(this).register();
 	}
 
 	@Override

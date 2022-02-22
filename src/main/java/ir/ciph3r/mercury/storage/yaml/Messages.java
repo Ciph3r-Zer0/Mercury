@@ -13,6 +13,7 @@ public class Messages extends Model {
 	public static String NO_PERMISSION;
 	public static String NO_CONSOLE;
 	public static String PLAYER_NOT_FOUND;
+	public static String NOT_ENOUGH_ARGS;
 
 	public static String NICK_NAME_USAGE;
 	public static String NICK_NAME_RESET;
@@ -32,6 +33,7 @@ public class Messages extends Model {
 		NO_PERMISSION = getConfig().getString("NoPermission").replace("{prefix}", PREFIX);
 		NO_CONSOLE = getConfig().getString("NoConsole").replace("{prefix}", PREFIX);
 		PLAYER_NOT_FOUND = getConfig().getString("PlayerNotFound").replace("{prefix}", PREFIX);
+		NOT_ENOUGH_ARGS = getConfig().getString("NotEnoughArgs").replace("{prefix}", PREFIX);
 
 		NICK_NAME_USAGE = getConfig().getString("Modules.Nickname.Usage").replace("{prefix}", PREFIX);
 		NICK_NAME_RESET = getConfig().getString("Modules.Nickname.Reset").replace("{prefix}", PREFIX);

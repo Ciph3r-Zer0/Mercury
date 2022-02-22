@@ -2,6 +2,7 @@ Prefix: "&9Mercury &b||"
 NoPermission: "{prefix} &cYou do not have enough permissions!"
 NoConsole: "{prefix} &cOnly players can execute this command!"
 PlayerNotFound: "{prefix} &cCould not find player"
+NotEnoughArgs: "{prefix} &cNot enough args"
 
 Modules:
   Nickname:

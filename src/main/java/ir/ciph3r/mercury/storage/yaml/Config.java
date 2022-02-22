@@ -23,6 +23,6 @@ public class Config extends Model {
 		NICK_NAME_ENABLED = getConfig().getBoolean("Modules.Nickname.Enabled");
 		NICK_NAME_RESET = new ArrayList<>(getConfig().getStringList("Modules.Nickname.Reset"));
 		FLY_ENABLED = getConfig().getBoolean("Modules.Fly.Enabled");
-		GAMEMODE_ENABLED = getConfig().getBoolean("Modules.Gamemode.Enabled");
+		GAMEMODE_ENABLED = getConfig().getBoolean("Modules.GameMode.Enabled");
 	}
 }

@@ -8,5 +8,5 @@ Modules:
       - "reset"
   Fly:
     Enabled: true
-  Gamemode:
-    Enable: true
+  GameMode:
+    Enabled: true

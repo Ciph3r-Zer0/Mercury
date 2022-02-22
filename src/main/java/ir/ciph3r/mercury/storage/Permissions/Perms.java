@@ -6,6 +6,7 @@ public class Perms {
 	public static String FLY;
 	public static String FLY_OTHERS;
 	public static String GAMEMODE;
+	public static String GAMEMODE_OTHERS;
 
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
@@ -13,5 +14,6 @@ public class Perms {
 		FLY = "mercury.commands.fly";
 		FLY_OTHERS = "mercury.commands.fly.others";
 		GAMEMODE = "mercury.commands.gamemode";
+		GAMEMODE_OTHERS = "mercury.commands.gamemode.others";
 	}
 }
