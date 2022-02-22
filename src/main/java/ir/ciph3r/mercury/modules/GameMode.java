@@ -49,7 +49,24 @@ public class GameMode extends ModuleBase {
             } else {
                 Utils.sendColorizedMessage(player, Messages.NOT_ENOUGH_ARGS);
             }
-        }
+        } else if (args.length == 1) {
+            if (label.equalsIgnoreCase("GMC")) {
+                player.setGameMode(org.bukkit.GameMode.CREATIVE);
+                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Creative"));
+                return true;
+            } else if (label.equalsIgnoreCase("GMS")) {
+                player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Survival"));
+                return true;
+            } else if (label.equalsIgnoreCase("GMA")) {
+                player.setGameMode(org.bukkit.GameMode.ADVENTURE);
+                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Adventure"));
+                return true;
+            } else if (label.equalsIgnoreCase("GMSP")) {
+                player.setGameMode(org.bukkit.GameMode.SPECTATOR);
+                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Spectator"));
+                return true;
+            }
         }
         return true;
     }
