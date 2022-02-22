@@ -5,7 +5,14 @@ PlayerNotFound: "{prefix} &cCould not find player"
 
 Modules:
   Nickname:
-    Usage: "{prefix} &4Usage: &c/Nick <nickname>"
+    Usage: "{prefix} &4Usage: &c/Nick <nickname, off, reset>"
     Reset: "{prefix} &4Nick name reset!"
     Changed: "{prefix} &4Your nickname changed!"
     ChangedOthers: "{prefix} &4Your nickname changed!"
+  Fly:
+    Enabled: "{prefix} &4Flying enabled"
+    Disabled: "{prefix} &cFlying disabled"
+    EnabledAdmin: "{prefix} &4Flying has been enabled for player {player}"
+    DisabledAdmin: "{prefix} &4Flying has been disabled for player {player}"
+  Gamemode:
+    Change: "{prefix} &4Your gamemode has been changed to &c&l{gamemode}"

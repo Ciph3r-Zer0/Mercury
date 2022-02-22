@@ -14,13 +14,15 @@ public class Config extends Model {
 	public static String DATA_TYPE;
 	public static boolean NICK_NAME_ENABLED;
 	public static List<String> NICK_NAME_RESET;
-	public static boolean CHAT_ENABLED;
+	public static boolean FLY_ENABLED;
+	public static boolean GAMEMODE_ENABLED;
 
 	@Override
 	public void init() {
 		DATA_TYPE = getConfig().getString("DataType");
-		NICK_NAME_ENABLED = getConfig().getBoolean("Modules.Nickname.enabled");
-		NICK_NAME_RESET = new ArrayList<>(getConfig().getStringList("Modules.Nickname.reset"));
-		CHAT_ENABLED = getConfig().getBoolean("Modules.Chat.enabled");
+		NICK_NAME_ENABLED = getConfig().getBoolean("Modules.Nickname.Enabled");
+		NICK_NAME_RESET = new ArrayList<>(getConfig().getStringList("Modules.Nickname.Reset"));
+		FLY_ENABLED = getConfig().getBoolean("Modules.Fly.Enabled");
+		GAMEMODE_ENABLED = getConfig().getBoolean("Modules.Gamemode.Enabled");
 	}
 }

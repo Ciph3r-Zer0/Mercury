@@ -9,11 +9,7 @@ import org.bukkit.entity.Player;
 public class Utils {
 
 	public static void sendColorizedMessage(Player player, String msg) {
-		if (Depend.isPAPIEnabled()) {
-			PlaceholderAPI.setPlaceholders(player, msg);
-		} else {
-			player.sendMessage(colorize(msg));
-		}
+		player.sendMessage(colorize(msg));
 	}
 
 	public static void sendColorizedMessage(CommandSender sender, String msg) {

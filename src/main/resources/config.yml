@@ -2,9 +2,11 @@ DataType: SQLITE
 
 Modules:
   Nickname:
-    enabled: true
-    reset:
+    Enabled: true
+    Reset:
       - "off"
       - "reset"
-  Chat:
-    enabled: true
+  Fly:
+    Enabled: true
+  Gamemode:
+    Enable: true

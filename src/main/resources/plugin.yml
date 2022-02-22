@@ -8,3 +8,8 @@ description: A core plugin made to make life easier
 commands:
   nickname:
     usage: /<command>
+  fly:
+    usage: /<command>
+  gamemode:
+    usage: /<command>
+    aliases: [gmc, gms, gma, gmsp]
