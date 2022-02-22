@@ -10,7 +10,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class Fly extends ModuleBase {
     public Fly(Mercury mercury) {
@@ -18,7 +17,7 @@ public class Fly extends ModuleBase {
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.FLY))) {
             Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
             return true;
