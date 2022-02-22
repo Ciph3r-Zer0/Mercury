@@ -12,9 +12,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+import java.util.List;
+
+
 public class GameMode extends ModuleBase {
     public GameMode(Mercury mercury) {
-        super("GameMode", "GameMode", true, mercury);
+        super("GameMode", "GameMode", Config.GAMEMODE_ENABLED, mercury);
     }
 
     @Override
@@ -23,51 +27,45 @@ public class GameMode extends ModuleBase {
             Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
             return true;
         }
-        if (args.length == 0) {
-            if (!(sender instanceof Player)) {
-                Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
-                return true;
-            }
-            Player player = (Player) sender;
 
-            if (label.equalsIgnoreCase("GMC")) {
-                player.setGameMode(org.bukkit.GameMode.CREATIVE);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Creative"));
-                return true;
-            } else if (label.equalsIgnoreCase("GMS")) {
-                player.setGameMode(org.bukkit.GameMode.SURVIVAL);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Survival"));
-                return true;
-            } else if (label.equalsIgnoreCase("GMA")) {
-                player.setGameMode(org.bukkit.GameMode.ADVENTURE);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Adventure"));
-                return true;
-            } else if (label.equalsIgnoreCase("GMSP")) {
-                player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Spectator"));
-                return true;
-            } else {
-                Utils.sendColorizedMessage(player, Messages.NOT_ENOUGH_ARGS);
-            }
+        if (!(sender instanceof Player)) {
+            Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
+            return true;
+        }
+
+        if (args.length == 0) {
+            Player player = (Player) sender;
+            updateGameMode(player, label);
         } else if (args.length == 1) {
-            if (label.equalsIgnoreCase("GMC")) {
-                player.setGameMode(org.bukkit.GameMode.CREATIVE);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Creative"));
-                return true;
-            } else if (label.equalsIgnoreCase("GMS")) {
-                player.setGameMode(org.bukkit.GameMode.SURVIVAL);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Survival"));
-                return true;
-            } else if (label.equalsIgnoreCase("GMA")) {
-                player.setGameMode(org.bukkit.GameMode.ADVENTURE);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Adventure"));
-                return true;
-            } else if (label.equalsIgnoreCase("GMSP")) {
-                player.setGameMode(org.bukkit.GameMode.SPECTATOR);
-                Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", "Spectator"));
-                return true;
-            }
+            Player player = (Player) sender;
+            updateGameMode(player, args[0]);
+        } else if (args.length == 2) {
+            Player target = Bukkit.getServer().getPlayerExact(args[1]);
+            updateGameMode(target, args[0]);
         }
         return true;
+    }
+
+    public org.bukkit.GameMode findGameMode(String gameMode) {
+        for (org.bukkit.GameMode each : org.bukkit.GameMode.values()) {
+            if (each.name().compareToIgnoreCase(gameMode) == 0) {
+                return each;
+            }
+        }
+        if (gameMode.equalsIgnoreCase("gmc")) return org.bukkit.GameMode.CREATIVE;
+        if (gameMode.equalsIgnoreCase("gms")) return org.bukkit.GameMode.SURVIVAL;
+        if (gameMode.equalsIgnoreCase("gma")) return org.bukkit.GameMode.ADVENTURE;
+        if (gameMode.equalsIgnoreCase("gmsp")) return org.bukkit.GameMode.SPECTATOR;
+        return null;
+    }
+
+    public boolean updateGameMode(Player player, String chosenGameMode) {
+        org.bukkit.GameMode gameMode = findGameMode(chosenGameMode);
+        if (gameMode != null) {
+            player.setGameMode(gameMode);
+            Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", gameMode.name()));
+            return true;
+        }
+        return false;
     }
 }
