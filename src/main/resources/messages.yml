@@ -16,4 +16,6 @@ Modules:
     EnabledAdmin: "{prefix} &4Flying has been enabled for player {player}"
     DisabledAdmin: "{prefix} &4Flying has been disabled for player {player}"
   Gamemode:
-    Change: "{prefix} &4Your gamemode has been changed to &c&l{gamemode}"
+    Usage: "{prefix} &4Usage: &c/GameMode <Creative, Survival, Adventure, Spectator>"
+    Change: "{prefix} &4Your gamemode has been changed to &b&l{gamemode}"
+    ChangeAdmin: "{prefix} &4Changed &b&l{player}s &4gamemode to &b&l{gamemode}"

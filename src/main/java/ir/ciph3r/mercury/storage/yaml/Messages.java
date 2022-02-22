@@ -25,7 +25,9 @@ public class Messages extends Model {
 	public static String FLY_ENABLED_ADMIN;
 	public static String FLY_DISABLED_ADMIN;
 
+	public static String GAMEMODE_USAGE;
 	public static String GAMEMODE_CHANGED;
+	public static String GAMEMODE_CHANGED_ADMIN;
 
 	@Override
 	public void init() {
@@ -45,6 +47,8 @@ public class Messages extends Model {
 		FLY_ENABLED_ADMIN = getConfig().getString("Modules.Fly.EnabledAdmin").replace("{prefix}", PREFIX);
 		FLY_DISABLED_ADMIN = getConfig().getString("Modules.Fly.DisabledAdmin").replace("{prefix}", PREFIX);
 
+		GAMEMODE_USAGE = getConfig().getString("Modules.Gamemode.Usage").replace("{prefix}", PREFIX);
 		GAMEMODE_CHANGED = getConfig().getString("Modules.Gamemode.Change").replace("{prefix}", PREFIX);
+		GAMEMODE_CHANGED_ADMIN = getConfig().getString("Modules.Gamemode.ChangeAdmin").replace("{prefix}", PREFIX);
 	}
 }
