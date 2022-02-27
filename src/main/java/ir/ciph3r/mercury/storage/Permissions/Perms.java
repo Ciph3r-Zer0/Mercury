@@ -13,6 +13,8 @@ public class Perms {
 	public static String TELEPORT;
 	public static String TELEPORT_OTHERS;
 
+	public static String HAT;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -25,5 +27,7 @@ public class Perms {
 
 		TELEPORT = "mercury.commands.teleport";
 		TELEPORT_OTHERS = "mercury.commands.teleport.others";
+
+		HAT = "mercury.commands.hat";
 	}
 }

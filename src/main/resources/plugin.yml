@@ -16,3 +16,5 @@ commands:
   teleport:
     usage: /<command>
     aliases: [tp]
+  hat:
+    usage: /<command>

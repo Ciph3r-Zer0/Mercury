@@ -3,6 +3,7 @@ package ir.ciph3r.mercury.modules.base;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.Fly;
 import ir.ciph3r.mercury.modules.GameMode;
+import ir.ciph3r.mercury.modules.Hat;
 import ir.ciph3r.mercury.modules.Teleport;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class ModuleManager {
         modules.add(new Fly(mercury));
         modules.add(new GameMode(mercury));
         modules.add(new Teleport(mercury));
+        modules.add(new Hat(mercury));
 
         for (ModuleBase base : modules) {
             base.register();

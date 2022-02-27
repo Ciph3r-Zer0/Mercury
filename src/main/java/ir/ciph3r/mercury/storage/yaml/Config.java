@@ -22,6 +22,8 @@ public class Config extends Model {
 
 	public static boolean TELEPORT_ENABLED;
 
+	public static boolean HAT_ENABLED;
+
 	@Override
 	public void init() {
 		DATA_TYPE = getConfig().getString("DataType");
@@ -34,5 +36,7 @@ public class Config extends Model {
 		GAMEMODE_ENABLED = getConfig().getBoolean("Modules.GameMode.Enabled");
 
 		TELEPORT_ENABLED = getConfig().getBoolean("Modules.Teleport.Enabled");
+
+		HAT_ENABLED	= getConfig().getBoolean("Modules.Hat.Enabled");
 	}
 }

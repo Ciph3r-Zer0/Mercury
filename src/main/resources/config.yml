@@ -12,3 +12,5 @@ Modules:
     Enabled: true
   Teleport:
     Enabled: true
+  Hat:
+    Enabled: true

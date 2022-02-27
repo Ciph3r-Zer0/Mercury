@@ -35,6 +35,9 @@ public class Messages extends Model {
 	public static String TELEPORT_SUCCESS_OTHERS_LOCATION;
 	public static String TELEPORT_ARGS_NOT_NUMBER;
 
+	public static String HAT_UPDATED;
+	public static String HAT_UPDATED_ADMIN;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
@@ -62,5 +65,8 @@ public class Messages extends Model {
 		TELEPORT_SUCCESS_LOCATION = getConfig().getString("Modules.Teleport.SuccessLocation").replace("{prefix}", PREFIX);
 		TELEPORT_SUCCESS_OTHERS_LOCATION = getConfig().getString("Modules.Teleport.SuccessOthersLocation").replace("{prefix}", PREFIX);
 		TELEPORT_ARGS_NOT_NUMBER = getConfig().getString("Modules.Teleport.ArgsNotNumber").replace("{prefix}", PREFIX);
+
+		HAT_UPDATED = getConfig().getString("Modules.Hat.Updated").replace("{prefix}", PREFIX);
+		HAT_UPDATED_ADMIN = getConfig().getString("Modules.Hat.UpdatedAdmin").replace("{prefix}", PREFIX);
 	}
 }

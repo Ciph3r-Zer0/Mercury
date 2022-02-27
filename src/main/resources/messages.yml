@@ -25,3 +25,6 @@ Modules:
     SuccessLocation: "{prefix} &4You've been teleported to &c{x}&4, &c{y}&4, &c{z}"
     SuccessOthersLocation: "{prefix} &4{player} has been teleported to &c{x}&4, &c{y}&4, &c{z}"
     ArgsNotNumber: "{prefix} &cRequired arguments are not number"
+  Hat:
+    Updated: "{prefix} &4You're hat has been updated"
+    UpdatedAdmin: "{prefix} &c{player}s &4hat has been updated"
