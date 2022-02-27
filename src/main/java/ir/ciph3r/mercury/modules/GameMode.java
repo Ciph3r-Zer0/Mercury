@@ -11,9 +11,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
-import java.util.List;
-
 
 public class GameMode extends ModuleBase {
     public GameMode(Mercury mercury) {
@@ -34,7 +31,7 @@ public class GameMode extends ModuleBase {
         Player player = (Player) sender;
         if (args.length == 0) {
             if (label.equalsIgnoreCase("GameMode")) {
-                Utils.sendColorizedMessage(sender, Messages.NOT_ENOUGH_ARGS);
+                Utils.sendColorizedMessage(sender, Messages.GAMEMODE_USAGE);
             } else {
                 updateGameMode(player, null, label);
             }

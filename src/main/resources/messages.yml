@@ -2,7 +2,6 @@ Prefix: "&9Mercury &b||"
 NoPermission: "{prefix} &cYou do not have enough permissions!"
 NoConsole: "{prefix} &cOnly players can execute this command!"
 PlayerNotFound: "{prefix} &cCould not find player"
-NotEnoughArgs: "{prefix} &cNot enough args"
 
 Modules:
   Nickname:
@@ -19,3 +18,10 @@ Modules:
     Usage: "{prefix} &4Usage: &c/GameMode <Creative, Survival, Adventure, Spectator>"
     Change: "{prefix} &4Your gamemode has been changed to &b&l{gamemode}"
     ChangeAdmin: "{prefix} &4Changed &b&l{player}s &4gamemode to &b&l{gamemode}"
+  Teleport:
+    Usage: "{prefix} &4Usage: &c/Teleport <player>"
+    SuccessPlayer: "{prefix} &4You've been teleported to &c{player}"
+    SuccessOthers: "{prefix} &4{player} has been teleported to &c{target}"
+    SuccessLocation: "{prefix} &4You've been teleported to &c{x}&4, &c{y}&4, &c{z}"
+    SuccessOthersLocation: "{prefix} &4{player} has been teleported to &c{x}&4, &c{y}&4, &c{z}"
+    ArgsNotNumber: "{prefix} &cRequired arguments are not number"

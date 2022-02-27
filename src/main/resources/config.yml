@@ -10,3 +10,5 @@ Modules:
     Enabled: true
   GameMode:
     Enabled: true
+  Teleport:
+    Enabled: true

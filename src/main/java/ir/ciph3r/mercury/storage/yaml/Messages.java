@@ -4,8 +4,8 @@ import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.storage.yaml.models.Model;
 
 public class Messages extends Model {
-	public Messages(Mercury core) {
-		super(core, "messages.yml");
+	public Messages(Mercury mercury) {
+		super(mercury, "messages.yml");
 	}
 
 	//TODO: fix {prefix} in lists
@@ -13,7 +13,6 @@ public class Messages extends Model {
 	public static String NO_PERMISSION;
 	public static String NO_CONSOLE;
 	public static String PLAYER_NOT_FOUND;
-	public static String NOT_ENOUGH_ARGS;
 
 	public static String NICK_NAME_USAGE;
 	public static String NICK_NAME_RESET;
@@ -29,13 +28,19 @@ public class Messages extends Model {
 	public static String GAMEMODE_CHANGED;
 	public static String GAMEMODE_CHANGED_ADMIN;
 
+	public static String TELEPORT_USAGE;
+	public static String TELEPORT_SUCCESS_PLAYER;
+	public static String TELEPORT_SUCCESS_OTHERS;
+	public static String TELEPORT_SUCCESS_LOCATION;
+	public static String TELEPORT_SUCCESS_OTHERS_LOCATION;
+	public static String TELEPORT_ARGS_NOT_NUMBER;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
 		NO_PERMISSION = getConfig().getString("NoPermission").replace("{prefix}", PREFIX);
 		NO_CONSOLE = getConfig().getString("NoConsole").replace("{prefix}", PREFIX);
 		PLAYER_NOT_FOUND = getConfig().getString("PlayerNotFound").replace("{prefix}", PREFIX);
-		NOT_ENOUGH_ARGS = getConfig().getString("NotEnoughArgs").replace("{prefix}", PREFIX);
 
 		NICK_NAME_USAGE = getConfig().getString("Modules.Nickname.Usage").replace("{prefix}", PREFIX);
 		NICK_NAME_RESET = getConfig().getString("Modules.Nickname.Reset").replace("{prefix}", PREFIX);
@@ -50,5 +55,12 @@ public class Messages extends Model {
 		GAMEMODE_USAGE = getConfig().getString("Modules.Gamemode.Usage").replace("{prefix}", PREFIX);
 		GAMEMODE_CHANGED = getConfig().getString("Modules.Gamemode.Change").replace("{prefix}", PREFIX);
 		GAMEMODE_CHANGED_ADMIN = getConfig().getString("Modules.Gamemode.ChangeAdmin").replace("{prefix}", PREFIX);
+
+		TELEPORT_USAGE = getConfig().getString("Modules.Teleport.Usage").replace("{prefix}", PREFIX);
+		TELEPORT_SUCCESS_PLAYER = getConfig().getString("Modules.Teleport.SuccessPlayer").replace("{prefix}", PREFIX);
+		TELEPORT_SUCCESS_OTHERS = getConfig().getString("Modules.Teleport.SuccessOthers").replace("{prefix}", PREFIX);
+		TELEPORT_SUCCESS_LOCATION = getConfig().getString("Modules.Teleport.SuccessLocation").replace("{prefix}", PREFIX);
+		TELEPORT_SUCCESS_OTHERS_LOCATION = getConfig().getString("Modules.Teleport.SuccessOthersLocation").replace("{prefix}", PREFIX);
+		TELEPORT_ARGS_NOT_NUMBER = getConfig().getString("Modules.Teleport.ArgsNotNumber").replace("{prefix}", PREFIX);
 	}
 }

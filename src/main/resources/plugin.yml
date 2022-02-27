@@ -13,3 +13,6 @@ commands:
   gamemode:
     usage: /<command>
     aliases: [gmc, gms, gma, gmsp]
+  teleport:
+    usage: /<command>
+    aliases: [tp]

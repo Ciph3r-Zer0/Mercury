@@ -34,7 +34,9 @@ public abstract class Model {
 
 	public void create() {
 			file = new File(core.getDataFolder(), fileName);
-			file.getParentFile().mkdirs();
+			if (!file.exists()) {
+				file.getParentFile().mkdirs();
+			}
 			core.saveResource(fileName, false);
 	}
 
