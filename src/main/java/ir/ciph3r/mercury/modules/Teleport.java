@@ -23,15 +23,15 @@ public class Teleport extends ModuleBase {
             Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
             return true;
         }
+        if (!(sender instanceof Player)) {
+            Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
+            return true;
+        }
 
         if (args.length == 0) {
             Utils.sendColorizedMessage(sender, Messages.TELEPORT_USAGE);
             return true;
         } else if (args.length == 1) {
-            if (!(sender instanceof Player)) {
-                Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
-                return true;
-            }
             Player player = (Player) sender;
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
@@ -59,10 +59,6 @@ public class Teleport extends ModuleBase {
                 return true;
             }
         } else if (args.length == 3) {
-            if (!(sender instanceof Player)) {
-                Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
-                return true;
-            }
             Player player = (Player) sender;
             if (!(Utils.isNumeric(args[0]) || Utils.isNumeric(args[1]) || Utils.isNumeric(args[2]))) {
                 Utils.sendColorizedMessage(player, Messages.TELEPORT_ARGS_NOT_NUMBER);
