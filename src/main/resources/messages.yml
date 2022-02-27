@@ -26,5 +26,11 @@ Modules:
     SuccessOthersLocation: "{prefix} &4{player} has been teleported to &c{x}&4, &c{y}&4, &c{z}"
     ArgsNotNumber: "{prefix} &cRequired arguments are not number"
   Hat:
-    Updated: "{prefix} &4You're hat has been updated"
+    Updated: "{prefix} &4hat has been updated"
     UpdatedAdmin: "{prefix} &c{player}s &4hat has been updated"
+  Shuffle:
+    Usage: "{prefix} &4Usage: &c/Shuffle <player>"
+    SuccessAdmin: "{prefix} &4{player}s hotbar has been shuffled"
+  Rotate:
+    Usage: "{prefix} &4Usage: &c/Rotate <player>"
+    SuccessAdmin: "{prefix} &4{player}s head has been rotated"

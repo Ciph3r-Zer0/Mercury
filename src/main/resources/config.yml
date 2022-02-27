@@ -14,3 +14,7 @@ Modules:
     Enabled: true
   Hat:
     Enabled: true
+  Shuffle:
+    Enabled: true
+  Rotate:
+    Enabled: true

@@ -24,6 +24,10 @@ public class Config extends Model {
 
 	public static boolean HAT_ENABLED;
 
+	public static boolean SHUFFLE_ENABLED;
+
+	public static boolean ROTATE_ENABLED;
+
 	@Override
 	public void init() {
 		DATA_TYPE = getConfig().getString("DataType");
@@ -38,5 +42,9 @@ public class Config extends Model {
 		TELEPORT_ENABLED = getConfig().getBoolean("Modules.Teleport.Enabled");
 
 		HAT_ENABLED	= getConfig().getBoolean("Modules.Hat.Enabled");
+
+		SHUFFLE_ENABLED = getConfig().getBoolean("Modules.Shuffle.Enabled");
+
+		ROTATE_ENABLED = getConfig().getBoolean("Modules.Rotate.Enabled");
 	}
 }

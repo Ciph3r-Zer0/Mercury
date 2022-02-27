@@ -18,3 +18,7 @@ commands:
     aliases: [tp]
   hat:
     usage: /<command>
+  shuffle:
+    usage: /<command>
+  rotate:
+    usage: /<command>

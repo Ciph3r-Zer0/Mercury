@@ -18,6 +18,24 @@ public class Utils {
 		return ChatColor.translateAlternateColorCodes('&', msg);
 	}
 
+	public static int getRandomNumber(int min, int max, int current) {
+		int generated = (int) ((Math.random() * (max - min)) + min);
+
+		while (generated == current) {
+			generated = (int) ((Math.random() * (max - min)) + min);
+		}
+		return generated;
+	}
+
+	public static double getRandomNumber(double min, double max, double current) {
+		double generated = (double) ((Math.random() * (max - min)) + min);
+
+		while (generated == current) {
+			generated = (double) ((Math.random() * (max - min)) + min);
+		}
+		return generated;
+	}
+
 	public static boolean isNumeric(String strNum) {
 		if (strNum == null) {
 			return false;

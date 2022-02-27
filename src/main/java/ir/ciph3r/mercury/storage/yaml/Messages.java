@@ -38,6 +38,12 @@ public class Messages extends Model {
 	public static String HAT_UPDATED;
 	public static String HAT_UPDATED_ADMIN;
 
+	public static String SHUFFLE_USAGE;
+	public static String SHUFFLE_SUCCESS_ADMIN;
+
+	public static String ROTATE_USAGE;
+	public static String ROTATE_SUCCESS_ADMIN;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
@@ -68,5 +74,11 @@ public class Messages extends Model {
 
 		HAT_UPDATED = getConfig().getString("Modules.Hat.Updated").replace("{prefix}", PREFIX);
 		HAT_UPDATED_ADMIN = getConfig().getString("Modules.Hat.UpdatedAdmin").replace("{prefix}", PREFIX);
+
+		SHUFFLE_USAGE = getConfig().getString("Modules.Shuffle.Usage").replace("{prefix}", PREFIX);
+		SHUFFLE_SUCCESS_ADMIN = getConfig().getString("Modules.Shuffle.SuccessAdmin").replace("{prefix}", PREFIX);
+
+		ROTATE_USAGE = getConfig().getString("Modules.Rotate.Usage").replace("{prefix}", PREFIX);
+		ROTATE_SUCCESS_ADMIN = getConfig().getString("Modules.Rotate.SuccessAdmin").replace("{prefix}", PREFIX);
 	}
 }

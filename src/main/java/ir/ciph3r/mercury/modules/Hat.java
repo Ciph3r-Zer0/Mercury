@@ -40,6 +40,10 @@ public class Hat extends ModuleBase {
             Utils.sendColorizedMessage(player, Messages.HAT_UPDATED);
             return true;
         } else if (args.length == 1) {
+            if (!(sender.hasPermission(Perms.HAT_OTHERS))) {
+                Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
+                return true;
+            }
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {

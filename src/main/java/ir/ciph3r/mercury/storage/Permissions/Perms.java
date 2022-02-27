@@ -14,6 +14,11 @@ public class Perms {
 	public static String TELEPORT_OTHERS;
 
 	public static String HAT;
+	public static String HAT_OTHERS;
+
+	public static String SHUFFLE;
+
+	public static String ROTATE;
 
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
@@ -29,5 +34,10 @@ public class Perms {
 		TELEPORT_OTHERS = "mercury.commands.teleport.others";
 
 		HAT = "mercury.commands.hat";
+		HAT_OTHERS = "mercury.commands.hat.otherst";
+
+		SHUFFLE = "mercury.commands.shuffle";
+
+		ROTATE = "mercury.commands.rotate";
 	}
 }
