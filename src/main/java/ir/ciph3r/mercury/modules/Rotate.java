@@ -32,7 +32,7 @@ public class Rotate extends ModuleBase {
                 Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND);
             } else {
                 double generatedPitch = Utils.getRandomNumber(-180.0, 180.0, target.getLocation().getPitch());
-                double generatedYaw = Utils.getRandomNumber(-90.0, 190.0, target.getLocation().getYaw());
+                double generatedYaw = Utils.getRandomNumber(-90.0, 90.0, target.getLocation().getYaw());
 
                 Location loc = target.getLocation();
                 loc.setPitch((float) generatedPitch);
