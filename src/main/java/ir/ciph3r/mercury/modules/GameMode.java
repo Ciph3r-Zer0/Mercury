@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.base.ModuleBase;
+import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
@@ -12,7 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 
-public class GameMode extends ModuleBase {
+public class GameMode extends Model {
     public GameMode(Mercury mercury) {
         super("GameMode", "GameMode", Config.GAMEMODE_ENABLED, mercury);
     }

@@ -1,19 +1,18 @@
 package ir.ciph3r.mercury.modules;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.base.ModuleBase;
+import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
 import ir.ciph3r.mercury.utility.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class Hat extends ModuleBase {
+public class Hat extends Model {
     public Hat(Mercury mercury) {
         super("Hat", "Hat", Config.HAT_ENABLED, mercury);
     }

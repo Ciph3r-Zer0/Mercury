@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules.base;
+package ir.ciph3r.mercury.modules.model;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.*;
@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ModuleManager {
     private final Mercury mercury;
-    private List<ModuleBase> modules;
+    private List<Model> modules;
 
     public ModuleManager(Mercury mercury) {
         this.mercury = mercury;
@@ -23,7 +23,7 @@ public class ModuleManager {
         modules.add(new Shuffle(mercury));
         modules.add(new Rotate(mercury));
 
-        for (ModuleBase base : modules) {
+        for (Model base : modules) {
             base.register();
         }
     }
