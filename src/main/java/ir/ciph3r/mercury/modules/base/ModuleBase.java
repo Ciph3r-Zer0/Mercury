@@ -27,12 +27,4 @@ public abstract class ModuleBase implements Listener, CommandExecutor {
 		mercury.getServer().getPluginManager().registerEvents(this,mercury);
 		if (commandName != null) mercury.getCommand(commandName).setExecutor(this);
 	}
-
-//	public abstract void command(CommandSender sender, Command cmd, String label, String[] args);
-//
-//	@Override
-//	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-//		command(sender, cmd, label, args);
-//		return true;
-//	}
 }
