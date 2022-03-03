@@ -66,7 +66,7 @@ public class Teleport extends Model {
                 Utils.sendColorizedMessage(player, Messages.TELEPORT_ARGS_NOT_NUMBER);
                 return true;
             }
-            Location location = new Location(player.getWorld(), Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+            Location location = new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
             player.teleport(location);
             Utils.sendColorizedMessage(player, Messages.TELEPORT_SUCCESS_LOCATION.replace("{x}", args[0]).replace("{y}", args[1]).replace("{z}", args[2]));
             return true;
@@ -80,7 +80,7 @@ public class Teleport extends Model {
                 Utils.sendColorizedMessage(player, Messages.TELEPORT_ARGS_NOT_NUMBER);
                 return true;
             }
-            Location location = new Location(target.getWorld(), Integer.parseInt(args[1]), Integer.parseInt(args[2]), Integer.parseInt(args[3]));
+            Location location = new Location(target.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));
             target.teleport(location);
             Utils.sendColorizedMessage(player, Messages.TELEPORT_SUCCESS_OTHERS_LOCATION.replace("{player}", target.getName()).replace("{x}", args[1]).replace("{y}", args[2]).replace("{z}", args[3]));
             return true;

@@ -31,8 +31,8 @@ public class Rotate extends Model {
             if (target == null) {
                 Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
-                double generatedPitch = Utils.getRandomNumber(-180.0, 180.0, target.getLocation().getPitch());
-                double generatedYaw = Utils.getRandomNumber(-90.0, 90.0, target.getLocation().getYaw());
+                double generatedPitch = Utils.getRandomNumber(-90, 90, target.getLocation().getPitch());
+                double generatedYaw = Utils.getRandomNumber(-179.9, 180.0, target.getLocation().getYaw());
 
                 Location loc = target.getLocation();
                 loc.setPitch((float) generatedPitch);

@@ -41,7 +41,7 @@ public class Utils {
 			return false;
 		}
 		try {
-			int d = Integer.parseInt(strNum);
+			double d = Double.parseDouble(strNum);
 		} catch (NumberFormatException nfe) {
 			return false;
 		}
