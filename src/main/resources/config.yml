@@ -18,3 +18,5 @@ Modules:
     Enabled: true
   Rotate:
     Enabled: true
+  ClearInventory:
+    Enabled: true

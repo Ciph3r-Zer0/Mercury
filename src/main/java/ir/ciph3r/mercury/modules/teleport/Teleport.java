@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules;
+package ir.ciph3r.mercury.modules.teleport;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
@@ -35,7 +35,7 @@ public class Teleport extends Model {
         } else if (args.length == 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
-                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 return true;
             } else {
                 player.teleport(target);
@@ -50,8 +50,11 @@ public class Teleport extends Model {
             Player target1 = Bukkit.getPlayer(args[0]);
             Player target2 = Bukkit.getPlayer(args[1]);
 
-            if (target1 == null || target2 == null) {
-                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+            if (target1 == null) {
+                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                return true;
+            } else if (target2 == null) {
+                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[1]));
                 return true;
             } else {
                 target1.teleport(target2);
@@ -70,7 +73,7 @@ public class Teleport extends Model {
         } else if (args.length == 4) {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
-                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 return true;
             }
             if (!(Utils.isNumeric(args[1]) || Utils.isNumeric(args[2]) || Utils.isNumeric(args[3]))) {

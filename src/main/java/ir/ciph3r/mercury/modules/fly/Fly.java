@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules;
+package ir.ciph3r.mercury.modules.fly;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
@@ -46,7 +46,7 @@ public class Fly extends Model {
             }
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
-                Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND);
+                Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 return true;
             }
             if (target.getAllowFlight()) {

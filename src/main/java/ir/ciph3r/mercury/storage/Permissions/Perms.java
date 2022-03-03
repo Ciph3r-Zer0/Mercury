@@ -20,6 +20,8 @@ public class Perms {
 
 	public static String ROTATE;
 
+	public static String CLEAR_INVENTORY;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -39,5 +41,7 @@ public class Perms {
 		SHUFFLE = "mercury.commands.shuffle";
 
 		ROTATE = "mercury.commands.rotate";
+
+		CLEAR_INVENTORY = "mercury.commands.clearinventory";
 	}
 }

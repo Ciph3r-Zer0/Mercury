@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules;
+package ir.ciph3r.mercury.modules.hat;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
@@ -46,7 +46,7 @@ public class Hat extends Model {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 return true;
             } else {
                 ItemStack held = target.getInventory().getItemInMainHand();

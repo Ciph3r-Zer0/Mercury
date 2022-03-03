@@ -11,20 +11,20 @@ public abstract class Model implements Listener, CommandExecutor {
 	@Getter
 	private String commandName;
 	@Getter
-	private boolean isEnabled;
+	private boolean Enabled;
 	@Getter
 	private Mercury mercury;
 
-	public Model(String moduleName, String commandName, boolean isEnabled, Mercury mercury) {
+	public Model(String moduleName, String commandName, boolean Enabled, Mercury mercury) {
 		this.moduleName = moduleName;
 		this.commandName = commandName;
-		this.isEnabled = isEnabled;
+		this.Enabled = Enabled;
 		this.mercury = mercury;
 	}
 
 	public void register() {
-		if (!isEnabled) return;
-		mercury.getServer().getPluginManager().registerEvents(this,mercury);
-		if (commandName != null) mercury.getCommand(commandName).setExecutor(this);
+		if (!isEnabled()) return;
+		getMercury().getServer().getPluginManager().registerEvents(this, getMercury());
+		if (getCommandName() != null) getMercury().getCommand(getCommandName()).setExecutor(this);
 	}
 }

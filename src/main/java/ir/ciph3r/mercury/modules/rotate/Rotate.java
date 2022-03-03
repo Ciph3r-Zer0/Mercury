@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules;
+package ir.ciph3r.mercury.modules.rotate;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
@@ -29,7 +29,7 @@ public class Rotate extends Model {
         } else if (args.length == 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
-                Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND);
+                Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 double generatedPitch = Utils.getRandomNumber(-180.0, 180.0, target.getLocation().getPitch());
                 double generatedYaw = Utils.getRandomNumber(-90.0, 90.0, target.getLocation().getYaw());

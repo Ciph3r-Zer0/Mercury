@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules;
+package ir.ciph3r.mercury.modules.gamemode;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
@@ -46,7 +46,7 @@ public class GameMode extends Model {
                 }
                 Player target = Bukkit.getPlayer(args[0]);
                 if (target == null) {
-                    Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+                    Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 } else {
                     updateGameMode(target, player, label);
                 }
@@ -60,7 +60,7 @@ public class GameMode extends Model {
             if (label.equalsIgnoreCase("GameMode")) {
                 Player target = Bukkit.getServer().getPlayerExact(args[1]);
                 if (target == null) {
-                    Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+                    Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[1]));
                 } else {
                     updateGameMode(target, player, args[0]);
                 }

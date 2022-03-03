@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules;
+package ir.ciph3r.mercury.modules.shuffle;
 
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
@@ -28,7 +28,7 @@ public class Shuffle extends Model {
         } else if (args.length == 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if (target == null) {
-                Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND);
+                Utils.sendColorizedMessage(sender, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 target.getInventory().setHeldItemSlot(Utils.getRandomNumber(0, 9, target.getInventory().getHeldItemSlot()));
                 Utils.sendColorizedMessage(sender, Messages.SHUFFLE_SUCCESS_ADMIN.replace("{player}", target.getName()));

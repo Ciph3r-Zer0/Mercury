@@ -44,6 +44,9 @@ public class Messages extends Model {
 	public static String ROTATE_USAGE;
 	public static String ROTATE_SUCCESS_ADMIN;
 
+	public static String CLEAR_INVENTORY_SUCCESS;
+	public static String CLEAR_INVENTORY_SUCCESS_OTHERS;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
@@ -80,5 +83,8 @@ public class Messages extends Model {
 
 		ROTATE_USAGE = getConfig().getString("Modules.Rotate.Usage").replace("{prefix}", PREFIX);
 		ROTATE_SUCCESS_ADMIN = getConfig().getString("Modules.Rotate.SuccessAdmin").replace("{prefix}", PREFIX);
+
+		CLEAR_INVENTORY_SUCCESS = getConfig().getString("Modules.ClearInventory.Success").replace("{prefix}", PREFIX);
+		CLEAR_INVENTORY_SUCCESS_OTHERS = getConfig().getString("Modules.ClearInventory.SuccessOthers").replace("{prefix}", PREFIX);
 	}
 }
