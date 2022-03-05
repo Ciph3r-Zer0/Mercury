@@ -63,7 +63,7 @@ public class Teleport extends Model {
             }
         } else if (args.length == 3) {
             if (!(Utils.isNumeric(args[0]) || Utils.isNumeric(args[1]) || Utils.isNumeric(args[2]))) {
-                Utils.sendColorizedMessage(player, Messages.TELEPORT_ARGS_NOT_NUMBER);
+                Utils.sendColorizedMessage(player, Messages.ARGS_NOT_NUMBER);
                 return true;
             }
             Location location = new Location(player.getWorld(), Double.parseDouble(args[0]), Double.parseDouble(args[1]), Double.parseDouble(args[2]));
@@ -77,7 +77,7 @@ public class Teleport extends Model {
                 return true;
             }
             if (!(Utils.isNumeric(args[1]) || Utils.isNumeric(args[2]) || Utils.isNumeric(args[3]))) {
-                Utils.sendColorizedMessage(player, Messages.TELEPORT_ARGS_NOT_NUMBER);
+                Utils.sendColorizedMessage(player, Messages.ARGS_NOT_NUMBER);
                 return true;
             }
             Location location = new Location(target.getWorld(), Double.parseDouble(args[1]), Double.parseDouble(args[2]), Double.parseDouble(args[3]));

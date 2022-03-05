@@ -22,6 +22,8 @@ public class Perms {
 
 	public static String CLEAR_INVENTORY;
 
+	public static String SPEED;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -43,5 +45,7 @@ public class Perms {
 		ROTATE = "mercury.commands.rotate";
 
 		CLEAR_INVENTORY = "mercury.commands.clearinventory";
+
+		SPEED = "mercury.commands.speed";
 	}
 }

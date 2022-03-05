@@ -2,6 +2,7 @@ Prefix: "&b&lMercury &7||"
 NoPermission: "{prefix} &cYou do not have enough permissions!"
 NoConsole: "{prefix} &cOnly players can execute this command!"
 PlayerNotFound: "{prefix} &cCould not find player &b&l{player}"
+ArgsNotNumber: "{prefix} &cRequired arguments are not number"
 
 Modules:
   Nickname:
@@ -24,7 +25,6 @@ Modules:
     SuccessOthers: "{prefix} &c&l{player} &bhas been teleported to &c&l{target}"
     SuccessLocation: "{prefix} &bYou've been teleported to &c&l{x}&4, &c&l{y}&4, &c&l{z}"
     SuccessOthersLocation: "{prefix} &c&l{player} &bhas been teleported to &c&l{x}&4, &c&l{y}&4, &c&l{z}"
-    ArgsNotNumber: "{prefix} &cRequired arguments are not number"
   Hat:
     Updated: "{prefix} &bhat has been updated"
     UpdatedAdmin: "{prefix} &c&l{player}s &bhat has been updated"
@@ -37,3 +37,8 @@ Modules:
   ClearInventory:
     Success: "{prefix} &bInventory cleared"
     SuccessOthers: "{prefix} &c&l{player}s &binventory has been cleared"
+  Speed:
+    Usage: "{prefix} &cUsage: &4/Speed <Fly, Walk> <1-10>"
+    SuccessWalk: "{prefix} &bWalk speed has been set to &c{amount}"
+    SuccessFly: "{prefix} &bFly speed has been set to &c{amount}"
+    Reset: "{prefix} &bFly and Walk speed reset"

@@ -20,3 +20,5 @@ Modules:
     Enabled: true
   ClearInventory:
     Enabled: true
+  Speed:
+    Enabled: true

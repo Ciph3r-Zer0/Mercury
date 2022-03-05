@@ -30,6 +30,8 @@ public class Config extends Model {
 
 	public static boolean CLEAR_INVENTORY_ENABLED;
 
+	public static boolean SPEED_ENABLED;
+
 	@Override
 	public void init() {
 		DATA_TYPE = getConfig().getString("DataType");
@@ -50,5 +52,7 @@ public class Config extends Model {
 		ROTATE_ENABLED = getConfig().getBoolean("Modules.Rotate.Enabled");
 
 		CLEAR_INVENTORY_ENABLED = getConfig().getBoolean("Modules.ClearInventory.Enabled");
+
+		SPEED_ENABLED = getConfig().getBoolean("Modules.Speed.Enabled");
 	}
 }

@@ -25,3 +25,5 @@ commands:
   clearinventory:
     usage: /<command>
     aliases: [ci]
+  Speed:
+    usage: /<command>

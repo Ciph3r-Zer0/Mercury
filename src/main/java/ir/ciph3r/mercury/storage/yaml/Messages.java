@@ -13,6 +13,7 @@ public class Messages extends Model {
 	public static String NO_PERMISSION;
 	public static String NO_CONSOLE;
 	public static String PLAYER_NOT_FOUND;
+	public static String ARGS_NOT_NUMBER;
 
 	public static String NICK_NAME_USAGE;
 	public static String NICK_NAME_RESET;
@@ -33,7 +34,6 @@ public class Messages extends Model {
 	public static String TELEPORT_SUCCESS_OTHERS;
 	public static String TELEPORT_SUCCESS_LOCATION;
 	public static String TELEPORT_SUCCESS_OTHERS_LOCATION;
-	public static String TELEPORT_ARGS_NOT_NUMBER;
 
 	public static String HAT_UPDATED;
 	public static String HAT_UPDATED_ADMIN;
@@ -47,12 +47,18 @@ public class Messages extends Model {
 	public static String CLEAR_INVENTORY_SUCCESS;
 	public static String CLEAR_INVENTORY_SUCCESS_OTHERS;
 
+	public static String SPEED_USAGE;
+	public static String SPEED_WALK_SUCCESS;
+	public static String SPEED_FLY_SUCCESS;
+	public static String SPEED_RESET;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
 		NO_PERMISSION = getConfig().getString("NoPermission").replace("{prefix}", PREFIX);
 		NO_CONSOLE = getConfig().getString("NoConsole").replace("{prefix}", PREFIX);
 		PLAYER_NOT_FOUND = getConfig().getString("PlayerNotFound").replace("{prefix}", PREFIX);
+		ARGS_NOT_NUMBER = getConfig().getString("ArgsNotNumber").replace("{prefix}", PREFIX);
 
 		NICK_NAME_USAGE = getConfig().getString("Modules.Nickname.Usage").replace("{prefix}", PREFIX);
 		NICK_NAME_RESET = getConfig().getString("Modules.Nickname.Reset").replace("{prefix}", PREFIX);
@@ -73,7 +79,6 @@ public class Messages extends Model {
 		TELEPORT_SUCCESS_OTHERS = getConfig().getString("Modules.Teleport.SuccessOthers").replace("{prefix}", PREFIX);
 		TELEPORT_SUCCESS_LOCATION = getConfig().getString("Modules.Teleport.SuccessLocation").replace("{prefix}", PREFIX);
 		TELEPORT_SUCCESS_OTHERS_LOCATION = getConfig().getString("Modules.Teleport.SuccessOthersLocation").replace("{prefix}", PREFIX);
-		TELEPORT_ARGS_NOT_NUMBER = getConfig().getString("Modules.Teleport.ArgsNotNumber").replace("{prefix}", PREFIX);
 
 		HAT_UPDATED = getConfig().getString("Modules.Hat.Updated").replace("{prefix}", PREFIX);
 		HAT_UPDATED_ADMIN = getConfig().getString("Modules.Hat.UpdatedAdmin").replace("{prefix}", PREFIX);
@@ -86,5 +91,10 @@ public class Messages extends Model {
 
 		CLEAR_INVENTORY_SUCCESS = getConfig().getString("Modules.ClearInventory.Success").replace("{prefix}", PREFIX);
 		CLEAR_INVENTORY_SUCCESS_OTHERS = getConfig().getString("Modules.ClearInventory.SuccessOthers").replace("{prefix}", PREFIX);
+
+		SPEED_USAGE = getConfig().getString("Modules.Speed.Usage").replace("{prefix}", PREFIX);
+		SPEED_WALK_SUCCESS = getConfig().getString("Modules.Speed.SuccessWalk").replace("{prefix}", PREFIX);
+		SPEED_FLY_SUCCESS = getConfig().getString("Modules.Speed.SuccessFly").replace("{prefix}", PREFIX);
+		SPEED_RESET = getConfig().getString("Modules.Speed.Reset").replace("{prefix}", PREFIX);
 	}
 }
