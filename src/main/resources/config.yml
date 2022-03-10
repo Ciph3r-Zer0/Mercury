@@ -22,3 +22,5 @@ Modules:
     Enabled: true
   Speed:
     Enabled: true
+  Tell:
+    Enabled: true

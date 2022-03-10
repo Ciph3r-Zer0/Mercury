@@ -24,6 +24,9 @@ public class Perms {
 
 	public static String SPEED;
 
+	public static String TELL;
+	public static String REPLY;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -47,5 +50,8 @@ public class Perms {
 		CLEAR_INVENTORY = "mercury.commands.clearinventory";
 
 		SPEED = "mercury.commands.speed";
+
+		TELL = "mercury.commands.tell";
+		REPLY = "mercury.commands.reply";
 	}
 }

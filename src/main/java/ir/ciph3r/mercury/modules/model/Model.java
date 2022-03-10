@@ -25,6 +25,7 @@ public abstract class Model implements Listener, CommandExecutor {
 	public void register() {
 		if (!isEnabled()) return;
 		getMercury().getServer().getPluginManager().registerEvents(this, getMercury());
-		if (getCommandName() != null) getMercury().getCommand(getCommandName()).setExecutor(this);
+		if (getCommandName() == null) return;
+		getMercury().getCommand(getCommandName()).setExecutor(this);
 	}
 }

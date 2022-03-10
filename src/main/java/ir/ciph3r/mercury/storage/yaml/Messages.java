@@ -1,6 +1,7 @@
 package ir.ciph3r.mercury.storage.yaml;
 
 import ir.ciph3r.mercury.Mercury;
+import ir.ciph3r.mercury.modules.tell.Tell;
 import ir.ciph3r.mercury.storage.yaml.models.Model;
 
 public class Messages extends Model {
@@ -52,6 +53,11 @@ public class Messages extends Model {
 	public static String SPEED_FLY_SUCCESS;
 	public static String SPEED_RESET;
 
+	public static String TELL_USAGE;
+	public static String TELL_MESSAGE_FORMAT;
+	public static String TELL_SELF_MESSAGE_FORMAT;
+	public static String REPLY_USAGE;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
@@ -96,5 +102,10 @@ public class Messages extends Model {
 		SPEED_WALK_SUCCESS = getConfig().getString("Modules.Speed.SuccessWalk").replace("{prefix}", PREFIX);
 		SPEED_FLY_SUCCESS = getConfig().getString("Modules.Speed.SuccessFly").replace("{prefix}", PREFIX);
 		SPEED_RESET = getConfig().getString("Modules.Speed.Reset").replace("{prefix}", PREFIX);
+
+		TELL_USAGE = getConfig().getString("Modules.Tell.Usage").replace("{prefix}", PREFIX);
+		TELL_MESSAGE_FORMAT = getConfig().getString("Modules.Tell.MessageFormat").replace("{prefix}", PREFIX);
+		TELL_SELF_MESSAGE_FORMAT = getConfig().getString("Modules.Tell.SelfMessageFormat").replace("{prefix}", PREFIX);
+		REPLY_USAGE = getConfig().getString("Modules.Reply.Usage").replace("{prefix}", PREFIX);
 	}
 }

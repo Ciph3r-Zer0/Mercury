@@ -42,3 +42,9 @@ Modules:
     SuccessWalk: "{prefix} &bWalk speed has been set to &c{amount}"
     SuccessFly: "{prefix} &bFly speed has been set to &c{amount}"
     Reset: "{prefix} &bFly and Walk speed reset"
+  Tell:
+    Usage: "{prefix} &cUsage: &4/Tell <name> <message>"
+    MessageFormat: ""
+    SelfMessageFormat: ""
+  Reply:
+    Usage: "{prefix} &cUsage: &4/Reply <message>"
