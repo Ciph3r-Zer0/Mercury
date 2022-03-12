@@ -48,3 +48,6 @@ Modules:
     SelfMessageFormat: ""
   Reply:
     Usage: "{prefix} &cUsage: &4/Reply <message>"
+    MessageFormat: ""
+    SelfMessageFormat: ""
+    NoReceiver: "{prefix} &cThere is no one to talk to"

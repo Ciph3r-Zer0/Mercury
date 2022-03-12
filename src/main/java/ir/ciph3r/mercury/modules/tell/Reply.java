@@ -6,9 +6,12 @@ import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
 import ir.ciph3r.mercury.utility.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,12 +39,42 @@ public class Reply extends Model {
         if (args.length == 0) {
             Utils.sendColorizedMessage(player, Messages.REPLY_USAGE);
         } else {
-
-            StringBuilder builder = new StringBuilder();
-            for (String s : args) {
-                builder.append(s).append(" ");
+            if (!(replyList.containsKey(player.getUniqueId()))) {
+                Utils.sendColorizedMessage(player, Messages.REPLY_NO_RECEIVER);
+                return true;
             }
+            Player receiver = Bukkit.getPlayer(replyList.get(player.getUniqueId()));
+
+            if (receiver == null) {
+                Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND);
+            } else {
+                StringBuilder builder = new StringBuilder();
+                for (String s : args) {
+                    builder.append(s).append(" ");
+                }
+
+                Utils.sendColorizedMessage(receiver, Messages.REPLY_MESSAGE_FORMAT
+                        .replace("{player}", player.getName())
+                        .replace("{receiver}", receiver.getName())
+                        .replace("{message}", builder.toString()));
+
+                Utils.sendColorizedMessage(player, Messages.REPLY_SELF_MESSAGE_FORMAT
+                        .replace("{player}", player.getName())
+                        .replace("{receiver}", receiver.getName())
+                        .replace("{message}", builder.toString()));
+
+                replyList.put(receiver.getUniqueId(), player.getUniqueId());
+            }
+
         }
         return true;
+    }
+
+    @EventHandler
+    public void onQuit(PlayerQuitEvent event) {
+        Player player = event.getPlayer();
+
+        replyList.remove(player.getUniqueId());
+        replyList.values().remove(player.getUniqueId());
     }
 }

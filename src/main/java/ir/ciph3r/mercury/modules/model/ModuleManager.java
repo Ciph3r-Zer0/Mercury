@@ -9,6 +9,7 @@ import ir.ciph3r.mercury.modules.rotate.Rotate;
 import ir.ciph3r.mercury.modules.shuffle.Shuffle;
 import ir.ciph3r.mercury.modules.speed.Speed;
 import ir.ciph3r.mercury.modules.teleport.Teleport;
+import ir.ciph3r.mercury.modules.tell.Reply;
 import ir.ciph3r.mercury.modules.tell.Tell;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class ModuleManager {
         modules.add(new ClearInventory(mercury));
         modules.add(new Speed(mercury));
         modules.add(new Tell(mercury));
+        modules.add(new Reply(mercury));
 
         for (Model base : modules) {
             base.register();

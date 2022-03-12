@@ -45,14 +45,16 @@ public class Tell extends Model {
                 }
 
                 Utils.sendColorizedMessage(receiver, Messages.TELL_MESSAGE_FORMAT
-                        .replace("{player}", receiver.getName())
-                        .replace("{receiver}", player.getName())
+                        .replace("{player}", player.getName())
+                        .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
 
                 Utils.sendColorizedMessage(player, Messages.TELL_SELF_MESSAGE_FORMAT
                         .replace("{player}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
+
+                Reply.replyList.put(receiver.getUniqueId(), player.getUniqueId());
             }
         }
         return true;

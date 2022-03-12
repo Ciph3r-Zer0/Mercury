@@ -57,6 +57,9 @@ public class Messages extends Model {
 	public static String TELL_MESSAGE_FORMAT;
 	public static String TELL_SELF_MESSAGE_FORMAT;
 	public static String REPLY_USAGE;
+	public static String REPLY_MESSAGE_FORMAT;
+	public static String REPLY_SELF_MESSAGE_FORMAT;
+	public static String REPLY_NO_RECEIVER;
 
 	@Override
 	public void init() {
@@ -107,5 +110,8 @@ public class Messages extends Model {
 		TELL_MESSAGE_FORMAT = getConfig().getString("Modules.Tell.MessageFormat").replace("{prefix}", PREFIX);
 		TELL_SELF_MESSAGE_FORMAT = getConfig().getString("Modules.Tell.SelfMessageFormat").replace("{prefix}", PREFIX);
 		REPLY_USAGE = getConfig().getString("Modules.Reply.Usage").replace("{prefix}", PREFIX);
+		REPLY_MESSAGE_FORMAT = getConfig().getString("Modules.Reply.MessageFormat").replace("{prefix}", PREFIX);
+		REPLY_SELF_MESSAGE_FORMAT = getConfig().getString("Modules.Reply.SelfMessageFormat").replace("{prefix}", PREFIX);
+		REPLY_NO_RECEIVER = getConfig().getString("Modules.Reply.NoReceiver").replace("{prefix}", PREFIX);
 	}
 }

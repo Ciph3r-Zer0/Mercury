@@ -27,3 +27,9 @@ commands:
     aliases: [ci]
   Speed:
     usage: /<command>
+  tell:
+    usage: /<command>
+    aliases: [t]
+  reply:
+    usage: /<command>
+    aliases: [r]
