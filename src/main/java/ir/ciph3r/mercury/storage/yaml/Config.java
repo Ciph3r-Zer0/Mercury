@@ -34,6 +34,8 @@ public class Config extends Model {
 
 	public static boolean TELL_ENABLED;
 
+	public static boolean CROSS_TELEPORT_ENABLED;
+
 	@Override
 	public void init() {
 		DATA_TYPE = getConfig().getString("DataType");
@@ -58,5 +60,7 @@ public class Config extends Model {
 		SPEED_ENABLED = getConfig().getBoolean("Modules.Speed.Enabled");
 
 		TELL_ENABLED = getConfig().getBoolean("Modules.Tell.Enabled");
+
+		CROSS_TELEPORT_ENABLED = getConfig().getBoolean("Modules.CrossTeleport.Enabled");
 	}
 }

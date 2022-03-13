@@ -61,6 +61,8 @@ public class Messages extends Model {
 	public static String REPLY_SELF_MESSAGE_FORMAT;
 	public static String REPLY_NO_RECEIVER;
 
+	public static String CROSS_TELEPORT_USAGE;
+
 	@Override
 	public void init() {
 		PREFIX = getConfig().getString("Prefix");
@@ -113,5 +115,7 @@ public class Messages extends Model {
 		REPLY_MESSAGE_FORMAT = getConfig().getString("Modules.Reply.MessageFormat").replace("{prefix}", PREFIX);
 		REPLY_SELF_MESSAGE_FORMAT = getConfig().getString("Modules.Reply.SelfMessageFormat").replace("{prefix}", PREFIX);
 		REPLY_NO_RECEIVER = getConfig().getString("Modules.Reply.NoReceiver").replace("{prefix}", PREFIX);
+
+		CROSS_TELEPORT_USAGE = getConfig().getString("Modules.CrossTeleport.Usage").replace("{prefix}", PREFIX);
 	}
 }

@@ -24,3 +24,5 @@ Modules:
     Enabled: true
   Tell:
     Enabled: true
+  CrossTeleport:
+    Enabled: true

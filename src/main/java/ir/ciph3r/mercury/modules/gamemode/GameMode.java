@@ -23,12 +23,12 @@ public class GameMode extends Model {
             Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
             return true;
         }
-
         if (!(sender instanceof Player)) {
             Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
+
         if (args.length == 0) {
             if (label.equalsIgnoreCase("GameMode")) {
                 Utils.sendColorizedMessage(sender, Messages.GAMEMODE_USAGE);

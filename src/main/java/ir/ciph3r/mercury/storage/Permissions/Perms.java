@@ -27,6 +27,8 @@ public class Perms {
 	public static String TELL;
 	public static String REPLY;
 
+	public static String CROSS_TELEPORT;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -53,5 +55,7 @@ public class Perms {
 
 		TELL = "mercury.commands.tell";
 		REPLY = "mercury.commands.reply";
+
+		CROSS_TELEPORT = "mercury.commands.crossteleport";
 	}
 }

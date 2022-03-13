@@ -51,3 +51,5 @@ Modules:
     MessageFormat: ""
     SelfMessageFormat: ""
     NoReceiver: "{prefix} &cThere is no one to talk to"
+  CrossTeleport:
+    Usage: "{prefix} &cUsage: &4/CrossTeleport <name>"
