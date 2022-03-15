@@ -9,7 +9,6 @@ public class Messages extends Model {
 		super(mercury, "messages.yml");
 	}
 
-	//TODO: fix {prefix} in lists
 	public static String PREFIX;
 	public static String NO_PERMISSION;
 	public static String NO_CONSOLE;
@@ -62,6 +61,9 @@ public class Messages extends Model {
 	public static String REPLY_NO_RECEIVER;
 
 	public static String CROSS_TELEPORT_USAGE;
+
+	public static String SUDO_USAGE;
+	public static String SUDO_SUCCESS;
 
 	@Override
 	public void init() {
@@ -117,5 +119,8 @@ public class Messages extends Model {
 		REPLY_NO_RECEIVER = getConfig().getString("Modules.Reply.NoReceiver").replace("{prefix}", PREFIX);
 
 		CROSS_TELEPORT_USAGE = getConfig().getString("Modules.CrossTeleport.Usage").replace("{prefix}", PREFIX);
+
+		SUDO_USAGE = getConfig().getString("Modules.Sudo.Usage").replace("{prefix}", PREFIX);
+		SUDO_SUCCESS = getConfig().getString("Modules.Sudo.Success").replace("{prefix}", PREFIX);
 	}
 }

@@ -33,3 +33,8 @@ commands:
   reply:
     usage: /<command>
     aliases: [r]
+  crossteleport:
+    usage: /<command>
+    aliases: [ctp]
+  sudo:
+    usage: /<command>

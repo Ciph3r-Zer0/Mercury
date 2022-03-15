@@ -29,6 +29,8 @@ public class Perms {
 
 	public static String CROSS_TELEPORT;
 
+	public static String SUDO;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -57,5 +59,7 @@ public class Perms {
 		REPLY = "mercury.commands.reply";
 
 		CROSS_TELEPORT = "mercury.commands.crossteleport";
+
+		SUDO = "mercury.commands.sudo";
 	}
 }

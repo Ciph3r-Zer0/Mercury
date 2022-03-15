@@ -36,6 +36,8 @@ public class Config extends Model {
 
 	public static boolean CROSS_TELEPORT_ENABLED;
 
+	public static boolean SUDO_ENABLED;
+
 	@Override
 	public void init() {
 		DATA_TYPE = getConfig().getString("DataType");
@@ -62,5 +64,7 @@ public class Config extends Model {
 		TELL_ENABLED = getConfig().getBoolean("Modules.Tell.Enabled");
 
 		CROSS_TELEPORT_ENABLED = getConfig().getBoolean("Modules.CrossTeleport.Enabled");
+
+		SUDO_ENABLED = getConfig().getBoolean("Modules.Sudo.Enabled");
 	}
 }

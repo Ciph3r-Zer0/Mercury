@@ -26,3 +26,5 @@ Modules:
     Enabled: true
   CrossTeleport:
     Enabled: true
+  Sudo:
+    Enabled: true

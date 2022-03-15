@@ -53,3 +53,6 @@ Modules:
     NoReceiver: "{prefix} &cThere is no one to talk to"
   CrossTeleport:
     Usage: "{prefix} &cUsage: &4/CrossTeleport <name>"
+  Sudo:
+    Usage: "{prefix} &cUsage: &4/Sudo <name> {c:}<message>"
+    Success: "{prefix} &bMade player &c{player} &bexecute the command"
