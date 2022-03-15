@@ -13,7 +13,8 @@ public abstract class Model {
 	private Mercury core;
 	private String fileName;
 	private File file;
-	@Getter private FileConfiguration config;
+	@Getter
+	private FileConfiguration fileConfig;
 
 	public Model(Mercury core, String fileName) {
 		this.core = core;
@@ -41,7 +42,11 @@ public abstract class Model {
 	}
 
 	public void load() throws IOException, InvalidConfigurationException {
-		config = new YamlConfiguration();
-		config.load(file);
+		fileConfig = new YamlConfiguration();
+		fileConfig.load(file);
+	}
+
+	public void set(String path, Object value) {
+		fileConfig.set(path, value);
 	}
 }

@@ -5,11 +5,6 @@ PlayerNotFound: "{prefix} &cCould not find player &b&l{player}"
 ArgsNotNumber: "{prefix} &cRequired arguments are not number"
 
 Modules:
-  Nickname:
-    Usage: "{prefix} &cUsage: &4/Nick <nickname, off, reset>"
-    Reset: "{prefix} &bNick name reset!"
-    Changed: "{prefix} &bYour nickname changed!"
-    ChangedOthers: "{prefix} &bYour nickname changed!"
   Fly:
     Enabled: "{prefix} &aFlying enabled"
     Disabled: "{prefix} &cFlying disabled"

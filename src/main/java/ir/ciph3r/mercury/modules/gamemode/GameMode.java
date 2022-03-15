@@ -4,7 +4,6 @@ import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.yaml.Config;
-import ir.ciph3r.mercury.storage.yaml.Messages;
 import ir.ciph3r.mercury.utility.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -14,24 +13,24 @@ import org.bukkit.entity.Player;
 
 public class GameMode extends Model {
     public GameMode(Mercury mercury) {
-        super("GameMode", "GameMode", Config.GAMEMODE_ENABLED, mercury);
+        super(mercury, "GameMode", "GameMode", mercury.getConfigFile().GAMEMODE_ENABLED);
     }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.GAMEMODE))) {
-            Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, Messages.NO_CONSOLE);
+            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
 
         if (args.length == 0) {
             if (label.equalsIgnoreCase("GameMode")) {
-                Utils.sendColorizedMessage(sender, Messages.GAMEMODE_USAGE);
+                Utils.sendColorizedMessage(sender, getMessages().GAMEMODE_USAGE);
             } else {
                 updateGameMode(player, null, label);
             }
@@ -41,12 +40,12 @@ public class GameMode extends Model {
                 updateGameMode(player, null, args[0]);
             } else {
                 if (!(sender.hasPermission(Perms.GAMEMODE_OTHERS))) {
-                    Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
+                    Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
                     return true;
                 }
                 Player target = Bukkit.getPlayer(args[0]);
                 if (target == null) {
-                    Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                    Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 } else {
                     updateGameMode(target, player, label);
                 }
@@ -54,13 +53,13 @@ public class GameMode extends Model {
             return true;
         } else if (args.length == 2) {
             if (!(sender.hasPermission(Perms.GAMEMODE_OTHERS))) {
-                Utils.sendColorizedMessage(sender, Messages.NO_PERMISSION);
+                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
                 return true;
             }
             if (label.equalsIgnoreCase("GameMode")) {
                 Player target = Bukkit.getServer().getPlayerExact(args[1]);
                 if (target == null) {
-                    Utils.sendColorizedMessage(player, Messages.PLAYER_NOT_FOUND.replace("{player}", args[1]));
+                    Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[1]));
                 } else {
                     updateGameMode(target, player, args[0]);
                 }
@@ -87,9 +86,9 @@ public class GameMode extends Model {
         org.bukkit.GameMode gameMode = findGameMode(chosenGameMode);
         if (gameMode != null) {
             player.setGameMode(gameMode);
-            Utils.sendColorizedMessage(player, Messages.GAMEMODE_CHANGED.replace("{gamemode}", gameMode.name()));
+            Utils.sendColorizedMessage(player, getMessages().GAMEMODE_CHANGED.replace("{gamemode}", gameMode.name()));
             if (admin != null) {
-                Utils.sendColorizedMessage(admin, Messages.GAMEMODE_CHANGED_ADMIN.replace("{gamemode}", gameMode.name()).replace("{player}", player.getName()));
+                Utils.sendColorizedMessage(admin, getMessages().GAMEMODE_CHANGED_ADMIN.replace("{gamemode}", gameMode.name()).replace("{player}", player.getName()));
             }
             return true;
         }

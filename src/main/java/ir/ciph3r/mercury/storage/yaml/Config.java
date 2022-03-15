@@ -3,68 +3,56 @@ package ir.ciph3r.mercury.storage.yaml;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.storage.yaml.models.Model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Config extends Model {
 	public Config(Mercury mercury) {
 		super(mercury, "config.yml");
+		setup();
 	}
 
-	public static String DATA_TYPE;
+	public boolean FLY_ENABLED;
 
-	public static boolean NICK_NAME_ENABLED;
-	public static List<String> NICK_NAME_RESET;
+	public boolean GAMEMODE_ENABLED;
 
-	public static boolean FLY_ENABLED;
+	public boolean TELEPORT_ENABLED;
 
-	public static boolean GAMEMODE_ENABLED;
+	public boolean HAT_ENABLED;
 
-	public static boolean TELEPORT_ENABLED;
+	public boolean SHUFFLE_ENABLED;
 
-	public static boolean HAT_ENABLED;
+	public boolean ROTATE_ENABLED;
 
-	public static boolean SHUFFLE_ENABLED;
+	public boolean CLEAR_INVENTORY_ENABLED;
 
-	public static boolean ROTATE_ENABLED;
+	public boolean SPEED_ENABLED;
 
-	public static boolean CLEAR_INVENTORY_ENABLED;
+	public boolean TELL_ENABLED;
 
-	public static boolean SPEED_ENABLED;
+	public boolean CROSS_TELEPORT_ENABLED;
 
-	public static boolean TELL_ENABLED;
-
-	public static boolean CROSS_TELEPORT_ENABLED;
-
-	public static boolean SUDO_ENABLED;
+	public boolean SUDO_ENABLED;
 
 	@Override
 	public void init() {
-		DATA_TYPE = getConfig().getString("DataType");
+		FLY_ENABLED = getFileConfig().getBoolean("Modules.Fly.Enabled");
 
-		NICK_NAME_ENABLED = getConfig().getBoolean("Modules.Nickname.Enabled");
-		NICK_NAME_RESET = new ArrayList<>(getConfig().getStringList("Modules.Nickname.Reset"));
+		GAMEMODE_ENABLED = getFileConfig().getBoolean("Modules.GameMode.Enabled");
 
-		FLY_ENABLED = getConfig().getBoolean("Modules.Fly.Enabled");
+		TELEPORT_ENABLED = getFileConfig().getBoolean("Modules.Teleport.Enabled");
 
-		GAMEMODE_ENABLED = getConfig().getBoolean("Modules.GameMode.Enabled");
+		HAT_ENABLED	= getFileConfig().getBoolean("Modules.Hat.Enabled");
 
-		TELEPORT_ENABLED = getConfig().getBoolean("Modules.Teleport.Enabled");
+		SHUFFLE_ENABLED = getFileConfig().getBoolean("Modules.Shuffle.Enabled");
 
-		HAT_ENABLED	= getConfig().getBoolean("Modules.Hat.Enabled");
+		ROTATE_ENABLED = getFileConfig().getBoolean("Modules.Rotate.Enabled");
 
-		SHUFFLE_ENABLED = getConfig().getBoolean("Modules.Shuffle.Enabled");
+		CLEAR_INVENTORY_ENABLED = getFileConfig().getBoolean("Modules.ClearInventory.Enabled");
 
-		ROTATE_ENABLED = getConfig().getBoolean("Modules.Rotate.Enabled");
+		SPEED_ENABLED = getFileConfig().getBoolean("Modules.Speed.Enabled");
 
-		CLEAR_INVENTORY_ENABLED = getConfig().getBoolean("Modules.ClearInventory.Enabled");
+		TELL_ENABLED = getFileConfig().getBoolean("Modules.Tell.Enabled");
 
-		SPEED_ENABLED = getConfig().getBoolean("Modules.Speed.Enabled");
+		CROSS_TELEPORT_ENABLED = getFileConfig().getBoolean("Modules.CrossTeleport.Enabled");
 
-		TELL_ENABLED = getConfig().getBoolean("Modules.Tell.Enabled");
-
-		CROSS_TELEPORT_ENABLED = getConfig().getBoolean("Modules.CrossTeleport.Enabled");
-
-		SUDO_ENABLED = getConfig().getBoolean("Modules.Sudo.Enabled");
+		SUDO_ENABLED = getFileConfig().getBoolean("Modules.Sudo.Enabled");
 	}
 }
