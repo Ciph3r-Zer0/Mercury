@@ -31,6 +31,11 @@ public class Config extends Model {
 
 	public boolean SUDO_ENABLED;
 
+	public boolean SPAWN_ENABLED;
+	public boolean SPAWN_ON_JOIN;
+	public boolean SPAWN_ON_RESPAWN;
+	public boolean SPAWN_ON_VOID;
+
 	@Override
 	public void init() {
 		FLY_ENABLED = getFileConfig().getBoolean("Modules.Fly.Enabled");
@@ -54,5 +59,10 @@ public class Config extends Model {
 		CROSS_TELEPORT_ENABLED = getFileConfig().getBoolean("Modules.CrossTeleport.Enabled");
 
 		SUDO_ENABLED = getFileConfig().getBoolean("Modules.Sudo.Enabled");
+
+		SPAWN_ENABLED = getFileConfig().getBoolean("Modules.Spawn.Enabled");
+		SPAWN_ON_JOIN = getFileConfig().getBoolean("Modules.Spawn.onJoin");
+		SPAWN_ON_RESPAWN = getFileConfig().getBoolean("Modules.Spawn.onRespawn");
+		SPAWN_ON_VOID = getFileConfig().getBoolean("Modules.Spawn.onVoid");
 	}
 }

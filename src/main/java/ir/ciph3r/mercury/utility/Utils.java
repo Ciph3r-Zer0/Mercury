@@ -2,6 +2,9 @@ package ir.ciph3r.mercury.utility;
 
 import ir.ciph3r.mercury.Mercury;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -52,6 +55,22 @@ public class Utils {
             return false;
         }
         return true;
+    }
+
+    public static String serializeLocation(Location loc) {
+        return String.valueOf(loc.getWorld().getName() + "," + loc.getX() + "," + loc.getY() + "," + loc.getZ() + "," + loc.getYaw() + "," + loc.getPitch());
+    }
+
+    public static Location deSerializeLocation(String loc) {
+        String[] args = loc.split(",");
+        World world = Bukkit.getWorld(args[0]);
+        double x = Double.parseDouble(args[1]);
+        double y = Double.parseDouble(args[2]);
+        double z = Double.parseDouble(args[3]);
+        float yaw = Float.parseFloat(args[4]);
+        float pitch = Float.parseFloat(args[5]);
+
+        return new Location(world, x, y, z, yaw, pitch);
     }
 
     public static boolean isPlayerOnlineProxySide(String playerName) {

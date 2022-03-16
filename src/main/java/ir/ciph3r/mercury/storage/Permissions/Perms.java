@@ -31,6 +31,10 @@ public class Perms {
 
 	public static String SUDO;
 
+	public static String SPAWN;
+	public static String SPAWN_OTHERS;
+	public static String SET_SPAWN;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -61,5 +65,9 @@ public class Perms {
 		CROSS_TELEPORT = "mercury.commands.crossteleport";
 
 		SUDO = "mercury.commands.sudo";
+
+		SPAWN = "mercury.commands.spawn";
+		SPAWN_OTHERS = "mercury.commands.spawn.others";
+		SET_SPAWN = "mercury.commands.setspawn";
 	}
 }

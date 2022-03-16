@@ -2,6 +2,7 @@ package ir.ciph3r.mercury;
 
 import ir.ciph3r.mercury.libs.BungeeChannelApi;
 import ir.ciph3r.mercury.modules.model.ModuleManager;
+import ir.ciph3r.mercury.network.Metrics;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
@@ -26,6 +27,7 @@ public final class Mercury extends JavaPlugin {
 		bungeeAPI = BungeeChannelApi.of(this);
 
 		new ModuleManager(this).register();
+		new Metrics(this, 14640);
 	}
 
 	@Override

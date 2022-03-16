@@ -28,3 +28,9 @@ Modules:
     Enabled: true
   Sudo:
     Enabled: true
+  Spawn:
+    Enabled: true
+    onJoin: true
+    onRespawn: true
+    onVoid: true
+    location: ""

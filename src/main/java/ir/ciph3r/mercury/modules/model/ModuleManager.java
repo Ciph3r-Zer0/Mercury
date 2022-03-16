@@ -8,6 +8,8 @@ import ir.ciph3r.mercury.modules.gamemode.GameMode;
 import ir.ciph3r.mercury.modules.hat.Hat;
 import ir.ciph3r.mercury.modules.rotate.Rotate;
 import ir.ciph3r.mercury.modules.shuffle.Shuffle;
+import ir.ciph3r.mercury.modules.spawn.SetSpawn;
+import ir.ciph3r.mercury.modules.spawn.Spawn;
 import ir.ciph3r.mercury.modules.speed.Speed;
 import ir.ciph3r.mercury.modules.sudo.Sudo;
 import ir.ciph3r.mercury.modules.teleport.Teleport;
@@ -38,6 +40,8 @@ public class ModuleManager {
         modules.add(new Reply(mercury));
         modules.add(new CrossTeleport(mercury));
         modules.add(new Sudo(mercury));
+        modules.add(new Spawn(mercury));
+        modules.add(new SetSpawn(mercury));
 
         for (Model base : modules) {
             base.register();

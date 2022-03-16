@@ -51,3 +51,8 @@ Modules:
   Sudo:
     Usage: "{prefix} &cUsage: &4/Sudo <name> {c:}<message>"
     Success: "{prefix} &bMade player &c{player} &bexecute the command"
+  Spawn:
+    SpawnNotSet: "{prefix} &cSpawn hasn't been set"
+    SetSuccessful: "{prefix} &bSpawn set successful"
+    Successful: "{prefix} &bYou've been teleported to spawn"
+    SuccessfulOthers: "{prefix} &bPlayer &c{player} &bhas been teleported to spawn"

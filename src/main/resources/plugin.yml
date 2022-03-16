@@ -38,3 +38,7 @@ commands:
     aliases: [ctp]
   sudo:
     usage: /<command>
+  spawn:
+    usage: /<command>
+  setspawn:
+    usage: /<command>

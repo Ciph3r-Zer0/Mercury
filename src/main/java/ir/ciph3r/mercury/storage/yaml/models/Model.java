@@ -10,14 +10,14 @@ import java.io.File;
 import java.io.IOException;
 
 public abstract class Model {
-	private Mercury core;
+	private Mercury mercury;
 	private String fileName;
 	private File file;
 	@Getter
 	private FileConfiguration fileConfig;
 
 	public Model(Mercury core, String fileName) {
-		this.core = core;
+		this.mercury = core;
 		this.fileName = fileName;
 	}
 
@@ -34,11 +34,11 @@ public abstract class Model {
 	public abstract void init();
 
 	public void create() {
-			file = new File(core.getDataFolder(), fileName);
+			file = new File(mercury.getDataFolder(), fileName);
 			if (!file.exists()) {
 				file.getParentFile().mkdirs();
 			}
-			core.saveResource(fileName, false);
+			mercury.saveResource(fileName, false);
 	}
 
 	public void load() throws IOException, InvalidConfigurationException {
@@ -48,5 +48,14 @@ public abstract class Model {
 
 	public void set(String path, Object value) {
 		fileConfig.set(path, value);
+		save();
+	}
+
+	public void save() {
+		try {
+			fileConfig.save(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

@@ -61,6 +61,11 @@ public class Messages extends Model {
 	public String SUDO_USAGE;
 	public String SUDO_SUCCESS;
 
+	public String SPAWN_NOT_SET;
+	public String SPAWN_SET_SUCCESSFUL;
+	public String SPAWN_SUCCESSFUL;
+	public String SPAWN_SUCCESSFUL_OTHERS;
+
 	@Override
 	public void init() {
 		PREFIX = getFileConfig().getString("Prefix");
@@ -113,5 +118,10 @@ public class Messages extends Model {
 
 		SUDO_USAGE = getFileConfig().getString("Modules.Sudo.Usage").replace("{prefix}", PREFIX);
 		SUDO_SUCCESS = getFileConfig().getString("Modules.Sudo.Success").replace("{prefix}", PREFIX);
+
+		SPAWN_NOT_SET = getFileConfig().getString("Modules.Spawn.SpawnNotSet").replace("{prefix}", PREFIX);
+		SPAWN_SET_SUCCESSFUL =getFileConfig().getString("Modules.Spawn.SetSuccessful").replace("{prefix}", PREFIX);
+		SPAWN_SUCCESSFUL = getFileConfig().getString("Modules.Spawn.Successful").replace("{prefix}", PREFIX);
+		SPAWN_SUCCESSFUL_OTHERS = getFileConfig().getString("Modules.Spawn.SuccessfulOthers").replace("{prefix}", PREFIX);
 	}
 }
