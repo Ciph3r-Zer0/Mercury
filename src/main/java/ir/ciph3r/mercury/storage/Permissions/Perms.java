@@ -1,8 +1,7 @@
 package ir.ciph3r.mercury.storage.Permissions;
 
 public class Perms {
-	public static String NICKNAME;
-	public static String NICKNAME_OTHERS;
+	public static String RELOAD;
 
 	public static String FLY;
 	public static String FLY_OTHERS;
@@ -39,8 +38,7 @@ public class Perms {
 	public static String LIGHTENING_OTHERS;
 
 	public void init() {
-		NICKNAME = "mercury.commands.nickname";
-		NICKNAME_OTHERS = "mercury.commands.nickname.others";
+		RELOAD = "mercury.commands.reload";
 
 		FLY = "mercury.commands.fly";
 		FLY_OTHERS = "mercury.commands.fly.others";

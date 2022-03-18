@@ -16,6 +16,9 @@ public class Messages extends Model {
 	public String PLAYER_NOT_FOUND;
 	public String ARGS_NOT_NUMBER;
 
+	public String RELOAD_SUCCESS;
+	public String RELOAD_FAILED;
+
 	public String FLY_ENABLED;
 	public String FLY_DISABLED;
 	public String FLY_ENABLED_ADMIN;
@@ -76,6 +79,9 @@ public class Messages extends Model {
 		NO_CONSOLE = getFileConfig().getString("NoConsole").replace("{prefix}", PREFIX);
 		PLAYER_NOT_FOUND = getFileConfig().getString("PlayerNotFound").replace("{prefix}", PREFIX);
 		ARGS_NOT_NUMBER = getFileConfig().getString("ArgsNotNumber").replace("{prefix}", PREFIX);
+
+		RELOAD_SUCCESS = getFileConfig().getString("Modules.Reload.Success").replace("{prefix}", PREFIX);
+		RELOAD_FAILED = getFileConfig().getString("Modules.Reload.Failed").replace("{prefix}", PREFIX);
 
 		FLY_ENABLED = getFileConfig().getString("Modules.Fly.Enabled").replace("{prefix}", PREFIX);
 		FLY_DISABLED = getFileConfig().getString("Modules.Fly.Disabled").replace("{prefix}", PREFIX);

@@ -58,4 +58,9 @@ public abstract class Model {
 			e.printStackTrace();
 		}
 	}
+
+	public void reload() throws IOException, InvalidConfigurationException {
+		load();
+		init();
+	}
 }

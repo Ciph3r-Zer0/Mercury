@@ -7,6 +7,7 @@ import ir.ciph3r.mercury.modules.fly.Fly;
 import ir.ciph3r.mercury.modules.gamemode.GameMode;
 import ir.ciph3r.mercury.modules.hat.Hat;
 import ir.ciph3r.mercury.modules.lightening.Lightning;
+import ir.ciph3r.mercury.modules.mercury.MercuryCMD;
 import ir.ciph3r.mercury.modules.rotate.Rotate;
 import ir.ciph3r.mercury.modules.shuffle.Shuffle;
 import ir.ciph3r.mercury.modules.spawn.SetSpawn;
@@ -29,6 +30,7 @@ public class ModuleManager {
     }
 
     public void register() {
+        modules.add(new MercuryCMD(mercury));
         modules.add(new Fly(mercury));
         modules.add(new GameMode(mercury));
         modules.add(new Teleport(mercury));
