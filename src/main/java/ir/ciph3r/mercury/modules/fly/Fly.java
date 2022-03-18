@@ -20,13 +20,13 @@ public class Fly extends Model {
             Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
             return true;
         }
-
         if (args.length == 0) {
             if (!(sender instanceof Player)) {
                 Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
                 return true;
             }
             Player player = (Player) sender;
+
             if (player.getAllowFlight()) {
                 player.setAllowFlight(false);
                 Utils.sendColorizedMessage(player, getMessages().FLY_DISABLED);

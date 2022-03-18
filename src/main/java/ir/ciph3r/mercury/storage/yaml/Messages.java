@@ -66,6 +66,9 @@ public class Messages extends Model {
 	public String SPAWN_SUCCESSFUL;
 	public String SPAWN_SUCCESSFUL_OTHERS;
 
+	public String LIGHTNING_SUCCESS;
+	public String LIGHTNING_SUCCESS_OTHERS;
+
 	@Override
 	public void init() {
 		PREFIX = getFileConfig().getString("Prefix");
@@ -123,5 +126,8 @@ public class Messages extends Model {
 		SPAWN_SET_SUCCESSFUL =getFileConfig().getString("Modules.Spawn.SetSuccessful").replace("{prefix}", PREFIX);
 		SPAWN_SUCCESSFUL = getFileConfig().getString("Modules.Spawn.Successful").replace("{prefix}", PREFIX);
 		SPAWN_SUCCESSFUL_OTHERS = getFileConfig().getString("Modules.Spawn.SuccessfulOthers").replace("{prefix}", PREFIX);
+
+		LIGHTNING_SUCCESS = getFileConfig().getString("Modules.Lightning.Success").replace("{prefix}", PREFIX);
+		LIGHTNING_SUCCESS_OTHERS = getFileConfig().getString("Modules.Lightning.SuccessOthers").replace("{prefix}", PREFIX);
 	}
 }

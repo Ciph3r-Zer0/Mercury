@@ -1,11 +1,4 @@
-DataType: SQLITE
-
 Modules:
-  Nickname:
-    Enabled: true
-    Reset:
-      - "off"
-      - "reset"
   Fly:
     Enabled: true
   GameMode:
@@ -33,4 +26,6 @@ Modules:
     onJoin: true
     onRespawn: true
     onVoid: true
-    location: ""
+    location: ''
+  Lightning:
+    Enabled: true

@@ -8,10 +8,10 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Utils {
 
@@ -71,50 +71,5 @@ public class Utils {
         float pitch = Float.parseFloat(args[5]);
 
         return new Location(world, x, y, z, yaw, pitch);
-    }
-
-    public static boolean isPlayerOnlineProxySide(String playerName) {
-        try {
-            CompletableFuture<List<String>> servers = Mercury.getInst().bungeeAPI.getServers();
-
-            for (String s : servers.get()) {
-                CompletableFuture<List<String>> players = Mercury.getInst().bungeeAPI.getPlayerList(s);
-                for (String p : players.get()) {
-                    if (p.equalsIgnoreCase(playerName)) {
-                        return true;
-                    }
-                }
-            }
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public static String getProxyTargetServerName(String playerName) {
-        try {
-            CompletableFuture<List<String>> servers = Mercury.getInst().bungeeAPI.getServers();
-
-
-            for (String s : servers.get()) {
-                CompletableFuture<List<String>> players = Mercury.getInst().bungeeAPI.getPlayerList(s);
-                for (String p : players.get()) {
-                    if (p.equalsIgnoreCase(playerName)) {
-                        return s;
-                    }
-                }
-            }
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public static void connectToProxyPlayer(Player admin, String target) {
-        String targetServer = getProxyTargetServerName(target);
-
-        byte[] data = "mercury-crosstp".getBytes();
-        Mercury.getInst().bungeeAPI.connect(admin, targetServer);
-        Mercury.getInst().bungeeAPI.forward(targetServer, "mercury", data);
     }
 }

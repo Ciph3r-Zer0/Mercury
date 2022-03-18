@@ -35,6 +35,9 @@ public class Perms {
 	public static String SPAWN_OTHERS;
 	public static String SET_SPAWN;
 
+	public static String LIGHTENING;
+	public static String LIGHTENING_OTHERS;
+
 	public void init() {
 		NICKNAME = "mercury.commands.nickname";
 		NICKNAME_OTHERS = "mercury.commands.nickname.others";
@@ -69,5 +72,8 @@ public class Perms {
 		SPAWN = "mercury.commands.spawn";
 		SPAWN_OTHERS = "mercury.commands.spawn.others";
 		SET_SPAWN = "mercury.commands.setspawn";
+
+		LIGHTENING = "mercury.commands.lightening";
+		LIGHTENING_OTHERS = "mercury.commands.lightening.others";
 	}
 }

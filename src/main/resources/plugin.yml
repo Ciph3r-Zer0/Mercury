@@ -42,3 +42,5 @@ commands:
     usage: /<command>
   setspawn:
     usage: /<command>
+  lightning:
+    usage: <command>

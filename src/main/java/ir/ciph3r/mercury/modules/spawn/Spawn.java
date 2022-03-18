@@ -49,7 +49,6 @@ public class Spawn extends Model {
         }
     }
 
-    //TODO: fix death from fall damage after teleporting to spawn
     @EventHandler
     public void onVoid(EntityDamageEvent event) {
         if (!(getConfig().SPAWN_ON_VOID)) return;

@@ -36,6 +36,8 @@ public class Config extends Model {
 	public boolean SPAWN_ON_RESPAWN;
 	public boolean SPAWN_ON_VOID;
 
+	public boolean LIGHTNING_ENABLED;
+
 	@Override
 	public void init() {
 		FLY_ENABLED = getFileConfig().getBoolean("Modules.Fly.Enabled");
@@ -64,5 +66,7 @@ public class Config extends Model {
 		SPAWN_ON_JOIN = getFileConfig().getBoolean("Modules.Spawn.onJoin");
 		SPAWN_ON_RESPAWN = getFileConfig().getBoolean("Modules.Spawn.onRespawn");
 		SPAWN_ON_VOID = getFileConfig().getBoolean("Modules.Spawn.onVoid");
+
+		LIGHTNING_ENABLED = getFileConfig().getBoolean("Modules.Lightning.Enabled");
 	}
 }

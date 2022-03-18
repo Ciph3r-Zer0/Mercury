@@ -6,6 +6,7 @@ import ir.ciph3r.mercury.modules.crossteleport.CrossTeleport;
 import ir.ciph3r.mercury.modules.fly.Fly;
 import ir.ciph3r.mercury.modules.gamemode.GameMode;
 import ir.ciph3r.mercury.modules.hat.Hat;
+import ir.ciph3r.mercury.modules.lightening.Lightning;
 import ir.ciph3r.mercury.modules.rotate.Rotate;
 import ir.ciph3r.mercury.modules.shuffle.Shuffle;
 import ir.ciph3r.mercury.modules.spawn.SetSpawn;
@@ -42,6 +43,7 @@ public class ModuleManager {
         modules.add(new Sudo(mercury));
         modules.add(new Spawn(mercury));
         modules.add(new SetSpawn(mercury));
+        modules.add(new Lightning(mercury));
 
         for (Model base : modules) {
             base.register();
