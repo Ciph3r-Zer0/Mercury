@@ -1,6 +1,7 @@
 package ir.ciph3r.mercury.utility;
 
 import ir.ciph3r.mercury.Mercury;
+import ir.ciph3r.mercury.libs.BungeeChannelApi;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Utils {
 
@@ -71,5 +73,41 @@ public class Utils {
         float pitch = Float.parseFloat(args[5]);
 
         return new Location(world, x, y, z, yaw, pitch);
+    }
+
+    public static boolean isPlayerOnlineProxy(String playerName) {
+        BungeeChannelApi bungeeAPI = Mercury.getInst().getBungeeAPI();
+
+        CompletableFuture<List<String>> l = bungeeAPI.getPlayerList("ALL");
+        if (l.isDone()) {
+            try {
+                if (l.get().contains(playerName)) return true;
+            } catch (ExecutionException | InterruptedException e) {
+                return false;
+            }
+        }
+        return false;
+//        bungeeAPI.getPlayerList("ALL").whenComplete((allPlayers, throwable) -> {
+//            if (allPlayers.contains(playerName)) atomicBoolean.set(true);
+//        });
+    }
+
+    public static String getProxyPlayerServerName(String playerName) {
+        BungeeChannelApi bungeeAPI = Mercury.getInst().getBungeeAPI();
+        boolean isOnline = isPlayerOnlineProxy(playerName);
+        AtomicReference<String> serverName = new AtomicReference<>(null);
+
+        if (isOnline) {
+            bungeeAPI.getServers().whenComplete((allServers, throwable) -> {
+                allServers.forEach(server -> {
+                    bungeeAPI.getPlayerList(server).whenCompleteAsync((perServerPlayerList, throwable1) -> {
+                        if (perServerPlayerList.contains(playerName)) {
+                            serverName.set(String.valueOf(perServerPlayerList));
+                        }
+                    });
+                });
+            });
+        }
+        return serverName.get();
     }
 }

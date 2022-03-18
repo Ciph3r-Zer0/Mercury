@@ -3,6 +3,7 @@ version: '${project.version}'
 main: ir.ciph3r.mercury.Mercury
 api-version: 1.13
 authors: [ Ciph3r ]
+softdepend: [SuperVanish, PremiumVanish]
 description: A core plugin made to make life easier
 
 commands:

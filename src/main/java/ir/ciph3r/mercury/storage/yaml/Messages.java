@@ -1,7 +1,6 @@
 package ir.ciph3r.mercury.storage.yaml;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.tell.Tell;
 import ir.ciph3r.mercury.storage.yaml.models.Model;
 
 public class Messages extends Model {
