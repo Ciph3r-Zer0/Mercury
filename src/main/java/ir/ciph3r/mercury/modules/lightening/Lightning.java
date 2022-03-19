@@ -18,7 +18,7 @@ public class Lightning extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.LIGHTENING))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.LIGHTENING));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -34,7 +34,7 @@ public class Lightning extends Model {
 
         } else if (args.length == 1) {
             if (!(sender.hasPermission(Perms.LIGHTENING_OTHERS))) {
-                Utils.sendColorizedMessage(player, getMessages().NO_PERMISSION);
+                Utils.sendColorizedMessage(player, getMessages().NO_PERMISSION.replace("{permission}", Perms.LIGHTENING_OTHERS));
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);

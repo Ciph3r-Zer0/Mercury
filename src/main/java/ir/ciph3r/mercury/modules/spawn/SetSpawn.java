@@ -17,7 +17,7 @@ public class SetSpawn extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.SET_SPAWN))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SET_SPAWN));
             return true;
         }
         if (!(sender instanceof Player)) {

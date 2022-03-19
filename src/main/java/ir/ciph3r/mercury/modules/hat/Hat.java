@@ -18,7 +18,7 @@ public class Hat extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.HAT))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.HAT));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -38,7 +38,7 @@ public class Hat extends Model {
             return true;
         } else if (args.length == 1) {
             if (!(sender.hasPermission(Perms.HAT_OTHERS))) {
-                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.HAT_OTHERS));
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);

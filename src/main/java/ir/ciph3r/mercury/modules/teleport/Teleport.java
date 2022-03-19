@@ -18,7 +18,7 @@ public class Teleport extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.TELEPORT))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.TELEPORT));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -42,7 +42,7 @@ public class Teleport extends Model {
             }
         } else if (args.length == 2) {
             if (!(sender.hasPermission(Perms.TELEPORT_OTHERS))) {
-                Utils.sendColorizedMessage(player, getMessages().NO_PERMISSION);
+                Utils.sendColorizedMessage(player, getMessages().NO_PERMISSION.replace("{permission}", Perms.TELEPORT_OTHERS));
                 return true;
             }
             Player target1 = Bukkit.getPlayer(args[0]);

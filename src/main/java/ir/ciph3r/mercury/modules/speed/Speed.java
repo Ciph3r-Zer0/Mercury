@@ -16,7 +16,7 @@ public class Speed extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.SPEED))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPEED));
             return true;
         }
         if (!(sender instanceof Player)) {

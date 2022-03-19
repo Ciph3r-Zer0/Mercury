@@ -25,7 +25,7 @@ public class Reply extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.REPLY))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.REPLY));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -52,12 +52,12 @@ public class Reply extends Model {
                 }
 
                 Utils.sendColorizedMessage(receiver, getMessages().REPLY_MESSAGE_FORMAT
-                        .replace("{player}", player.getName())
+                        .replace("{sender}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
 
                 Utils.sendColorizedMessage(player, getMessages().REPLY_SELF_MESSAGE_FORMAT
-                        .replace("{player}", player.getName())
+                        .replace("{sender}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
 

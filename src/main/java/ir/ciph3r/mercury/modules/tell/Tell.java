@@ -19,7 +19,7 @@ public class Tell extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.TELL))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.TELL));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -43,12 +43,12 @@ public class Tell extends Model {
                 }
 
                 Utils.sendColorizedMessage(receiver, getMessages().TELL_MESSAGE_FORMAT
-                        .replace("{player}", player.getName())
+                        .replace("{sender}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
 
                 Utils.sendColorizedMessage(player, getMessages().TELL_SELF_MESSAGE_FORMAT
-                        .replace("{player}", player.getName())
+                        .replace("{sender}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
 

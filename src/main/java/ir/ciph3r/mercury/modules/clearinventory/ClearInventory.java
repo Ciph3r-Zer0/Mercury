@@ -17,7 +17,7 @@ public class ClearInventory extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.CLEAR_INVENTORY))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.CLEAR_INVENTORY));
             return true;
         }
         if (!(sender instanceof Player)) {

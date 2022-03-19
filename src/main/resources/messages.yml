@@ -1,7 +1,7 @@
 Prefix: "&5Mercury &8&k||&r"
 NoPermission: "{prefix} &7You don't have permission: &c{permission}"
 NoConsole: "{prefix} &7Only players can execute this command!"
-PlayerNotFound: "{prefix} &7Player &cC{player} &7not found!"
+PlayerNotFound: "{prefix} &7Player &c{player} &7not found!"
 ArgsNotNumber: "{prefix} &7Args must be numeric"
 
 Modules:
@@ -42,15 +42,16 @@ Modules:
     Reset: "{prefix} &7Fly & Walk speed reset"
   Tell:
     Usage: "{prefix} &7Usage: /Tell <name> <message>"
-    MessageFormat: ""
-    SelfMessageFormat: ""
+    MessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
+    SelfMessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
   Reply:
     Usage: "{prefix} &7Usage: /Reply <message>"
-    MessageFormat: ""
-    SelfMessageFormat: ""
+    MessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
+    SelfMessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
     NoReceiver: "{prefix} &7There is no one to talk to"
   CrossTeleport:
     Usage: "{prefix} &7Usage: /CrossTeleport <name>"
+    Success: "{prefix} &7Teleported to &c{player} &7in &c{server}"
   Sudo:
     Usage: "{prefix} &7Usage: /Sudo <name> [c:]<message>"
     Success: "{prefix} &c{player} &7sudo successful"
@@ -60,5 +61,5 @@ Modules:
     Successful: "{prefix} &7You've been teleported to spawn"
     SuccessfulOthers: "{prefix} &7Teleported &c{player} &7to spawn"
   Lightning:
-    Success: "{prefix} &7Lightening struck"
+    Success: "{prefix} &7Lightning struck"
     SuccessOthers: "{prefix} &c{player} &7struck by lightning"

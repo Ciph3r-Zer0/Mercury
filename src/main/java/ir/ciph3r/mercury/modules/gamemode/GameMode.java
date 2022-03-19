@@ -19,7 +19,7 @@ public class GameMode extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.GAMEMODE))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.GAMEMODE));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -40,7 +40,7 @@ public class GameMode extends Model {
                 updateGameMode(player, null, args[0]);
             } else {
                 if (!(sender.hasPermission(Perms.GAMEMODE_OTHERS))) {
-                    Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+                    Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.GAMEMODE_OTHERS));
                     return true;
                 }
                 Player target = Bukkit.getPlayer(args[0]);
@@ -53,7 +53,7 @@ public class GameMode extends Model {
             return true;
         } else if (args.length == 2) {
             if (!(sender.hasPermission(Perms.GAMEMODE_OTHERS))) {
-                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.GAMEMODE_OTHERS));
                 return true;
             }
             if (label.equalsIgnoreCase("GameMode")) {

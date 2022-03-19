@@ -17,7 +17,7 @@ public class Fly extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.FLY))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.FLY));
             return true;
         }
         if (args.length == 0) {
@@ -39,7 +39,7 @@ public class Fly extends Model {
         }
         if (args.length == 1) {
             if (!(sender.hasPermission(Perms.FLY_OTHERS))) {
-                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.FLY_OTHERS));
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);

@@ -24,7 +24,7 @@ public class MercuryCMD extends Model {
 
             if (arg1.equalsIgnoreCase("Reload")) {
                 if (!(sender.hasPermission(Perms.RELOAD))) {
-                    Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+                    Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.RELOAD));
                     return true;
                 }
                 try {

@@ -59,6 +59,7 @@ public class Messages extends Model {
 	public String REPLY_NO_RECEIVER;
 
 	public String CROSS_TELEPORT_USAGE;
+	public String CROSS_TELEPORT_SUCCESS;
 
 	public String SUDO_USAGE;
 	public String SUDO_SUCCESS;
@@ -123,6 +124,7 @@ public class Messages extends Model {
 		REPLY_NO_RECEIVER = getFileConfig().getString("Modules.Reply.NoReceiver").replace("{prefix}", PREFIX);
 
 		CROSS_TELEPORT_USAGE = getFileConfig().getString("Modules.CrossTeleport.Usage").replace("{prefix}", PREFIX);
+		CROSS_TELEPORT_SUCCESS = getFileConfig().getString("Modules.CrossTeleport.Success").replace("{prefix}", PREFIX);
 
 		SUDO_USAGE = getFileConfig().getString("Modules.Sudo.Usage").replace("{prefix}", PREFIX);
 		SUDO_SUCCESS = getFileConfig().getString("Modules.Sudo.Success").replace("{prefix}", PREFIX);

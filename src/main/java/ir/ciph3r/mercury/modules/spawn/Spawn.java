@@ -71,7 +71,7 @@ public class Spawn extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.SPAWN))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPAWN));
             return true;
         }
         if (!(sender instanceof Player)) {
@@ -92,7 +92,7 @@ public class Spawn extends Model {
             }
         } else if (args.length == 1) {
             if (!(player.hasPermission(Perms.SPAWN_OTHERS))) {
-                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION);
+                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPAWN_OTHERS));
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);
