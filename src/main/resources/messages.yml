@@ -32,6 +32,9 @@ Modules:
   Rotate:
     Usage: "{prefix} &7Usage: /Rotate <player>"
     SuccessAdmin: "{prefix} &c{player}s &7head rotated"
+  Knockback:
+    Usage: "{prefix} &7Usage: /Knockback <player>"
+    SuccessAdmin: "{prefix} &7Knockback applied to &c{player}"
   ClearInventory:
     Success: "{prefix} &7Inventory cleared"
     SuccessOthers: "{prefix} &c{player}s &7inventory cleared"

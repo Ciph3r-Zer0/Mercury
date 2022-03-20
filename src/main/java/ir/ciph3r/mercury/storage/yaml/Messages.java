@@ -43,6 +43,9 @@ public class Messages extends Model {
 			,ROTATE_USAGE
 			,ROTATE_SUCCESS_ADMIN
 
+			,KNOCKBACK_USAGE
+			,KNOCKBACK_SUCCESS_ADMIN
+
 			,CLEAR_INVENTORY_SUCCESS
 			,CLEAR_INVENTORY_SUCCESS_OTHERS
 			,SPEED_USAGE,SPEED_WALK_SUCCESS
@@ -107,6 +110,9 @@ public class Messages extends Model {
 
 		ROTATE_USAGE = getFileConfig().getString("Modules.Rotate.Usage").replace("{prefix}", PREFIX);
 		ROTATE_SUCCESS_ADMIN = getFileConfig().getString("Modules.Rotate.SuccessAdmin").replace("{prefix}", PREFIX);
+
+		KNOCKBACK_USAGE = getFileConfig().getString("Modules.Knockback.Usage").replace("{prefix}", PREFIX);
+		KNOCKBACK_SUCCESS_ADMIN = getFileConfig().getString("Modules.Knockback.SuccessAdmin").replace("{prefix}", PREFIX);
 
 		CLEAR_INVENTORY_SUCCESS = getFileConfig().getString("Modules.ClearInventory.Success").replace("{prefix}", PREFIX);
 		CLEAR_INVENTORY_SUCCESS_OTHERS = getFileConfig().getString("Modules.ClearInventory.SuccessOthers").replace("{prefix}", PREFIX);

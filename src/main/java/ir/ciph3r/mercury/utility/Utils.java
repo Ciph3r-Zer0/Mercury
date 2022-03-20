@@ -1,19 +1,11 @@
 package ir.ciph3r.mercury.utility;
 
-import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.libs.BungeeChannelApi;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class Utils {
 

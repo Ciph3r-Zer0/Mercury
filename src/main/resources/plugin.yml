@@ -25,6 +25,7 @@ commands:
     usage: /<command>
   knockback:
     usage: /<command>
+    aliases: [knock]
   clearinventory:
     usage: /<command>
     aliases: [ci]
