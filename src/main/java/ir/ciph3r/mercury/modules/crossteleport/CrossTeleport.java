@@ -36,13 +36,13 @@ public class CrossTeleport extends Model {
             String targetName = args[0];
 
             getMercury().bungeeAPI.getPlayerList("ALL").whenComplete((allPlayers, err) -> {
-                if (!(allPlayers.contains(targetName))) {
+                if (allPlayers.stream().noneMatch(targetName::equalsIgnoreCase)) {
                     Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 } else {
                     getMercury().bungeeAPI.getServers().whenComplete((allServers, err1) -> {
                         allServers.forEach(s -> {
                             getMercury().bungeeAPI.getPlayerList(s).whenComplete((serverPlayers, err2) -> {
-                                if (serverPlayers.contains(targetName)) {
+                                if (serverPlayers.stream().anyMatch(targetName::equalsIgnoreCase)) {
                                     if (serverPlayers.contains(player.getName())) {
                                         Player target = Bukkit.getPlayer(targetName);
                                         getMercury().vanish.vanishTeleport(player, target);

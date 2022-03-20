@@ -21,6 +21,8 @@ public class Config extends Model {
 
 	public boolean ROTATE_ENABLED;
 
+	public boolean KNOCKBACK_ENABLED;
+
 	public boolean CLEAR_INVENTORY_ENABLED;
 
 	public boolean SPEED_ENABLED;
@@ -38,6 +40,8 @@ public class Config extends Model {
 
 	public boolean LIGHTNING_ENABLED;
 
+	public boolean COORDINATES_ENABLED;
+
 	@Override
 	public void init() {
 		FLY_ENABLED = getFileConfig().getBoolean("Modules.Fly.Enabled");
@@ -51,6 +55,8 @@ public class Config extends Model {
 		SHUFFLE_ENABLED = getFileConfig().getBoolean("Modules.Shuffle.Enabled");
 
 		ROTATE_ENABLED = getFileConfig().getBoolean("Modules.Rotate.Enabled");
+
+		KNOCKBACK_ENABLED = getFileConfig().getBoolean("Modules.Knockback.Enabled");
 
 		CLEAR_INVENTORY_ENABLED = getFileConfig().getBoolean("Modules.ClearInventory.Enabled");
 
@@ -68,5 +74,7 @@ public class Config extends Model {
 		SPAWN_ON_VOID = getFileConfig().getBoolean("Modules.Spawn.onVoid");
 
 		LIGHTNING_ENABLED = getFileConfig().getBoolean("Modules.Lightning.Enabled");
+
+		COORDINATES_ENABLED = getFileConfig().getBoolean("Modules.Coordinates.Enabled");
 	}
 }

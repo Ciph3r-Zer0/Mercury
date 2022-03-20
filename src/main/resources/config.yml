@@ -11,6 +11,8 @@ Modules:
     Enabled: true
   Rotate:
     Enabled: true
+  Knockback:
+    Enabled: true
   ClearInventory:
     Enabled: true
   Speed:
@@ -28,4 +30,6 @@ Modules:
     onVoid: true
     location: ''
   Lightning:
+    Enabled: true
+  Coordinates:
     Enabled: true

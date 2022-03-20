@@ -63,3 +63,6 @@ Modules:
   Lightning:
     Success: "{prefix} &7Lightning struck"
     SuccessOthers: "{prefix} &c{player} &7struck by lightning"
+  Coordinates:
+    Message: "{prefix} &7You're in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
+    MessageOthers: "{prefix} &c{player} &7is in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"

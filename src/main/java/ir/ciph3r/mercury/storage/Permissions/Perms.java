@@ -19,6 +19,8 @@ public class Perms {
 
 	public static String ROTATE;
 
+	public static String KNOCKBACK;
+
 	public static String CLEAR_INVENTORY;
 
 	public static String SPEED;
@@ -36,6 +38,9 @@ public class Perms {
 
 	public static String LIGHTENING;
 	public static String LIGHTENING_OTHERS;
+
+	public static String COORDINATES;
+	public static String COORDINATES_OTHERS;
 
 	public void init() {
 		RELOAD = "mercury.commands.reload";
@@ -56,6 +61,8 @@ public class Perms {
 
 		ROTATE = "mercury.commands.rotate";
 
+		KNOCKBACK = "mercury.commands.knockback";
+
 		CLEAR_INVENTORY = "mercury.commands.clearinventory";
 
 		SPEED = "mercury.commands.speed";
@@ -73,5 +80,8 @@ public class Perms {
 
 		LIGHTENING = "mercury.commands.lightening";
 		LIGHTENING_OTHERS = "mercury.commands.lightening.others";
+
+		COORDINATES = "mercury.commands.coordinates";
+		COORDINATES_OTHERS = "mercury.commands.coordinates.others";
 	}
 }

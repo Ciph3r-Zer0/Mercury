@@ -72,6 +72,9 @@ public class Messages extends Model {
 	public String LIGHTNING_SUCCESS;
 	public String LIGHTNING_SUCCESS_OTHERS;
 
+	public String COORDINATES_MESSAGE;
+	public String COORDINATES_MESSAGE_OTHERS;
+
 	@Override
 	public void init() {
 		PREFIX = getFileConfig().getString("Prefix");
@@ -136,5 +139,8 @@ public class Messages extends Model {
 
 		LIGHTNING_SUCCESS = getFileConfig().getString("Modules.Lightning.Success").replace("{prefix}", PREFIX);
 		LIGHTNING_SUCCESS_OTHERS = getFileConfig().getString("Modules.Lightning.SuccessOthers").replace("{prefix}", PREFIX);
+
+		COORDINATES_MESSAGE = getFileConfig().getString("Modules.Coordinates.Message").replace("{prefix}", PREFIX);
+		COORDINATES_MESSAGE_OTHERS = getFileConfig().getString("Modules.Coordinates.MessageOthers").replace("{prefix}", PREFIX);
 	}
 }
