@@ -9,38 +9,39 @@ public class Config extends Model {
 		setup();
 	}
 
-	public boolean FLY_ENABLED;
+	public boolean
+			FLY_ENABLED
 
-	public boolean GAMEMODE_ENABLED;
+			,GAMEMODE_ENABLED
 
-	public boolean TELEPORT_ENABLED;
+			,TELEPORT_ENABLED
 
-	public boolean HAT_ENABLED;
+			,HAT_ENABLED
 
-	public boolean SHUFFLE_ENABLED;
+			,SHUFFLE_ENABLED
 
-	public boolean ROTATE_ENABLED;
+			,ROTATE_ENABLED
 
-	public boolean KNOCKBACK_ENABLED;
+			,KNOCKBACK_ENABLED
 
-	public boolean CLEAR_INVENTORY_ENABLED;
+			,CLEAR_INVENTORY_ENABLED
 
-	public boolean SPEED_ENABLED;
+			,SPEED_ENABLED
 
-	public boolean TELL_ENABLED;
+			,TELL_ENABLED
 
-	public boolean CROSS_TELEPORT_ENABLED;
+			,CROSS_TELEPORT_ENABLED
 
-	public boolean SUDO_ENABLED;
+			,SUDO_ENABLED
 
-	public boolean SPAWN_ENABLED;
-	public boolean SPAWN_ON_JOIN;
-	public boolean SPAWN_ON_RESPAWN;
-	public boolean SPAWN_ON_VOID;
+			,SPAWN_ENABLED
+			,SPAWN_ON_JOIN
+			,SPAWN_ON_RESPAWN
+			,SPAWN_ON_VOID
 
-	public boolean LIGHTNING_ENABLED;
+			,LIGHTNING_ENABLED
 
-	public boolean COORDINATES_ENABLED;
+			,COORDINATES_ENABLED;
 
 	@Override
 	public void init() {

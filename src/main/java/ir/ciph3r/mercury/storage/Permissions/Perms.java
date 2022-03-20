@@ -1,46 +1,46 @@
 package ir.ciph3r.mercury.storage.Permissions;
 
 public class Perms {
-	public static String RELOAD;
+	public static String
+			RELOAD
+			,FLY
+			,FLY_OTHERS
 
-	public static String FLY;
-	public static String FLY_OTHERS;
+			,GAMEMODE
+			,GAMEMODE_OTHERS
 
-	public static String GAMEMODE;
-	public static String GAMEMODE_OTHERS;
+			,TELEPORT
+			,TELEPORT_OTHERS
 
-	public static String TELEPORT;
-	public static String TELEPORT_OTHERS;
+			,HAT
+			,HAT_OTHERS
 
-	public static String HAT;
-	public static String HAT_OTHERS;
+			,SHUFFLE
 
-	public static String SHUFFLE;
+			,ROTATE
 
-	public static String ROTATE;
+			,KNOCKBACK
 
-	public static String KNOCKBACK;
+			,CLEAR_INVENTORY
 
-	public static String CLEAR_INVENTORY;
+			,SPEED
 
-	public static String SPEED;
+			,TELL
+			,REPLY
 
-	public static String TELL;
-	public static String REPLY;
+			,CROSS_TELEPORT
 
-	public static String CROSS_TELEPORT;
+			,SUDO
 
-	public static String SUDO;
+			,SPAWN
+			,SPAWN_OTHERS
+			,SET_SPAWN
 
-	public static String SPAWN;
-	public static String SPAWN_OTHERS;
-	public static String SET_SPAWN;
+			,LIGHTENING
+			,LIGHTENING_OTHERS
 
-	public static String LIGHTENING;
-	public static String LIGHTENING_OTHERS;
-
-	public static String COORDINATES;
-	public static String COORDINATES_OTHERS;
+			,COORDINATES
+			,COORDINATES_OTHERS;
 
 	public void init() {
 		RELOAD = "mercury.commands.reload";
