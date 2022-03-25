@@ -3,7 +3,7 @@ package ir.ciph3r.mercury.modules.spawn;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -29,7 +29,7 @@ public class Spawn extends Model {
         if (serializedLocation.equalsIgnoreCase("")) {
             return;
         } else {
-            Location spawnLocation = Utils.deSerializeLocation(serializedLocation);
+            Location spawnLocation = getUniversal().deSerializeLocation(serializedLocation);
             player.teleport(spawnLocation);
         }
     }
@@ -44,7 +44,7 @@ public class Spawn extends Model {
         if (serializedLocation.equalsIgnoreCase("")) {
             return;
         } else {
-            Location spawnLocation = Utils.deSerializeLocation(serializedLocation);
+            Location spawnLocation = getUniversal().deSerializeLocation(serializedLocation);
             event.setRespawnLocation(spawnLocation);
         }
     }
@@ -61,7 +61,7 @@ public class Spawn extends Model {
         if (serializedLocation.equalsIgnoreCase("")) {
             return;
         } else {
-            Location spawnLocation = Utils.deSerializeLocation(serializedLocation);
+            Location spawnLocation = getUniversal().deSerializeLocation(serializedLocation);
             player.setNoDamageTicks(60);
             player.teleport(spawnLocation);
             event.setCancelled(true);
@@ -71,11 +71,11 @@ public class Spawn extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.SPAWN))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPAWN));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPAWN));
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
@@ -84,30 +84,30 @@ public class Spawn extends Model {
             String serializedLocation = getConfig().getFileConfig().getString("Modules.Spawn.location");
 
             if (serializedLocation.equalsIgnoreCase("")) {
-                Utils.sendColorizedMessage(player, getMessages().SPAWN_NOT_SET);
+                getUniversal().sendColorizedMessage(player, getMessages().SPAWN_NOT_SET);
             } else {
-                Location spawnLocation = Utils.deSerializeLocation(serializedLocation);
+                Location spawnLocation = getUniversal().deSerializeLocation(serializedLocation);
                 player.teleport(spawnLocation);
-                Utils.sendColorizedMessage(player, getMessages().SPAWN_SUCCESSFUL);
+                getUniversal().sendColorizedMessage(player, getMessages().SPAWN_SUCCESSFUL);
             }
         } else if (args.length == 1) {
             if (!(player.hasPermission(Perms.SPAWN_OTHERS))) {
-                Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPAWN_OTHERS));
+                getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SPAWN_OTHERS));
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                getUniversal().sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 String serializedLocation = getConfig().getFileConfig().getString("Modules.Spawn.location");
 
                 if (serializedLocation.equalsIgnoreCase("")) {
-                    Utils.sendColorizedMessage(player, getMessages().SPAWN_NOT_SET);
+                    getUniversal().sendColorizedMessage(player, getMessages().SPAWN_NOT_SET);
                 } else {
-                    Location spawnLocation = Utils.deSerializeLocation(serializedLocation);
+                    Location spawnLocation = getUniversal().deSerializeLocation(serializedLocation);
                     target.teleport(spawnLocation);
-                    Utils.sendColorizedMessage(player, getMessages().SPAWN_SUCCESSFUL_OTHERS.replace("{player}", target.getName()));
+                    getUniversal().sendColorizedMessage(player, getMessages().SPAWN_SUCCESSFUL_OTHERS.replace("{player}", target.getName()));
                 }
             }
         }

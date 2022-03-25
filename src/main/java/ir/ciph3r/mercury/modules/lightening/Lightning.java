@@ -3,7 +3,7 @@ package ir.ciph3r.mercury.modules.lightening;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -18,33 +18,33 @@ public class Lightning extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.LIGHTENING))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.LIGHTENING));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.LIGHTENING));
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
 
         if (args.length == 0) {
-            Location loc = player.getTargetBlock(null, 25).getLocation();
+            Location loc = player.getTargetBlock(null, 50).getLocation();
             player.getWorld().strikeLightning(loc);
-            Utils.sendColorizedMessage(player, getMessages().LIGHTNING_SUCCESS);
+            getUniversal().sendColorizedMessage(player, getMessages().LIGHTNING_SUCCESS);
 
         } else if (args.length == 1) {
             if (!(sender.hasPermission(Perms.LIGHTENING_OTHERS))) {
-                Utils.sendColorizedMessage(player, getMessages().NO_PERMISSION.replace("{permission}", Perms.LIGHTENING_OTHERS));
+                getUniversal().sendColorizedMessage(player, getMessages().NO_PERMISSION.replace("{permission}", Perms.LIGHTENING_OTHERS));
                 return true;
             }
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                getUniversal().sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 Location loc = target.getLocation();
                 target.getWorld().strikeLightning(loc);
-                Utils.sendColorizedMessage(player, getMessages().LIGHTNING_SUCCESS_OTHERS.replace("{player}", target.getName()));
+                getUniversal().sendColorizedMessage(player, getMessages().LIGHTNING_SUCCESS_OTHERS.replace("{player}", target.getName()));
             }
         }
         return true;

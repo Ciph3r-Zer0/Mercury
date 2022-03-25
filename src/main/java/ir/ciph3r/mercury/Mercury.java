@@ -7,6 +7,7 @@ import ir.ciph3r.mercury.network.Metrics;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
+import ir.ciph3r.mercury.utility.Universal;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -19,12 +20,14 @@ public final class Mercury extends JavaPlugin {
 	private Config configFile;
 	@Getter
 	private Messages messagesFile;
-
+	@Getter
+	private Universal universal;
 	@Override
 	public void onEnable() {
 		mercury = this;
 		configFile = new Config(this);
 		messagesFile = new Messages(this);
+		universal = new Universal(this);
 		new Perms().init();
 		bungeeAPI = BungeeChannelApi.of(this);
 		vanish = new Vanish();
@@ -37,7 +40,6 @@ public final class Mercury extends JavaPlugin {
 	public void onDisable() {
 		mercury = null;
 	}
-
 	public static Mercury getInst() {
 		return mercury;
 	}

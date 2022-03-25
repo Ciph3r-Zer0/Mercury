@@ -3,7 +3,7 @@ package ir.ciph3r.mercury.modules.sudo;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -19,19 +19,19 @@ public class Sudo extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.SUDO))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SUDO));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.SUDO));
             return true;
         }
 
         if (args.length == 0) {
-            Utils.sendColorizedMessage(sender, getMessages().SUDO_USAGE);
+            getUniversal().sendColorizedMessage(sender, getMessages().SUDO_USAGE);
         } else if (args.length == 1) {
-            Utils.sendColorizedMessage(sender, getMessages().SUDO_USAGE);
+            getUniversal().sendColorizedMessage(sender, getMessages().SUDO_USAGE);
         } else {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                Utils.sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                getUniversal().sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 boolean isCommand = !(args[1].toLowerCase().startsWith("c:"));
                 StringBuilder builder = new StringBuilder();
@@ -44,7 +44,7 @@ public class Sudo extends Model {
                 } else {
                     target.chat(builder.toString().substring(2));
                 }
-                Utils.sendColorizedMessage(sender, getMessages().SUDO_SUCCESS.replace("{player}", target.getName()));
+                getUniversal().sendColorizedMessage(sender, getMessages().SUDO_SUCCESS.replace("{player}", target.getName()));
             }
         }
         return true;

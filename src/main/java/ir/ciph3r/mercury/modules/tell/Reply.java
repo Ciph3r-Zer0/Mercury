@@ -3,7 +3,7 @@ package ir.ciph3r.mercury.modules.tell;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -25,38 +25,38 @@ public class Reply extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.REPLY))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.REPLY));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.REPLY));
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
 
         if (args.length == 0) {
-            Utils.sendColorizedMessage(player, getMessages().REPLY_USAGE);
+            getUniversal().sendColorizedMessage(player, getMessages().REPLY_USAGE);
         } else {
             if (!(replyList.containsKey(player.getUniqueId()))) {
-                Utils.sendColorizedMessage(player, getMessages().REPLY_NO_RECEIVER);
+                getUniversal().sendColorizedMessage(player, getMessages().REPLY_NO_RECEIVER);
                 return true;
             }
             Player receiver = Bukkit.getPlayer(replyList.get(player.getUniqueId()));
 
             if (receiver == null) {
-                Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND);
+                getUniversal().sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND);
             } else {
                 StringBuilder builder = new StringBuilder();
                 for (String s : args) {
                     builder.append(s).append(" ");
                 }
 
-                Utils.sendColorizedMessage(receiver, getMessages().REPLY_MESSAGE_FORMAT
+                getUniversal().sendColorizedMessage(receiver, getMessages().REPLY_MESSAGE_FORMAT
                         .replace("{sender}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));
 
-                Utils.sendColorizedMessage(player, getMessages().REPLY_SELF_MESSAGE_FORMAT
+                getUniversal().sendColorizedMessage(player, getMessages().REPLY_SELF_MESSAGE_FORMAT
                         .replace("{sender}", player.getName())
                         .replace("{receiver}", receiver.getName())
                         .replace("{message}", builder.toString()));

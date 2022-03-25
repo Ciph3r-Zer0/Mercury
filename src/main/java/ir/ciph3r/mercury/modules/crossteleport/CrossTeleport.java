@@ -3,13 +3,11 @@ package ir.ciph3r.mercury.modules.crossteleport;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-
-import java.util.Arrays;
 
 public class CrossTeleport extends Model {
 
@@ -21,23 +19,23 @@ public class CrossTeleport extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.CROSS_TELEPORT))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.CROSS_TELEPORT));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.CROSS_TELEPORT));
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
 
         if (args.length == 0) {
-            Utils.sendColorizedMessage(sender, getMessages().CROSS_TELEPORT_USAGE);
+            getUniversal().sendColorizedMessage(sender, getMessages().CROSS_TELEPORT_USAGE);
         } else if (args.length == 1) {
             String targetName = args[0];
 
             getMercury().bungeeAPI.getPlayerList("ALL").whenComplete((allPlayers, err) -> {
                 if (allPlayers.stream().noneMatch(targetName::equalsIgnoreCase)) {
-                    Utils.sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                    getUniversal().sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 } else {
                     getMercury().bungeeAPI.getServers().whenComplete((allServers, err1) -> {
                         allServers.forEach(s -> {
@@ -71,7 +69,7 @@ public class CrossTeleport extends Model {
                     Player target = Bukkit.getPlayer(info[1]);
                     if (!(admin == null)) {
                         if (target == null) {
-                            Utils.sendColorizedMessage(admin, getMessages().PLAYER_NOT_FOUND.replace("{player}", info[1]));
+                            getUniversal().sendColorizedMessage(admin, getMessages().PLAYER_NOT_FOUND.replace("{player}", info[1]));
                         } else {
                             getMercury().vanish.vanishTeleport(admin, target);
                         }

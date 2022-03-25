@@ -3,7 +3,7 @@ package ir.ciph3r.mercury.modules.coordinates;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
@@ -20,18 +20,18 @@ public class Coordinates extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.COORDINATES))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.COORDINATES));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.COORDINATES));
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
 
         if (args.length == 0) {
             Location loc = player.getLocation();
-            Utils.sendColorizedMessage(player, getMessages().COORDINATES_MESSAGE
+            getUniversal().sendColorizedMessage(player, getMessages().COORDINATES_MESSAGE
                     .replace("{world}", loc.getWorld().getName())
                     .replace("{x}", new DecimalFormat("##.#").format(loc.getX()))
                     .replace("{y}", new DecimalFormat("##.#").format(loc.getY()))
@@ -40,10 +40,10 @@ public class Coordinates extends Model {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                Utils.sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                getUniversal().sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 Location loc = target.getLocation();
-                Utils.sendColorizedMessage(player, getMessages().COORDINATES_MESSAGE_OTHERS
+                getUniversal().sendColorizedMessage(player, getMessages().COORDINATES_MESSAGE_OTHERS
                         .replace("{player}", target.getName())
                         .replace("{world}", loc.getWorld().getName())
                         .replace("{x}", new DecimalFormat("##.#").format(loc.getX()))

@@ -1,5 +1,7 @@
 package ir.ciph3r.mercury.utility;
 
+import ir.ciph3r.mercury.Mercury;
+import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -7,21 +9,26 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Utils {
+public class Universal {
+    @Getter
+    private final Mercury mercury;
+    public Universal(Mercury mercury) {
+        this.mercury = mercury;
+    }
 
-    public static void sendColorizedMessage(Player player, String msg) {
+    public void sendColorizedMessage(Player player, String msg) {
         player.sendMessage(colorize(msg));
     }
 
-    public static void sendColorizedMessage(CommandSender sender, String msg) {
+    public void sendColorizedMessage(CommandSender sender, String msg) {
         sender.sendMessage(colorize(msg));
     }
 
-    private static String colorize(String msg) {
+    private String colorize(String msg) {
         return ChatColor.translateAlternateColorCodes('&', msg);
     }
 
-    public static int getRandomNumber(int min, int max, int current) {
+    public int getRandomNumber(int min, int max, int current) {
         int generated = (int) ((Math.random() * (max - min)) + min);
 
         while (generated == current) {
@@ -30,7 +37,7 @@ public class Utils {
         return generated;
     }
 
-    public static double getRandomNumber(double min, double max, double current) {
+    public double getRandomNumber(double min, double max, double current) {
         double generated = (double) ((Math.random() * (max - min)) + min);
 
         while (generated == current) {
@@ -39,7 +46,7 @@ public class Utils {
         return generated;
     }
 
-    public static boolean isNumeric(String strNum) {
+    public boolean isNumeric(String strNum) {
         if (strNum == null) {
             return false;
         }
@@ -51,11 +58,11 @@ public class Utils {
         return true;
     }
 
-    public static String serializeLocation(Location loc) {
+    public String serializeLocation(Location loc) {
         return String.valueOf(loc.getWorld().getName() + "," + loc.getX() + "," + loc.getY() + "," + loc.getZ() + "," + loc.getYaw() + "," + loc.getPitch());
     }
 
-    public static Location deSerializeLocation(String loc) {
+    public Location deSerializeLocation(String loc) {
         String[] args = loc.split(",");
         World world = Bukkit.getWorld(args[0]);
         double x = Double.parseDouble(args[1]);

@@ -3,7 +3,7 @@ package ir.ciph3r.mercury.modules.knockback;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.modules.model.Model;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
-import ir.ciph3r.mercury.utility.Utils;
+import ir.ciph3r.mercury.utility.Universal;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -18,22 +18,22 @@ public class Knockback extends Model {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender.hasPermission(Perms.KNOCKBACK))) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.KNOCKBACK));
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_PERMISSION.replace("{permission}", Perms.KNOCKBACK));
             return true;
         }
         if (!(sender instanceof Player)) {
-            Utils.sendColorizedMessage(sender, getMessages().NO_CONSOLE);
+            getUniversal().sendColorizedMessage(sender, getMessages().NO_CONSOLE);
             return true;
         }
         Player player = (Player) sender;
 
         if (args.length == 0) {
-            Utils.sendColorizedMessage(sender, getMessages().KNOCKBACK_USAGE);
+            getUniversal().sendColorizedMessage(sender, getMessages().KNOCKBACK_USAGE);
         } else if (args.length == 1) {
             Player target = Bukkit.getPlayer(args[0]);
 
             if (target == null) {
-                Utils.sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
+                getUniversal().sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 Vector velocity = new Vector();
                 velocity.setX(2);
@@ -42,7 +42,7 @@ public class Knockback extends Model {
                 velocity.normalize();
 
                 target.setVelocity(velocity);
-                Utils.sendColorizedMessage(player, getMessages().KNOCKBACK_SUCCESS_ADMIN.replace("{player}", target.getName()));
+                getUniversal().sendColorizedMessage(player, getMessages().KNOCKBACK_SUCCESS_ADMIN.replace("{player}", target.getName()));
             }
         }
         return true;
