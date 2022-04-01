@@ -1,13 +1,21 @@
 Prefix: "&5Mercury &8&k||&r"
-NoPermission: "{prefix} &7You don't have permission: &c{permission}"
-NoConsole: "{prefix} &7Only players can execute this command!"
-PlayerNotFound: "{prefix} &7Player &c{player} &7not found!"
 ArgsNotNumber: "{prefix} &7Args must be numeric"
+NoConsole: "{prefix} &7Only players can execute this command!"
+NoPermission: "{prefix} &7You don't have permission: &c{permission}"
+PlayerNotFound: "{prefix} &7Player &c{player} &7not found!"
 
 Modules:
-  Reload:
-    Success: "{prefix} &7Config reload &csuccessful"
-    Failed: "{prefix} &7Config reload &cfailed&7, Check console"
+  Broadcast:
+    Usage: "{prefix} &7Usage: /Broadcast <message>"
+  ClearInventory:
+    Success: "{prefix} &7Inventory cleared"
+    SuccessOthers: "{prefix} &c{player}s &7inventory cleared"
+  Coordinates:
+    Message: "{prefix} &7You're in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
+    MessageOthers: "{prefix} &c{player} &7is in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
+  CrossTeleport:
+    Usage: "{prefix} &7Usage: /CrossTeleport <name>"
+    Success: "{prefix} &7Teleported to &c{player} &7in &c{server}"
   Fly:
     Enabled: "{prefix} &7Flying &aenabled"
     Disabled: "{prefix} &7Flying &cdisabled"
@@ -17,32 +25,43 @@ Modules:
     Usage: "{prefix} &7Usage: /GameMode <Creative, Survival, Adventure, Spectator> [player]"
     Change: "{prefix} &7Gamemode changed to &c{gamemode}"
     ChangeAdmin: "{prefix} &c{players}s &7gamemode changed to &c{gamemode}"
+  Hat:
+    Updated: "{prefix} &7Hat updated"
+    UpdatedAdmin: "{prefix} &c{player}s &7Hat updated"
+  Knockback:
+    Usage: "{prefix} &7Usage: /Knockback <player>"
+    SuccessAdmin: "{prefix} &7Knockback applied to &c{player}"
+  Lightning:
+    Success: "{prefix} &7Lightning struck"
+    SuccessOthers: "{prefix} &c{player} &7struck by lightning"
+  Reload:
+    Success: "{prefix} &7Config reload &csuccessful"
+    Failed: "{prefix} &7Config reload &cfailed&7, Check console"
+  Rotate:
+    Usage: "{prefix} &7Usage: /Rotate <player>"
+    SuccessAdmin: "{prefix} &c{player}s &7head rotated"
+  Shuffle:
+    Usage: "{prefix} &7Usage: /Shuffle <player>"
+    SuccessAdmin: "{prefix} &c{player}s &7hotbar shuffled"
+  Spawn:
+    SpawnNotSet: "{prefix} &7Spawn not been set"
+    SetSuccessful: "{prefix} &7Spawn set successful"
+    Successful: "{prefix} &7You've been teleported to spawn"
+    SuccessfulOthers: "{prefix} &7Teleported &c{player} &7to spawn"
+  Speed:
+    Usage: "{prefix} &7Usage: /Speed <Fly, Walk> <1-10>"
+    SuccessWalk: "{prefix} &7Walk speed set to &c{amount}"
+    SuccessFly: "{prefix} &7Fly speed set to &c{amount}"
+    Reset: "{prefix} &7Fly & Walk speed reset"
+  Sudo:
+    Usage: "{prefix} &7Usage: /Sudo <name> [c:]<message>"
+    Success: "{prefix} &c{player} &7sudo successful"
   Teleport:
     Usage: "{prefix} &7Usage: /Teleport <player> [player]"
     SuccessPlayer: "{prefix} &7Teleported to &c{player}"
     SuccessOthers: "{prefix} &c{player} &7Teleported to &c{target}"
     SuccessLocation: "{prefix} &7Teleported to &c{x}&7, &c{y}&7, &c{z}"
     SuccessOthersLocation: "{prefix} &c{player} &7Teleported to &c{x}&7, &c{y}&7, &c{z}"
-  Hat:
-    Updated: "{prefix} &7Hat updated"
-    UpdatedAdmin: "{prefix} &c{player}s &7Hat updated"
-  Shuffle:
-    Usage: "{prefix} &7Usage: /Shuffle <player>"
-    SuccessAdmin: "{prefix} &c{player}s &7hotbar shuffled"
-  Rotate:
-    Usage: "{prefix} &7Usage: /Rotate <player>"
-    SuccessAdmin: "{prefix} &c{player}s &7head rotated"
-  Knockback:
-    Usage: "{prefix} &7Usage: /Knockback <player>"
-    SuccessAdmin: "{prefix} &7Knockback applied to &c{player}"
-  ClearInventory:
-    Success: "{prefix} &7Inventory cleared"
-    SuccessOthers: "{prefix} &c{player}s &7inventory cleared"
-  Speed:
-    Usage: "{prefix} &7Usage: /Speed <Fly, Walk> <1-10>"
-    SuccessWalk: "{prefix} &7Walk speed set to &c{amount}"
-    SuccessFly: "{prefix} &7Fly speed set to &c{amount}"
-    Reset: "{prefix} &7Fly & Walk speed reset"
   Tell:
     Usage: "{prefix} &7Usage: /Tell <name> <message>"
     MessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
@@ -52,22 +71,3 @@ Modules:
     MessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
     SelfMessageFormat: "&c{sender} &7-> &c{receiver} &7»&r {message}"
     NoReceiver: "{prefix} &7There is no one to talk to"
-  CrossTeleport:
-    Usage: "{prefix} &7Usage: /CrossTeleport <name>"
-    Success: "{prefix} &7Teleported to &c{player} &7in &c{server}"
-  Sudo:
-    Usage: "{prefix} &7Usage: /Sudo <name> [c:]<message>"
-    Success: "{prefix} &c{player} &7sudo successful"
-  Spawn:
-    SpawnNotSet: "{prefix} &7Spawn not been set"
-    SetSuccessful: "{prefix} &7Spawn set successful"
-    Successful: "{prefix} &7You've been teleported to spawn"
-    SuccessfulOthers: "{prefix} &7Teleported &c{player} &7to spawn"
-  Lightning:
-    Success: "{prefix} &7Lightning struck"
-    SuccessOthers: "{prefix} &c{player} &7struck by lightning"
-  Coordinates:
-    Message: "{prefix} &7You're in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
-    MessageOthers: "{prefix} &c{player} &7is in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
-  Broadcast:
-    Usage: "{prefix} &7Usage: /Broadcast <message>"

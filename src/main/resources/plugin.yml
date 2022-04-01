@@ -9,47 +9,47 @@ description: A core plugin made to make life easier
 commands:
   mercury:
     usage: /<command>
+  broadcast:
+    usage: /<command>
+  clearinventory:
+    usage: /<command>
+    aliases: [ci]
+  coordinates:
+    usage: /<command>
+    aliases: [coords]
+  crossteleport:
+    usage: /<command>
+    aliases: [crosstp, ctp]
   fly:
     usage: /<command>
   gamemode:
     usage: /<command>
     aliases: [gmc, gms, gma, gmsp]
-  teleport:
-    usage: /<command>
-    aliases: [tp]
   hat:
-    usage: /<command>
-  shuffle:
-    usage: /<command>
-  rotate:
     usage: /<command>
   knockback:
     usage: /<command>
     aliases: [knock]
-  clearinventory:
+  lightning:
     usage: /<command>
-    aliases: [ci]
+  rotate:
+    usage: /<command>
+  shuffle:
+    usage: /<command>
+  spawn:
+    usage: /<command>
+  setspawn:
+    usage: /<command>
   Speed:
     usage: /<command>
+  sudo:
+    usage: /<command>
+  teleport:
+    usage: /<command>
+    aliases: [tp]
   tell:
     usage: /<command>
     aliases: [t]
   reply:
     usage: /<command>
     aliases: [r]
-  crossteleport:
-    usage: /<command>
-    aliases: [crosstp, ctp]
-  sudo:
-    usage: /<command>
-  spawn:
-    usage: /<command>
-  setspawn:
-    usage: /<command>
-  lightning:
-    usage: /<command>
-  coordinates:
-    usage: /<command>
-    aliases: [coords]
-  broadcast:
-    usage: /<command>

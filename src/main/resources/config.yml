@@ -1,27 +1,25 @@
 Modules:
+  Broadcast:
+    Enabled: true
+  ClearInventory:
+    Enabled: true
+  Coordinates:
+    Enabled: true
+  CrossTeleport:
+    Enabled: true
   Fly:
     Enabled: true
   GameMode:
     Enabled: true
-  Teleport:
-    Enabled: true
   Hat:
-    Enabled: true
-  Shuffle:
-    Enabled: true
-  Rotate:
     Enabled: true
   Knockback:
     Enabled: true
-  ClearInventory:
+  Lightning:
     Enabled: true
-  Speed:
+  Rotate:
     Enabled: true
-  Tell:
-    Enabled: true
-  CrossTeleport:
-    Enabled: true
-  Sudo:
+  Shuffle:
     Enabled: true
   Spawn:
     Enabled: true
@@ -29,9 +27,11 @@ Modules:
     onRespawn: true
     onVoid: true
     location: ''
-  Lightning:
+  Speed:
     Enabled: true
-  Coordinates:
+  Sudo:
     Enabled: true
-  Broadcast:
+  Teleport:
+    Enabled: true
+  Tell:
     Enabled: true

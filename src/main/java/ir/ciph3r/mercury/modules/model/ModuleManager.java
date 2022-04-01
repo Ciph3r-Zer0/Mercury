@@ -34,24 +34,24 @@ public class ModuleManager {
 
     public void register() {
         modules.add(new MercuryCMD(mercury));
+        modules.add(new Broadcast(mercury));
+        modules.add(new ClearInventory(mercury));
+        modules.add(new Coordinates(mercury));
+        modules.add(new CrossTeleport(mercury));
         modules.add(new Fly(mercury));
         modules.add(new GameMode(mercury));
-        modules.add(new Teleport(mercury));
         modules.add(new Hat(mercury));
-        modules.add(new Shuffle(mercury));
-        modules.add(new Rotate(mercury));
         modules.add(new Knockback(mercury));
-        modules.add(new ClearInventory(mercury));
-        modules.add(new Speed(mercury));
-        modules.add(new Tell(mercury));
-        modules.add(new Reply(mercury));
-        modules.add(new CrossTeleport(mercury));
-        modules.add(new Sudo(mercury));
+        modules.add(new Lightning(mercury));
+        modules.add(new Rotate(mercury));
+        modules.add(new Shuffle(mercury));
         modules.add(new Spawn(mercury));
         modules.add(new SetSpawn(mercury));
-        modules.add(new Lightning(mercury));
-        modules.add(new Coordinates(mercury));
-        modules.add(new Broadcast(mercury));
+        modules.add(new Speed(mercury));
+        modules.add(new Sudo(mercury));
+        modules.add(new Teleport(mercury));
+        modules.add(new Tell(mercury));
+        modules.add(new Reply(mercury));
 
         for (Model base : modules) {
             base.register();
