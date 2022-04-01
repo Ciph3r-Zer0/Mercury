@@ -74,7 +74,9 @@ public class Messages extends Model {
 			,LIGHTNING_SUCCESS_OTHERS
 
 			,COORDINATES_MESSAGE
-			,COORDINATES_MESSAGE_OTHERS;
+			,COORDINATES_MESSAGE_OTHERS
+
+			,BROADCAST_USAGE;
 
 	@Override
 	public void init() {
@@ -146,5 +148,7 @@ public class Messages extends Model {
 
 		COORDINATES_MESSAGE = getFileConfig().getString("Modules.Coordinates.Message").replace("{prefix}", PREFIX);
 		COORDINATES_MESSAGE_OTHERS = getFileConfig().getString("Modules.Coordinates.MessageOthers").replace("{prefix}", PREFIX);
+
+		BROADCAST_USAGE = getFileConfig().getString("Modules.Broadcast.Usage").replace("{prefix}", PREFIX);
 	}
 }

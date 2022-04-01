@@ -40,7 +40,9 @@ public class Perms {
 			,LIGHTENING_OTHERS
 
 			,COORDINATES
-			,COORDINATES_OTHERS;
+			,COORDINATES_OTHERS
+
+			,BROADCAST;
 
 	public void init() {
 		RELOAD = "mercury.commands.reload";
@@ -83,5 +85,7 @@ public class Perms {
 
 		COORDINATES = "mercury.commands.coordinates";
 		COORDINATES_OTHERS = "mercury.commands.coordinates.others";
+
+		BROADCAST = "mercury.commands.broadcast";
 	}
 }

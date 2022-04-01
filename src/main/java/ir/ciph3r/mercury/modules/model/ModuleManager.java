@@ -1,6 +1,7 @@
 package ir.ciph3r.mercury.modules.model;
 
 import ir.ciph3r.mercury.Mercury;
+import ir.ciph3r.mercury.modules.broadcast.Broadcast;
 import ir.ciph3r.mercury.modules.clearinventory.ClearInventory;
 import ir.ciph3r.mercury.modules.coordinates.Coordinates;
 import ir.ciph3r.mercury.modules.crossteleport.CrossTeleport;
@@ -50,6 +51,7 @@ public class ModuleManager {
         modules.add(new SetSpawn(mercury));
         modules.add(new Lightning(mercury));
         modules.add(new Coordinates(mercury));
+        modules.add(new Broadcast(mercury));
 
         for (Model base : modules) {
             base.register();

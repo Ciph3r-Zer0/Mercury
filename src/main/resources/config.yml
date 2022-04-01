@@ -33,3 +33,5 @@ Modules:
     Enabled: true
   Coordinates:
     Enabled: true
+  Broadcast:
+    Enabled: true

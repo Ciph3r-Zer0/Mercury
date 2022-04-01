@@ -9,6 +9,8 @@ import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class Universal {
     @Getter
     private final Mercury mercury;
@@ -22,6 +24,10 @@ public class Universal {
 
     public void sendColorizedMessage(CommandSender sender, String msg) {
         sender.sendMessage(colorize(msg));
+    }
+
+    public void broadcastToServer(String msg) {
+        Bukkit.getServer().broadcastMessage(colorize(msg));
     }
 
     private String colorize(String msg) {
@@ -72,5 +78,13 @@ public class Universal {
         float pitch = Float.parseFloat(args[5]);
 
         return new Location(world, x, y, z, yaw, pitch);
+    }
+
+    public String createStringFromArray(String[] args, int from, int to) {
+        StringBuilder builder = new StringBuilder();
+        for (String s : Arrays.copyOfRange(args, from, to)) {
+            builder.append(s).append(" ");
+        }
+        return builder.toString();
     }
 }

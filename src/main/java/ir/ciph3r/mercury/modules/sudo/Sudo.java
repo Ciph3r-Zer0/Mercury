@@ -34,15 +34,13 @@ public class Sudo extends Model {
                 getUniversal().sendColorizedMessage(sender, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
             } else {
                 boolean isCommand = !(args[1].toLowerCase().startsWith("c:"));
-                StringBuilder builder = new StringBuilder();
-                for (String s : Arrays.copyOfRange(args, 1, args.length)) {
-                    builder.append(s).append(" ");
-                }
+
+                String msg = getUniversal().createStringFromArray(args, 1, args.length);
 
                 if (isCommand) {
-                    target.performCommand(builder.toString());
+                    target.performCommand(msg);
                 } else {
-                    target.chat(builder.toString().substring(2));
+                    target.chat(msg.substring(2));
                 }
                 getUniversal().sendColorizedMessage(sender, getMessages().SUDO_SUCCESS.replace("{player}", target.getName()));
             }

@@ -48,6 +48,8 @@ commands:
     usage: /<command>
   lightning:
     usage: /<command>
-  Coordinates:
+  coordinates:
     usage: /<command>
     aliases: [coords]
+  broadcast:
+    usage: /<command>

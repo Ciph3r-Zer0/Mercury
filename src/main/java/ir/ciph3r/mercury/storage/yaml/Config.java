@@ -41,7 +41,9 @@ public class Config extends Model {
 
 			,LIGHTNING_ENABLED
 
-			,COORDINATES_ENABLED;
+			,COORDINATES_ENABLED
+
+			,BROADCAST_ENABLED;
 
 	@Override
 	public void init() {
@@ -77,5 +79,7 @@ public class Config extends Model {
 		LIGHTNING_ENABLED = getFileConfig().getBoolean("Modules.Lightning.Enabled");
 
 		COORDINATES_ENABLED = getFileConfig().getBoolean("Modules.Coordinates.Enabled");
+
+		BROADCAST_ENABLED = getFileConfig().getBoolean("Modules.Broadcast.Enabled");
 	}
 }
