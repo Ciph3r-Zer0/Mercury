@@ -1,7 +1,9 @@
 Prefix: "&5Mercury &8&k||&r"
 ArgsNotNumber: "{prefix} &7Args must be numeric"
+NextPageAvailable: "&7Page &c{nextpage} &7available"
 NoConsole: "{prefix} &7Only players can execute this command!"
 NoPermission: "{prefix} &7You don't have permission: &c{permission}"
+PageNotFound: "{prefix} &7Specified page not found"
 PlayerNotFound: "{prefix} &7Player &c{player} &7not found!"
 
 Modules:
@@ -34,6 +36,9 @@ Modules:
   Lightning:
     Success: "{prefix} &7Lightning struck"
     SuccessOthers: "{prefix} &c{player} &7struck by lightning"
+  PluginList:
+    HeadFormat: "&7PluginList &7(&4{plugincount}&7):"
+    LineFormat: "&7- &5{plugin} &7[&4{version}&7] &7[{status}&7]: &7{description}"
   Reload:
     Success: "{prefix} &7Config reload &csuccessful"
     Failed: "{prefix} &7Config reload &cfailed&7, Check console"

@@ -35,7 +35,7 @@ public class Speed extends Model {
                 getUniversal().sendColorizedMessage(player, getMessages().SPEED_USAGE);
             }
         } else if (args.length == 2) {
-            if (!(getUniversal().isNumeric(args[1]))) {
+            if (!(getUniversal().isDouble(args[1]))) {
                 getUniversal().sendColorizedMessage(player, getMessages().ARGS_NOT_NUMBER);
                 return true;
             }

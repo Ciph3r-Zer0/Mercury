@@ -32,6 +32,8 @@ commands:
     aliases: [knock]
   lightning:
     usage: /<command>
+  pluginlist:
+    usage: /<command>
   rotate:
     usage: /<command>
   shuffle:
@@ -49,7 +51,7 @@ commands:
     aliases: [tp]
   tell:
     usage: /<command>
-    aliases: [t]
+    aliases: [t, message, msg, whisper]
   reply:
     usage: /<command>
     aliases: [r]
