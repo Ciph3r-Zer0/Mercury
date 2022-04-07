@@ -12,8 +12,10 @@ public class Messages extends Model {
 	public String
 			PREFIX
 			,ARGS_NOT_NUMBER
+			,NEXT_PAGE_AVAILABLE
 			,NO_CONSOLE
 			,NO_PERMISSION
+			,PAGE_NOT_FOUND
 			,PLAYER_NOT_FOUND
 
 			,BROADCAST_USAGE
@@ -44,6 +46,9 @@ public class Messages extends Model {
 
 			,LIGHTNING_SUCCESS
 			,LIGHTNING_SUCCESS_OTHERS
+
+			,PLUGIN_LIST_HEAD_FORMAT
+			, PLUGIN_LIST_LINE_FORMAT
 
 			,RELOAD_SUCCESS
 			,RELOAD_FAILED
@@ -83,8 +88,10 @@ public class Messages extends Model {
 	public void init() {
 		PREFIX = getFileConfig().getString("Prefix");
 		ARGS_NOT_NUMBER = getFileConfig().getString("ArgsNotNumber").replace("{prefix}", PREFIX);
+		NEXT_PAGE_AVAILABLE = getFileConfig().getString("NextPageAvailable").replace("{prefix}", PREFIX);
 		NO_CONSOLE = getFileConfig().getString("NoConsole").replace("{prefix}", PREFIX);
 		NO_PERMISSION = getFileConfig().getString("NoPermission").replace("{prefix}", PREFIX);
+		PAGE_NOT_FOUND = getFileConfig().getString("PageNotFound").replace("{prefix}", PREFIX);
 		PLAYER_NOT_FOUND = getFileConfig().getString("PlayerNotFound").replace("{prefix}", PREFIX);
 
 		BROADCAST_USAGE = getFileConfig().getString("Modules.Broadcast.Usage").replace("{prefix}", PREFIX);
@@ -115,6 +122,9 @@ public class Messages extends Model {
 
 		LIGHTNING_SUCCESS = getFileConfig().getString("Modules.Lightning.Success").replace("{prefix}", PREFIX);
 		LIGHTNING_SUCCESS_OTHERS = getFileConfig().getString("Modules.Lightning.SuccessOthers").replace("{prefix}", PREFIX);
+
+		PLUGIN_LIST_HEAD_FORMAT = getFileConfig().getString("Modules.PluginList.HeadFormat").replace("{prefix}", PREFIX);
+		PLUGIN_LIST_LINE_FORMAT = getFileConfig().getString("Modules.PluginList.LineFormat").replace("{prefix}", PREFIX);
 
 		RELOAD_SUCCESS = getFileConfig().getString("Modules.Reload.Success").replace("{prefix}", PREFIX);
 		RELOAD_FAILED = getFileConfig().getString("Modules.Reload.Failed").replace("{prefix}", PREFIX);

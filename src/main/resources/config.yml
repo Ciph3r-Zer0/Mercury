@@ -17,6 +17,9 @@ Modules:
     Enabled: true
   Lightning:
     Enabled: true
+  PluginList:
+    Enabled: true
+    PluginPerPage: 10
   Rotate:
     Enabled: true
   Shuffle:

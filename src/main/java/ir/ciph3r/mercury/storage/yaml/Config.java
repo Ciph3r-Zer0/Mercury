@@ -28,6 +28,8 @@ public class Config extends Model {
 
 			,LIGHTNING_ENABLED
 
+			,PLUGIN_LIST_ENABLED
+
 			,ROTATE_ENABLED
 
 			,SHUFFLE_ENABLED
@@ -44,6 +46,9 @@ public class Config extends Model {
 			,TELEPORT_ENABLED
 
 			,TELL_ENABLED;
+
+	public int
+			PLUGIN_LIST_PLUGIN_PER_PAGE;
 
 	@Override
 	public void init() {
@@ -64,6 +69,9 @@ public class Config extends Model {
 		KNOCKBACK_ENABLED = getFileConfig().getBoolean("Modules.Knockback.Enabled");
 
 		LIGHTNING_ENABLED = getFileConfig().getBoolean("Modules.Lightning.Enabled");
+
+		PLUGIN_LIST_ENABLED = getFileConfig().getBoolean("Modules.PluginList.Enabled");
+		PLUGIN_LIST_PLUGIN_PER_PAGE = getFileConfig().getInt("Modules.PluginList.PluginPerPage");
 
 		ROTATE_ENABLED = getFileConfig().getBoolean("Modules.Rotate.Enabled");
 

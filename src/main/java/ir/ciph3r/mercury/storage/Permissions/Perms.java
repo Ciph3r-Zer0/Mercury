@@ -42,7 +42,9 @@ public class Perms {
 			,COORDINATES
 			,COORDINATES_OTHERS
 
-			,BROADCAST;
+			,BROADCAST
+
+			,PLUGIN_LIST;
 
 	public void init() {
 		RELOAD = "mercury.commands.reload";
@@ -87,5 +89,7 @@ public class Perms {
 		COORDINATES_OTHERS = "mercury.commands.coordinates.others";
 
 		BROADCAST = "mercury.commands.broadcast";
+
+		PLUGIN_LIST = "mercury.commands.pluginlist";
 	}
 }

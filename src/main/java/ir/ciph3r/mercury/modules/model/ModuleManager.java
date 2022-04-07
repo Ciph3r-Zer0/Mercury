@@ -11,6 +11,7 @@ import ir.ciph3r.mercury.modules.hat.Hat;
 import ir.ciph3r.mercury.modules.knockback.Knockback;
 import ir.ciph3r.mercury.modules.lightening.Lightning;
 import ir.ciph3r.mercury.modules.mercury.MercuryCMD;
+import ir.ciph3r.mercury.modules.pluginlist.PluginList;
 import ir.ciph3r.mercury.modules.rotate.Rotate;
 import ir.ciph3r.mercury.modules.shuffle.Shuffle;
 import ir.ciph3r.mercury.modules.spawn.SetSpawn;
@@ -43,6 +44,7 @@ public class ModuleManager {
         modules.add(new Hat(mercury));
         modules.add(new Knockback(mercury));
         modules.add(new Lightning(mercury));
+        modules.add(new PluginList(mercury));
         modules.add(new Rotate(mercury));
         modules.add(new Shuffle(mercury));
         modules.add(new Spawn(mercury));

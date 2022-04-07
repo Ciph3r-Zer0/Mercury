@@ -59,7 +59,7 @@ public class Teleport extends Model {
                 return true;
             }
         } else if (args.length == 3) {
-            if (!(getUniversal().isNumeric(args[0]) || getUniversal().isNumeric(args[1]) || getUniversal().isNumeric(args[2]))) {
+            if (!(getUniversal().isDouble(args[0]) || getUniversal().isDouble(args[1]) || getUniversal().isDouble(args[2]))) {
                 getUniversal().sendColorizedMessage(player, getMessages().ARGS_NOT_NUMBER);
                 return true;
             }
@@ -73,7 +73,7 @@ public class Teleport extends Model {
                 getUniversal().sendColorizedMessage(player, getMessages().PLAYER_NOT_FOUND.replace("{player}", args[0]));
                 return true;
             }
-            if (!(getUniversal().isNumeric(args[1]) || getUniversal().isNumeric(args[2]) || getUniversal().isNumeric(args[3]))) {
+            if (!(getUniversal().isDouble(args[1]) || getUniversal().isDouble(args[2]) || getUniversal().isDouble(args[3]))) {
                 getUniversal().sendColorizedMessage(player, getMessages().ARGS_NOT_NUMBER);
                 return true;
             }
