@@ -20,12 +20,16 @@ commands:
   crossteleport:
     usage: /<command>
     aliases: [crosstp, ctp]
+  feed:
+    usage: /<command>
   fly:
     usage: /<command>
   gamemode:
     usage: /<command>
     aliases: [gmc, gms, gma, gmsp]
   hat:
+    usage: /<command>
+  Heal:
     usage: /<command>
   knockback:
     usage: /<command>

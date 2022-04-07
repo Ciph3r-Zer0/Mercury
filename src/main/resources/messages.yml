@@ -11,13 +11,16 @@ Modules:
     Usage: "{prefix} &7Usage: /Broadcast <message>"
   ClearInventory:
     Success: "{prefix} &7Inventory cleared"
-    SuccessOthers: "{prefix} &c{player}s &7inventory cleared"
+    SuccessOthers: "{prefix} &c{player} &7inventory cleared"
   Coordinates:
     Message: "{prefix} &7You're in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
     MessageOthers: "{prefix} &c{player} &7is in Word:&c{world}&7, X:&c{x}&7, Y:&c{y}&7, Z:&c{z}"
   CrossTeleport:
     Usage: "{prefix} &7Usage: /CrossTeleport <name>"
     Success: "{prefix} &7Teleported to &c{player} &7in &c{server}"
+  Feed:
+    Success: "{prefix} &7You've been fed"
+    SuccessOthers: "{prefix} &c{player} &7fed"
   Fly:
     Enabled: "{prefix} &7Flying &aenabled"
     Disabled: "{prefix} &7Flying &cdisabled"
@@ -29,7 +32,10 @@ Modules:
     ChangeAdmin: "{prefix} &c{players}s &7gamemode changed to &c{gamemode}"
   Hat:
     Updated: "{prefix} &7Hat updated"
-    UpdatedAdmin: "{prefix} &c{player}s &7Hat updated"
+    UpdatedAdmin: "{prefix} &c{player} &7Hat updated"
+  Heal:
+    Success: "{prefix} &7You've been healed"
+    SuccessOthers: "{prefix} &c{player} &7healed"
   Knockback:
     Usage: "{prefix} &7Usage: /Knockback <player>"
     SuccessAdmin: "{prefix} &7Knockback applied to &c{player}"
@@ -44,10 +50,10 @@ Modules:
     Failed: "{prefix} &7Config reload &cfailed&7, Check console"
   Rotate:
     Usage: "{prefix} &7Usage: /Rotate <player>"
-    SuccessAdmin: "{prefix} &c{player}s &7head rotated"
+    SuccessAdmin: "{prefix} &c{player} &7head rotated"
   Shuffle:
     Usage: "{prefix} &7Usage: /Shuffle <player>"
-    SuccessAdmin: "{prefix} &c{player}s &7hotbar shuffled"
+    SuccessAdmin: "{prefix} &c{player} &7hotbar shuffled"
   Spawn:
     SpawnNotSet: "{prefix} &7Spawn not been set"
     SetSuccessful: "{prefix} &7Spawn set successful"

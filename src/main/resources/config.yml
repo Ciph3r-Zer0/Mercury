@@ -7,11 +7,15 @@ Modules:
     Enabled: true
   CrossTeleport:
     Enabled: true
+  Feed:
+    Enabled: true
   Fly:
     Enabled: true
   GameMode:
     Enabled: true
   Hat:
+    Enabled: true
+  Heal:
     Enabled: true
   Knockback:
     Enabled: true

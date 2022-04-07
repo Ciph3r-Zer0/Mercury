@@ -44,7 +44,13 @@ public class Perms {
 
 			,BROADCAST
 
-			,PLUGIN_LIST;
+			,PLUGIN_LIST
+
+			,HEAL
+			,HEAL_OTHERS
+
+			,FEED
+			,FEED_OTHERS;
 
 	public void init() {
 		RELOAD = "mercury.commands.reload";
@@ -91,5 +97,11 @@ public class Perms {
 		BROADCAST = "mercury.commands.broadcast";
 
 		PLUGIN_LIST = "mercury.commands.pluginlist";
+
+		HEAL = "mercury.commands.heal";
+		HEAL_OTHERS = "mercury.commands.heal.others";
+
+		FEED = "mercury.commands.feed";
+		FEED_OTHERS = "mercury.commands.feed.others";
 	}
 }

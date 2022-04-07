@@ -18,11 +18,15 @@ public class Config extends Model {
 
 			,CROSS_TELEPORT_ENABLED
 
+			,FEED_ENABLED
+
 			,FLY_ENABLED
 
 			,GAMEMODE_ENABLED
 
 			,HAT_ENABLED
+
+			,HEAL_ENABLED
 
 			,KNOCKBACK_ENABLED
 
@@ -60,11 +64,15 @@ public class Config extends Model {
 
 		CROSS_TELEPORT_ENABLED = getFileConfig().getBoolean("Modules.CrossTeleport.Enabled");
 
+		FEED_ENABLED = getFileConfig().getBoolean("Modules.Feed.Enabled");
+
 		FLY_ENABLED = getFileConfig().getBoolean("Modules.Fly.Enabled");
 
 		GAMEMODE_ENABLED = getFileConfig().getBoolean("Modules.GameMode.Enabled");
 
 		HAT_ENABLED	= getFileConfig().getBoolean("Modules.Hat.Enabled");
+
+		HEAL_ENABLED = getFileConfig().getBoolean("Modules.Heal.Enabled");
 
 		KNOCKBACK_ENABLED = getFileConfig().getBoolean("Modules.Knockback.Enabled");
 

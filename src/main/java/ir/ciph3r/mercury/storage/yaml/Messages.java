@@ -29,6 +29,9 @@ public class Messages extends Model {
 			,CROSS_TELEPORT_USAGE
 			,CROSS_TELEPORT_SUCCESS
 
+			,FEED_SUCCESS
+			,FEED_SUCCESS_OTHERS
+
 			,FLY_ENABLED
 			,FLY_DISABLED
 			,FLY_ENABLED_ADMIN
@@ -40,6 +43,9 @@ public class Messages extends Model {
 
 			,HAT_UPDATED
 			,HAT_UPDATED_ADMIN
+
+			,HEAL_SUCCESS
+			,HEAL_SUCCESS_OTHERS
 
 			,KNOCKBACK_USAGE
 			,KNOCKBACK_SUCCESS_ADMIN
@@ -105,6 +111,9 @@ public class Messages extends Model {
 		CROSS_TELEPORT_USAGE = getFileConfig().getString("Modules.CrossTeleport.Usage").replace("{prefix}", PREFIX);
 		CROSS_TELEPORT_SUCCESS = getFileConfig().getString("Modules.CrossTeleport.Success").replace("{prefix}", PREFIX);
 
+		FEED_SUCCESS = getFileConfig().getString("Modules.Feed.Success").replace("{prefix}", PREFIX);
+		FEED_SUCCESS_OTHERS = getFileConfig().getString("Modules.Feed.SuccessOthers").replace("{prefix}", PREFIX);
+
 		FLY_ENABLED = getFileConfig().getString("Modules.Fly.Enabled").replace("{prefix}", PREFIX);
 		FLY_DISABLED = getFileConfig().getString("Modules.Fly.Disabled").replace("{prefix}", PREFIX);
 		FLY_ENABLED_ADMIN = getFileConfig().getString("Modules.Fly.EnabledAdmin").replace("{prefix}", PREFIX);
@@ -116,6 +125,9 @@ public class Messages extends Model {
 
 		HAT_UPDATED = getFileConfig().getString("Modules.Hat.Updated").replace("{prefix}", PREFIX);
 		HAT_UPDATED_ADMIN = getFileConfig().getString("Modules.Hat.UpdatedAdmin").replace("{prefix}", PREFIX);
+
+		HEAL_SUCCESS = getFileConfig().getString("Modules.Heal.Success").replace("{prefix}", PREFIX);
+		HEAL_SUCCESS_OTHERS = getFileConfig().getString("Modules.Heal.SuccessOthers").replace("{prefix}", PREFIX);
 
 		KNOCKBACK_USAGE = getFileConfig().getString("Modules.Knockback.Usage").replace("{prefix}", PREFIX);
 		KNOCKBACK_SUCCESS_ADMIN = getFileConfig().getString("Modules.Knockback.SuccessAdmin").replace("{prefix}", PREFIX);
