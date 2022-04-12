@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.pluginlist;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -10,7 +10,7 @@ import org.bukkit.plugin.Plugin;
 
 import java.util.*;
 
-public class PluginList extends Model {
+public class PluginList extends ModuleModel {
     public PluginList(Mercury mercury) {
         super(mercury, "PluginList", "PluginList", mercury.getConfigFile().PLUGIN_LIST_ENABLED);
     }

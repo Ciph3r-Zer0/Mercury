@@ -1,14 +1,14 @@
 package ir.ciph3r.mercury.modules.feed;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Feed extends Model {
+public class Feed extends ModuleModel {
     public Feed(Mercury mercury) {
         super(mercury, "Feed", "Feed", mercury.getConfigFile().FEED_ENABLED);
     }

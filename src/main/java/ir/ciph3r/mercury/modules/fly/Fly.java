@@ -1,14 +1,14 @@
 package ir.ciph3r.mercury.modules.fly;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Fly extends Model {
+public class Fly extends ModuleModel {
     public Fly(Mercury mercury) {
         super(mercury, "Fly", "Fly", mercury.getConfigFile().FLY_ENABLED);
     }

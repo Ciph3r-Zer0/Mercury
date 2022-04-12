@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.tell;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 
-public class Tell extends Model {
+public class Tell extends ModuleModel {
     public Tell(Mercury mercury) {
         super(mercury, "Tell", "Tell", mercury.getConfigFile().TELL_ENABLED);
     }

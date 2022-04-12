@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.coordinates;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
 
-public class Coordinates extends Model {
+public class Coordinates extends ModuleModel {
     public Coordinates(Mercury mercury) {
         super(mercury, "Coordinates", "Coordinates", mercury.getConfigFile().COORDINATES_ENABLED);
     }

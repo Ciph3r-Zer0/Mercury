@@ -1,9 +1,9 @@
 package ir.ciph3r.mercury.storage.yaml;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.storage.yaml.models.Model;
+import ir.ciph3r.mercury.storage.yaml.models.YamlModel;
 
-public class Messages extends Model {
+public class Messages extends YamlModel {
 	public Messages(Mercury mercury) {
 		super(mercury, "messages.yml");
 		setup();

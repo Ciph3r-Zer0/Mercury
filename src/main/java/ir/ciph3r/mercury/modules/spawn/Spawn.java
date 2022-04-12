@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.spawn;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -13,7 +13,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-public class Spawn extends Model {
+public class Spawn extends ModuleModel {
     public Spawn(Mercury mercury) {
         super(mercury, "Spawn", "Spawn", mercury.getConfigFile().SPAWN_ENABLED);
     }

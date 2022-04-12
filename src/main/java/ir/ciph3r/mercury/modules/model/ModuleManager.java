@@ -28,11 +28,11 @@ import java.util.ArrayList;
 
 public class ModuleManager {
     private final Mercury mercury;
-    private ArrayList<Model> modules;
+    private ArrayList<ModuleModel> modules;
 
     public ModuleManager(Mercury mercury) {
         this.mercury = mercury;
-        modules = new ArrayList<Model>();
+        modules = new ArrayList<ModuleModel>();
     }
 
     public void register() {
@@ -59,7 +59,7 @@ public class ModuleManager {
         modules.add(new Tell(mercury));
         modules.add(new Reply(mercury));
 
-        for (Model base : modules) {
+        for (ModuleModel base : modules) {
             base.register();
         }
     }

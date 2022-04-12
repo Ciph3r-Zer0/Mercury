@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.teleport;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -9,7 +9,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Teleport extends Model {
+public class Teleport extends ModuleModel {
     public Teleport(Mercury mercury) {
         super(mercury, "Teleport", "Teleport", mercury.getConfigFile().TELEPORT_ENABLED);
     }

@@ -1,14 +1,14 @@
 package ir.ciph3r.mercury.modules.crossteleport;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class CrossTeleport extends Model {
+public class CrossTeleport extends ModuleModel {
 
     public CrossTeleport(Mercury mercury) {
         super(mercury, "CrossTeleport", "CrossTeleport", mercury.getConfigFile().CROSS_TELEPORT_ENABLED);

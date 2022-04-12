@@ -1,16 +1,14 @@
 package ir.ciph3r.mercury.modules.sudo;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.Arrays;
-
-public class Sudo extends Model {
+public class Sudo extends ModuleModel {
     public Sudo(Mercury mercury) {
         super(mercury, "Sudo", "Sudo", mercury.getConfigFile().SUDO_ENABLED);
     }

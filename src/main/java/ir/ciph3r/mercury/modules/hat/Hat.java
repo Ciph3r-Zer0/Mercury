@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.hat;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class Hat extends Model {
+public class Hat extends ModuleModel {
     public Hat(Mercury mercury) {
         super(mercury, "Hat", "Hat", mercury.getConfigFile().HAT_ENABLED);
     }

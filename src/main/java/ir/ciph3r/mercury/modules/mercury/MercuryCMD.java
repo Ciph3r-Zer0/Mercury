@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.mercury;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -9,7 +9,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 
 import java.io.IOException;
 
-public class MercuryCMD extends Model {
+public class MercuryCMD extends ModuleModel {
     public MercuryCMD(Mercury mercury) {
         super(mercury, "Mercury", "Mercury", true);
     }

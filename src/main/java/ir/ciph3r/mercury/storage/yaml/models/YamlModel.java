@@ -9,14 +9,14 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
-public abstract class Model {
+public abstract class YamlModel {
     private final Mercury mercury;
     private final String fileName;
     private File file;
     @Getter
     private FileConfiguration fileConfig;
 
-    public Model(Mercury core, String fileName) {
+    public YamlModel(Mercury core, String fileName) {
         this.mercury = core;
         this.fileName = fileName;
     }

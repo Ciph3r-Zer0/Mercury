@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.knockback;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-public class Knockback extends Model {
+public class Knockback extends ModuleModel {
     public Knockback(Mercury mercury) {
         super(mercury, "Knockback", "Knockback", mercury.getConfigFile().KNOCKBACK_ENABLED);
     }

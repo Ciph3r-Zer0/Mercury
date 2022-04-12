@@ -1,7 +1,7 @@
 package ir.ciph3r.mercury.modules.tell;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class Reply extends Model {
+public class Reply extends ModuleModel {
     public Reply(Mercury mercury) {
         super(mercury, "Reply", "Reply", mercury.getConfigFile().TELL_ENABLED);
     }

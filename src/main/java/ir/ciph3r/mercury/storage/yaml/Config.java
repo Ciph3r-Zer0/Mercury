@@ -1,9 +1,9 @@
 package ir.ciph3r.mercury.storage.yaml;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.storage.yaml.models.Model;
+import ir.ciph3r.mercury.storage.yaml.models.YamlModel;
 
-public class Config extends Model {
+public class Config extends YamlModel {
 	public Config(Mercury mercury) {
 		super(mercury, "config.yml");
 		setup();

@@ -1,13 +1,13 @@
 package ir.ciph3r.mercury.modules.speed;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Speed extends Model {
+public class Speed extends ModuleModel {
     public Speed(Mercury mercury) {
         super(mercury, "Speed", "Speed", mercury.getConfigFile().SPEED_ENABLED);
     }

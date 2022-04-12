@@ -8,7 +8,7 @@ import lombok.Getter;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 
-public abstract class Model implements Listener, CommandExecutor {
+public abstract class ModuleModel implements Listener, CommandExecutor {
 	@Getter
 	private final Mercury mercury;
 	@Getter
@@ -24,7 +24,7 @@ public abstract class Model implements Listener, CommandExecutor {
 	@Getter
 	private final Universal universal;
 
-	public Model(Mercury mercury, String moduleName, String commandName, boolean isEnabled) {
+	public ModuleModel(Mercury mercury, String moduleName, String commandName, boolean isEnabled) {
 		this.mercury = mercury;
 		this.moduleName = moduleName;
 		this.commandName = commandName;

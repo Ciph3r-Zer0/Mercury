@@ -1,12 +1,12 @@
 package ir.ciph3r.mercury.modules.broadcast;
 
 import ir.ciph3r.mercury.Mercury;
-import ir.ciph3r.mercury.modules.model.Model;
+import ir.ciph3r.mercury.modules.model.ModuleModel;
 import ir.ciph3r.mercury.storage.Permissions.Perms;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
-public class Broadcast extends Model {
+public class Broadcast extends ModuleModel {
     public Broadcast(Mercury mercury) {
         super(mercury, "Broadcast", "Broadcast", mercury.getConfigFile().BROADCAST_ENABLED);
     }
