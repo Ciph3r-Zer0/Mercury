@@ -6,7 +6,7 @@
 
     <groupId>ir.Ciph3r</groupId>
     <artifactId>Mercury</artifactId>
-    <version>2.8.0</version>
+    <version>3.0.0-DEV</version>
     <packaging>jar</packaging>
 
     <name>Mercury</name>
@@ -26,7 +26,33 @@
                 <configuration>
                     <source>9</source>
                     <target>9</target>
+<!--                    <compilerArgs>-->
+<!--                        <arg>-parameters</arg>-->
+<!--                    </compilerArgs>-->
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
+                    <relocations>
+                        <relocation><pattern>org.bstats</pattern><shadedPattern>ir.ciph3r.mercury.shaded.bstats</shadedPattern></relocation>
+                        <relocation><pattern>co.aikar.commands</pattern><shadedPattern>ir.ciph3r.mercury.shaded.acf</shadedPattern></relocation>
+                        <relocation><pattern>co.aikar.locales</pattern><shadedPattern>ir.ciph3r.mercury.shaded.acf.locales</shadedPattern></relocation>
+                        <relocation><pattern>com.jeff_media.updatechecker</pattern><shadedPattern>ir.ciph3r.mercury.shaded.updatechecker</shadedPattern></relocation>
+                        <relocation><pattern>io.github.leonardosnt.bungeechannelapi</pattern><shadedPattern>ir.ciph3r.mercury.shaded.bungeechannelapi</shadedPattern></relocation>
+                    </relocations>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
         <resources>
@@ -38,18 +64,10 @@
     </build>
 
     <repositories>
-        <repository>
-            <id>spigotmc-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
-        </repository>
-        <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
+        <repository><id>jitpack.io</id><url>https://jitpack.io</url></repository>
+        <repository><id>spigotmc-repo</id><url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url></repository>
+        <repository><id>jeff-media-public</id><url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url></repository>
+        <repository><id>codemc-repo</id><url>https://repo.codemc.org/repository/maven-public/</url></repository>
     </repositories>
 
     <dependencies>
@@ -62,14 +80,30 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.gitHub.LeonMangler</groupId>
-            <artifactId>PremiumVanishAPI</artifactId>
-            <version>2.7.11-2</version>
-            <scope>provided</scope>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.GitHub.Ciph3r-Zer0.ACF-Framework</groupId>
+            <artifactId>acf-paper</artifactId>
+            <version>90966dc9fd</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jeff_media</groupId>
+            <artifactId>SpigotUpdateChecker</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.leonardosnt</groupId>
+            <artifactId>bungeechannelapi</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,44 +1,43 @@
-Modules:
-  Broadcast:
-    Enabled: true
-  ClearInventory:
-    Enabled: true
-  Coordinates:
-    Enabled: true
-  CrossTeleport:
-    Enabled: true
-  Feed:
-    Enabled: true
-  Fly:
-    Enabled: true
-  GameMode:
-    Enabled: true
-  Hat:
-    Enabled: true
-  Heal:
-    Enabled: true
-  Knockback:
-    Enabled: true
-  Lightning:
-    Enabled: true
-  PluginList:
-    Enabled: true
-    PluginPerPage: 10
-  Rotate:
-    Enabled: true
-  Shuffle:
-    Enabled: true
-  Spawn:
-    Enabled: true
-    onJoin: true
-    onRespawn: true
-    onVoid: true
+modules:
+  broadcast:
+    enabled: true
+  clear_inventory:
+    enabled: true
+  coordinates:
+    enabled: true
+  cross_teleport:
+    enabled: true
+  feed:
+    enabled: true
+  fly:
+    enabled: true
+  gamemode:
+    enabled: true
+  heal:
+    enabled: true
+  knockback:
+    enabled: true
+  lightning:
+    enabled: true
+  plugin_list:
+    enabled: true
+  private_chat:
+    enabled: true
+  rotate:
+    enabled: true
+  shuffle:
+    enabled: true
+  spawn:
+    enabled: true
+    on_join: true
+    on_void: true
+    on_respawn: true
     location: ''
-  Speed:
-    Enabled: true
-  Sudo:
-    Enabled: true
-  Teleport:
-    Enabled: true
-  Tell:
-    Enabled: true
+  speed:
+    enabled: true
+  sudo:
+    enabled: true
+  teleport:
+    enabled: true
+  time:
+    enabled: true

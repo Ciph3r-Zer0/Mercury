@@ -1,6 +1,6 @@
 package ir.ciph3r.mercury.storage.yaml.models;
 
-import ir.ciph3r.mercury.Mercury;
+import ir.ciph3r.mercury.MercuryAPI;
 import lombok.Getter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -9,15 +9,13 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
+@Getter
 public abstract class YamlModel {
-    private final Mercury mercury;
     private final String fileName;
     private File file;
-    @Getter
     private FileConfiguration fileConfig;
 
-    public YamlModel(Mercury core, String fileName) {
-        this.mercury = core;
+    public YamlModel(String fileName) {
         this.fileName = fileName;
     }
 
@@ -34,10 +32,10 @@ public abstract class YamlModel {
     public abstract void init();
 
     public void create() {
-        file = new File(mercury.getDataFolder(), fileName);
+        file = new File(MercuryAPI.INSTANCE.getPlugin().getDataFolder(), fileName);
         if (!file.exists()) {
             file.getParentFile().mkdirs();
-            mercury.saveResource(fileName, false);
+            MercuryAPI.INSTANCE.getPlugin().saveResource(fileName, false);
         }
     }
 

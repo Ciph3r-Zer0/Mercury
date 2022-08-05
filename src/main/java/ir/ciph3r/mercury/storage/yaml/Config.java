@@ -1,101 +1,108 @@
 package ir.ciph3r.mercury.storage.yaml;
 
-import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.storage.yaml.models.YamlModel;
+import org.bukkit.configuration.InvalidConfigurationException;
+
+import java.io.IOException;
 
 public class Config extends YamlModel {
-	public Config(Mercury mercury) {
-		super(mercury, "config.yml");
+	public Config() {
+		super("config.yml");
 		setup();
 	}
 
 	public boolean
-			BROADCAST_ENABLED
+			BROADCAST_ENABLED,
 
-			,CLEAR_INVENTORY_ENABLED
+			CLEAR_INVENTORY_ENABLED,
 
-			,COORDINATES_ENABLED
+			COORDINATES_ENABLED,
 
-			,CROSS_TELEPORT_ENABLED
+			CROSS_TELEPORT_ENABLED,
 
-			,FEED_ENABLED
+			FEED_ENABLED,
 
-			,FLY_ENABLED
+			FLY_ENABLED,
 
-			,GAMEMODE_ENABLED
+			GAMEMODE_ENABLED,
 
-			,HAT_ENABLED
+			HEAL_ENABLED,
 
-			,HEAL_ENABLED
+			KNOCKBACK_ENABLED,
 
-			,KNOCKBACK_ENABLED
+			LIGHTNING_ENABLED,
 
-			,LIGHTNING_ENABLED
+			PLUGIN_LIST_ENABLED,
 
-			,PLUGIN_LIST_ENABLED
+			PRIVATE_CHAT_ENABLED,
 
-			,ROTATE_ENABLED
+			ROTATE_ENABLED,
 
-			,SHUFFLE_ENABLED
+			SHUFFLE_ENABLED,
 
-			,SPAWN_ENABLED
-			,SPAWN_ON_JOIN
-			,SPAWN_ON_RESPAWN
-			,SPAWN_ON_VOID
+			SPAWN_ENABLED,
+			SPAWN_ON_JOIN,
+			SPAWN_ON_VOID,
+			SPAWN_ON_RESPAWN,
 
-			,SPEED_ENABLED
+			SPEED_ENABLED,
 
-			,SUDO_ENABLED
+			SUDO_ENABLED,
 
-			,TELEPORT_ENABLED
+			TELEPORT_ENABLED,
 
-			,TELL_ENABLED;
+			TIME_ENABLED;
 
-	public int
-			PLUGIN_LIST_PLUGIN_PER_PAGE;
+	public String
+			SPAWN_LOCATION;
 
 	@Override
 	public void init() {
-		BROADCAST_ENABLED = getFileConfig().getBoolean("Modules.Broadcast.Enabled");
+		BROADCAST_ENABLED = getFileConfig().getBoolean("modules.broadcast.enabled");
 
-		CLEAR_INVENTORY_ENABLED = getFileConfig().getBoolean("Modules.ClearInventory.Enabled");
+		CLEAR_INVENTORY_ENABLED = getFileConfig().getBoolean("modules.clear_inventory.enabled");
 
-		COORDINATES_ENABLED = getFileConfig().getBoolean("Modules.Coordinates.Enabled");
+		COORDINATES_ENABLED = getFileConfig().getBoolean("modules.coordinates.enabled");
 
-		CROSS_TELEPORT_ENABLED = getFileConfig().getBoolean("Modules.CrossTeleport.Enabled");
+		CROSS_TELEPORT_ENABLED = getFileConfig().getBoolean("modules.cross_teleport.enabled");
 
-		FEED_ENABLED = getFileConfig().getBoolean("Modules.Feed.Enabled");
+		FEED_ENABLED = getFileConfig().getBoolean("modules.feed.enabled");
 
-		FLY_ENABLED = getFileConfig().getBoolean("Modules.Fly.Enabled");
+		FLY_ENABLED = getFileConfig().getBoolean("modules.fly.enabled");
 
-		GAMEMODE_ENABLED = getFileConfig().getBoolean("Modules.GameMode.Enabled");
+		GAMEMODE_ENABLED = getFileConfig().getBoolean("modules.gamemode.enabled");
 
-		HAT_ENABLED	= getFileConfig().getBoolean("Modules.Hat.Enabled");
+		HEAL_ENABLED = getFileConfig().getBoolean("modules.heal.enabled");
 
-		HEAL_ENABLED = getFileConfig().getBoolean("Modules.Heal.Enabled");
+		KNOCKBACK_ENABLED = getFileConfig().getBoolean("modules.knockback.enabled");
 
-		KNOCKBACK_ENABLED = getFileConfig().getBoolean("Modules.Knockback.Enabled");
+		LIGHTNING_ENABLED = getFileConfig().getBoolean("modules.lightning.enabled");
 
-		LIGHTNING_ENABLED = getFileConfig().getBoolean("Modules.Lightning.Enabled");
+		PLUGIN_LIST_ENABLED = getFileConfig().getBoolean("modules.plugin_list.enabled");
 
-		PLUGIN_LIST_ENABLED = getFileConfig().getBoolean("Modules.PluginList.Enabled");
-		PLUGIN_LIST_PLUGIN_PER_PAGE = getFileConfig().getInt("Modules.PluginList.PluginPerPage");
+		PRIVATE_CHAT_ENABLED = getFileConfig().getBoolean("modules.private_chat.enabled");
 
-		ROTATE_ENABLED = getFileConfig().getBoolean("Modules.Rotate.Enabled");
+		ROTATE_ENABLED = getFileConfig().getBoolean("modules.rotate.enabled");
 
-		SHUFFLE_ENABLED = getFileConfig().getBoolean("Modules.Shuffle.Enabled");
+		SHUFFLE_ENABLED = getFileConfig().getBoolean("modules.shuffle.enabled");
 
-		SPAWN_ENABLED = getFileConfig().getBoolean("Modules.Spawn.Enabled");
-		SPAWN_ON_JOIN = getFileConfig().getBoolean("Modules.Spawn.onJoin");
-		SPAWN_ON_RESPAWN = getFileConfig().getBoolean("Modules.Spawn.onRespawn");
-		SPAWN_ON_VOID = getFileConfig().getBoolean("Modules.Spawn.onVoid");
+		SPAWN_ENABLED = getFileConfig().getBoolean("modules.spawn.enabled");
+		SPAWN_ON_JOIN = getFileConfig().getBoolean("modules.spawn.on_join");
+		SPAWN_ON_VOID = getFileConfig().getBoolean("modules.spawn.on_void");
+		SPAWN_ON_RESPAWN = getFileConfig().getBoolean("modules.spawn.on_respawn");
+		SPAWN_LOCATION = getFileConfig().getString("modules.spawn.location");
 
-		SPEED_ENABLED = getFileConfig().getBoolean("Modules.Speed.Enabled");
+		SPEED_ENABLED = getFileConfig().getBoolean("modules.speed.enabled");
 
-		SUDO_ENABLED = getFileConfig().getBoolean("Modules.Sudo.Enabled");
+		SUDO_ENABLED = getFileConfig().getBoolean("modules.sudo.enabled");
 
-		TELEPORT_ENABLED = getFileConfig().getBoolean("Modules.Teleport.Enabled");
+		TELEPORT_ENABLED = getFileConfig().getBoolean("modules.teleport.enabled");
 
-		TELL_ENABLED = getFileConfig().getBoolean("Modules.Tell.Enabled");
+		TIME_ENABLED = getFileConfig().getBoolean("modules.time.enabled");
+	}
+
+	public void reloadSpawnLocation() throws IOException, InvalidConfigurationException {
+		load();
+		SPAWN_LOCATION = getFileConfig().getString("modules.spawn.location");
 	}
 }
