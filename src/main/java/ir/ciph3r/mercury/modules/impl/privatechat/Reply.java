@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Reply|R")
 public class Reply extends CommandModule {
     public Reply() {
-        super("PrivateChat", MercuryAPI.INSTANCE.getConfig().PRIVATE_CHAT_ENABLED, null);
+        super("PrivateChat", MercuryAPI.INSTANCE.getConfig().PRIVATE_CHAT_ENABLED);
         setCommandNameAndSyntax("/Reply", "<message>");
     }
 

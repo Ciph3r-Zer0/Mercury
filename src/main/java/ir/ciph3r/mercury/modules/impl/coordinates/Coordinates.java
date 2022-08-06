@@ -13,7 +13,7 @@ import java.text.DecimalFormat;
 @CommandAlias("Coordinates|Coords")
 public class Coordinates extends CommandModule {
     public Coordinates() {
-        super("Coordinates", MercuryAPI.INSTANCE.getConfig().COORDINATES_ENABLED, null);
+        super("Coordinates", MercuryAPI.INSTANCE.getConfig().COORDINATES_ENABLED);
         setCommandNameAndSyntax("/Coordinates", "[player]");
     }
 

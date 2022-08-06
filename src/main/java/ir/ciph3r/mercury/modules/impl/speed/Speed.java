@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Speed")
 public class Speed extends CommandModule {
     public Speed() {
-        super("Speed", MercuryAPI.INSTANCE.getConfig().SPEED_ENABLED, null);
+        super("Speed", MercuryAPI.INSTANCE.getConfig().SPEED_ENABLED);
         setCommandNameAndSyntax("/Speed", "<Walk, Fly, Reset> <0-10> [player]");
     }
 

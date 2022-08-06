@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Gamemode")
 public class Gamemode extends CommandModule {
     public Gamemode() {
-        super("Gamemode", MercuryAPI.INSTANCE.getConfig().GAMEMODE_ENABLED, null);
+        super("Gamemode", MercuryAPI.INSTANCE.getConfig().GAMEMODE_ENABLED);
         setCommandNameAndSyntax("/Gamemode", "<Creative, Survival, Adventure, Spectator> [player]");
     }
     @Default

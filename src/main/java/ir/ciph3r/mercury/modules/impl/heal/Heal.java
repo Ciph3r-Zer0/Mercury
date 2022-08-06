@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Heal")
 public class Heal extends CommandModule {
     public Heal() {
-        super("Heal", MercuryAPI.INSTANCE.getConfig().HEAL_ENABLED, null);
+        super("Heal", MercuryAPI.INSTANCE.getConfig().HEAL_ENABLED);
         setCommandNameAndSyntax("/Heal", "[player]");
     }
 

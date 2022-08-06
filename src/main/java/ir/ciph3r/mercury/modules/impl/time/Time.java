@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Time")
 public class Time extends CommandModule {
     public Time() {
-        super("Time", MercuryAPI.INSTANCE.getConfig().TIME_ENABLED, null);
+        super("Time", MercuryAPI.INSTANCE.getConfig().TIME_ENABLED);
         setCommandNameAndSyntax("/Time", "<set> <Day, 1000, Night>");
     }
 

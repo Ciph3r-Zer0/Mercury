@@ -29,6 +29,7 @@ import ir.ciph3r.mercury.modules.impl.privatechat.Tell;
 import ir.ciph3r.mercury.modules.impl.time.Time;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.event.Listener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -74,9 +75,17 @@ public class CommandManager {
         modules.add(new Time());
 
         for (CommandModule module : modules) {
-            if (module.isEnabled()) {
-                commandManager.registerCommand(module);
-                if (!(module.getListener() == null)) Bukkit.getServer().getPluginManager().registerEvents(module.getListener(), MercuryAPI.INSTANCE.getPlugin());
+            registerModule(module);
+        }
+    }
+
+    private void registerModule(CommandModule module) {
+        if (module.isEnabled()) {
+            commandManager.registerCommand(module);
+            if (!(module.getListeners().size() == 0)) {
+                for (Listener listener : module.getListeners()) {
+                    Bukkit.getServer().getPluginManager().registerEvents(listener, MercuryAPI.INSTANCE.getPlugin());
+                }
             }
         }
     }

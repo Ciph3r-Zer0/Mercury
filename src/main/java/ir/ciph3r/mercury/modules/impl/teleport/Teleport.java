@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Teleport|TP")
 public class Teleport extends CommandModule {
     public Teleport() {
-        super("Teleport", MercuryAPI.INSTANCE.getConfig().TELEPORT_ENABLED, null);
+        super("Teleport", MercuryAPI.INSTANCE.getConfig().TELEPORT_ENABLED);
         setCommandNameAndSyntax("/Teleport", "<player, location> [player]");
     }
 

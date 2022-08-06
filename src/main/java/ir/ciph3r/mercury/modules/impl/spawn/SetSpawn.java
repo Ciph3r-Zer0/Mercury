@@ -15,7 +15,7 @@ import java.io.IOException;
 @CommandAlias("SetSpawn")
 public class SetSpawn extends CommandModule {
     public SetSpawn() {
-        super("SetSpawn", MercuryAPI.INSTANCE.getConfig().SPAWN_ENABLED, null);
+        super("SetSpawn", MercuryAPI.INSTANCE.getConfig().SPAWN_ENABLED);
     }
 
     @Default

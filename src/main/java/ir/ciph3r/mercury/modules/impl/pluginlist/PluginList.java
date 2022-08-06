@@ -13,7 +13,7 @@ import org.bukkit.plugin.Plugin;
 @CommandAlias("PluginList")
 public class PluginList extends CommandModule {
     public PluginList() {
-        super("PluginList", MercuryAPI.INSTANCE.getConfig().PLUGIN_LIST_ENABLED, null);
+        super("PluginList", MercuryAPI.INSTANCE.getConfig().PLUGIN_LIST_ENABLED);
     }
 
     @Default

@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Feed")
 public class Feed extends CommandModule {
     public Feed() {
-        super("Feed", MercuryAPI.INSTANCE.getConfig().FEED_ENABLED, null);
+        super("Feed", MercuryAPI.INSTANCE.getConfig().FEED_ENABLED);
         setCommandNameAndSyntax("/Feed", "[player]");
     }
 

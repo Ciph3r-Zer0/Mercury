@@ -11,7 +11,7 @@ import org.bukkit.util.Vector;
 @CommandAlias("Knockback|Knock")
 public class Knockback extends CommandModule {
     public Knockback() {
-        super("Knockback", MercuryAPI.INSTANCE.getConfig().KNOCKBACK_ENABLED, null);
+        super("Knockback", MercuryAPI.INSTANCE.getConfig().KNOCKBACK_ENABLED);
         setCommandNameAndSyntax("/Knockback", "<player>");
     }
 

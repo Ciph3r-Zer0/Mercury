@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Sudo")
 public class Sudo extends CommandModule {
     public Sudo() {
-        super("Sudo", MercuryAPI.INSTANCE.getConfig().SUDO_ENABLED, null);
+        super("Sudo", MercuryAPI.INSTANCE.getConfig().SUDO_ENABLED);
         setCommandNameAndSyntax("/Sudo", "<player> [c:]<message>");
     }
 

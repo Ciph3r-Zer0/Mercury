@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Clearinventory|CI|ClearINV")
 public class ClearInventory extends CommandModule {
     public ClearInventory() {
-        super("ClearInventory", MercuryAPI.INSTANCE.getConfig().CLEAR_INVENTORY_ENABLED, null);
+        super("ClearInventory", MercuryAPI.INSTANCE.getConfig().CLEAR_INVENTORY_ENABLED);
         setCommandNameAndSyntax("/ClearInventory", "[player]");
     }
 

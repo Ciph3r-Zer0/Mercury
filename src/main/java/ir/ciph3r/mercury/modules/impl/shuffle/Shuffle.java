@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Shuffle")
 public class Shuffle extends CommandModule {
     public Shuffle() {
-        super("Shuffle", MercuryAPI.INSTANCE.getConfig().SHUFFLE_ENABLED, null);
+        super("Shuffle", MercuryAPI.INSTANCE.getConfig().SHUFFLE_ENABLED);
         setCommandNameAndSyntax("/Shuffle", "<player>");
     }
 

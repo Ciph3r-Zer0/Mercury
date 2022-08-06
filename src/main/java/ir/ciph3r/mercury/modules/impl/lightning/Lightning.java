@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Lightning")
 public class Lightning extends CommandModule {
     public Lightning() {
-        super("Lightning", MercuryAPI.INSTANCE.getConfig().LIGHTNING_ENABLED, null);
+        super("Lightning", MercuryAPI.INSTANCE.getConfig().LIGHTNING_ENABLED);
         setCommandNameAndSyntax("/Lightning", "[player]");
     }
 

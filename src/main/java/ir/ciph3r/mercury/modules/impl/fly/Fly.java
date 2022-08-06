@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Fly")
 public class Fly extends CommandModule {
     public Fly() {
-        super("Fly", MercuryAPI.INSTANCE.getConfig().FLY_ENABLED, null);
+        super("Fly", MercuryAPI.INSTANCE.getConfig().FLY_ENABLED);
         setCommandNameAndSyntax("/Fly", "[player]");
     }
 

@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Rotate")
 public class Rotate extends CommandModule {
     public Rotate() {
-        super("Rotate", MercuryAPI.INSTANCE.getConfig().ROTATE_ENABLED, null);
+        super("Rotate", MercuryAPI.INSTANCE.getConfig().ROTATE_ENABLED);
         setCommandNameAndSyntax("/Rotate", "<player>");
     }
 

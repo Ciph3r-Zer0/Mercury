@@ -12,8 +12,9 @@ import org.bukkit.entity.Player;
 @CommandAlias("Tell|T|Whisper|Message|MSG")
 public class Tell extends CommandModule {
     public Tell() {
-        super("PrivateChat", MercuryAPI.INSTANCE.getConfig().PRIVATE_CHAT_ENABLED, new PrivateChatListener());
+        super("PrivateChat", MercuryAPI.INSTANCE.getConfig().PRIVATE_CHAT_ENABLED);
         setCommandNameAndSyntax("/Tell", "<player> <message>");
+        addListeners(new PrivateChatListener());
     }
 
     @Default

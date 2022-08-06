@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 @CommandAlias("Broadcast|BC")
 public class Broadcast extends CommandModule {
     public Broadcast() {
-        super("Broadcast", MercuryAPI.INSTANCE.getConfig().BROADCAST_ENABLED, null);
+        super("Broadcast", MercuryAPI.INSTANCE.getConfig().BROADCAST_ENABLED);
         setCommandNameAndSyntax("/Broadcast", "<message>");
     }
 

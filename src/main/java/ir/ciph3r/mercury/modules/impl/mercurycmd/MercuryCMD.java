@@ -13,7 +13,7 @@ import java.util.Locale;
 @CommandAlias("mercury|merc")
 public class MercuryCMD extends CommandModule {
     public MercuryCMD() {
-        super("Mercury", true, null);
+        super("Mercury", true);
         setCommandNameAndSyntax("/Mercury", "[Reload]");
     }
 

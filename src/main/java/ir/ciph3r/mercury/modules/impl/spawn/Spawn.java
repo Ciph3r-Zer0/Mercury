@@ -13,7 +13,9 @@ import org.bukkit.entity.Player;
 @CommandAlias("Spawn")
 public class Spawn extends CommandModule {
     public Spawn() {
-        super("Spawn", MercuryAPI.INSTANCE.getConfig().SPAWN_ENABLED, new SpawnListener());
+        super("Spawn", MercuryAPI.INSTANCE.getConfig().SPAWN_ENABLED);
+        setCommandNameAndSyntax("Spawn", "[player]");
+        addListeners(new SpawnListener());
     }
 
     @Default
