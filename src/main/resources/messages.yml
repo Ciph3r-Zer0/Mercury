@@ -77,3 +77,5 @@ modules:
     message_location_others: "{prefix} &7Teleported &c{player} &7to &c{x}&7, &c{y}&7, &7{z}"
   time:
     message: "{prefix} &7time changed."
+  uptime:
+    message: "{prefix} &7 server uptime is &c{h}hours {m} minutes &7and &c{s} seconds"

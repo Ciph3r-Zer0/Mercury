@@ -27,6 +27,7 @@ import ir.ciph3r.mercury.modules.impl.sudo.Sudo;
 import ir.ciph3r.mercury.modules.impl.teleport.Teleport;
 import ir.ciph3r.mercury.modules.impl.privatechat.Tell;
 import ir.ciph3r.mercury.modules.impl.time.Time;
+import ir.ciph3r.mercury.modules.impl.uptime.Uptime;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.event.Listener;
@@ -73,6 +74,7 @@ public class CommandManager {
         modules.add(new Sudo());
         modules.add(new Teleport());
         modules.add(new Time());
+        modules.add(new Uptime());
 
         for (CommandModule module : modules) {
             registerModule(module);

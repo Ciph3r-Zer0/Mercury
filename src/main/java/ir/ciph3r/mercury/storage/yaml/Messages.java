@@ -85,7 +85,9 @@ public class Messages extends YamlModel {
 			TELEPORT_MESSAGE_LOCATION,
 			TELEPORT_MESSAGE_LOCATION_OTHERS,
 
-			TIME_MESSAGE;
+			TIME_MESSAGE,
+
+			UPTIME_MESSAGE;
 
 	@Override
 	public void init() {
@@ -166,5 +168,7 @@ public class Messages extends YamlModel {
 		TELEPORT_MESSAGE_LOCATION_OTHERS = getFileConfig().getString("modules.teleport.message_location_others").replace("{prefix}", PREFIX);
 
 		TIME_MESSAGE = getFileConfig().getString("modules.time.message").replace("{prefix}", PREFIX);
+
+		UPTIME_MESSAGE = getFileConfig().getString("modules.uptime.message").replace("{prefix}", PREFIX);
 	}
 }

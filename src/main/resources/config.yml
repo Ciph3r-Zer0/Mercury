@@ -41,3 +41,5 @@ modules:
     enabled: true
   time:
     enabled: true
+  uptime:
+    enabled: true

@@ -51,7 +51,9 @@ public class Config extends YamlModel {
 
 			TELEPORT_ENABLED,
 
-			TIME_ENABLED;
+			TIME_ENABLED,
+
+			UPTIME_ENABLED;
 
 	public String
 			SPAWN_LOCATION;
@@ -99,6 +101,8 @@ public class Config extends YamlModel {
 		TELEPORT_ENABLED = getFileConfig().getBoolean("modules.teleport.enabled");
 
 		TIME_ENABLED = getFileConfig().getBoolean("modules.time.enabled");
+
+		UPTIME_ENABLED = getFileConfig().getBoolean("modules.uptime.enabled");
 	}
 
 	public void reloadSpawnLocation() throws IOException, InvalidConfigurationException {
