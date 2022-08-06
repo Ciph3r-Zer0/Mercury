@@ -36,6 +36,8 @@ modules:
   heal:
     message: "{prefix} &7You've been healed"
     message_others: "{prefix} &c{player} &7healed"
+  kill:
+    message: "{prefix} &c{player} &7has been killed"
   knockback:
     message_others: "{prefix} &7Knockback applied to &c{player}"
   lightning:

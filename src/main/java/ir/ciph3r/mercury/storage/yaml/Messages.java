@@ -46,6 +46,8 @@ public class Messages extends YamlModel {
 			HEAL_MESSAGE,
 			HEAL_MESSAGE_OTHERS,
 
+			KILL_MESSAGE,
+
 			KNOCKBACK_MESSAGE_OTHERS,
 
 			LIGHTNING_MESSAGE,
@@ -127,6 +129,8 @@ public class Messages extends YamlModel {
 
 		HEAL_MESSAGE = getFileConfig().getString("modules.heal.message").replace("{prefix}", PREFIX);
 		HEAL_MESSAGE_OTHERS = getFileConfig().getString("modules.heal.message_others").replace("{prefix}", PREFIX);
+
+		KILL_MESSAGE = getFileConfig().getString("modules.kill.message").replace("{prefix}", PREFIX);
 
 		KNOCKBACK_MESSAGE_OTHERS = getFileConfig().getString("modules.knockback.message_others").replace("{prefix}", PREFIX);
 

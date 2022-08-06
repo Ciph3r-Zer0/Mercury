@@ -28,6 +28,8 @@ public class Config extends YamlModel {
 
 			HEAL_ENABLED,
 
+			KILL_ENABLED,
+
 			KNOCKBACK_ENABLED,
 
 			LIGHTNING_ENABLED,
@@ -75,6 +77,8 @@ public class Config extends YamlModel {
 		GAMEMODE_ENABLED = getFileConfig().getBoolean("modules.gamemode.enabled");
 
 		HEAL_ENABLED = getFileConfig().getBoolean("modules.heal.enabled");
+
+		KILL_ENABLED = getFileConfig().getBoolean("modules.kill.enabled");
 
 		KNOCKBACK_ENABLED = getFileConfig().getBoolean("modules.knockback.enabled");
 

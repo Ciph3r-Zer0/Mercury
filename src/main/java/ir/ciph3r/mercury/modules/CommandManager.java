@@ -13,6 +13,7 @@ import ir.ciph3r.mercury.modules.impl.feed.Feed;
 import ir.ciph3r.mercury.modules.impl.fly.Fly;
 import ir.ciph3r.mercury.modules.impl.gamemode.Gamemode;
 import ir.ciph3r.mercury.modules.impl.heal.Heal;
+import ir.ciph3r.mercury.modules.impl.kill.Kill;
 import ir.ciph3r.mercury.modules.impl.knockback.Knockback;
 import ir.ciph3r.mercury.modules.impl.lightning.Lightning;
 import ir.ciph3r.mercury.modules.impl.mercurycmd.MercuryCMD;
@@ -61,6 +62,7 @@ public class CommandManager {
         modules.add(new Fly());
         modules.add(new Gamemode());
         modules.add(new Heal());
+        modules.add(new Kill());
         modules.add(new Knockback());
         modules.add(new Lightning());
         modules.add(new PluginList());
