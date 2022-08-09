@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class CTPRunnable extends BukkitRunnable {
-    private String adminName;
-    private String targetName;
+    private final String adminName;
+    private final String targetName;
     private int timeOut = 0;
 
     public CTPRunnable(String adminName, String targetName) {
@@ -26,11 +26,10 @@ public class CTPRunnable extends BukkitRunnable {
         }  else {
             if (target == null) {
                 ChatUtils.sendColorizedMSG(admin, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_SERVER.replace("{search}", targetName));
-                cancel();
             } else {
                 admin.teleport(target);
-                cancel();
             }
+            cancel();
         }
 
         if (timeOut == 60) {
