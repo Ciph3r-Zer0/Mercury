@@ -9,6 +9,7 @@ import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.impl.broadcast.Broadcast;
 import ir.ciph3r.mercury.modules.impl.clearinventory.ClearInventory;
 import ir.ciph3r.mercury.modules.impl.coordinates.Coordinates;
+import ir.ciph3r.mercury.modules.impl.crossteleport.CrossTeleport;
 import ir.ciph3r.mercury.modules.impl.feed.Feed;
 import ir.ciph3r.mercury.modules.impl.fly.Fly;
 import ir.ciph3r.mercury.modules.impl.gamemode.Gamemode;
@@ -58,6 +59,7 @@ public class CommandManager {
         modules.add(new Broadcast());
         modules.add(new ClearInventory());
         modules.add(new Coordinates());
+        modules.add(new CrossTeleport());
         modules.add(new Feed());
         modules.add(new Fly());
         modules.add(new Gamemode());

@@ -28,7 +28,7 @@ public enum MercuryAPI {
         this.startupTime = System.currentTimeMillis();
         this.config = new Config();
         this.messages = new Messages();
-        this.bungeeAPI = BungeeChannelApi.of(plugin);
+        this.bungeeAPI = BungeeChannelApi.of(getPlugin());
         this.commandManager = new CommandManager();
 
 //        updateChecker =  new UpdateChecker(plugin, UpdateCheckSource.CUSTOM_URL, "https://ez-pz.ir/updates/minecraft/Mercury/version.txt")
@@ -39,7 +39,7 @@ public enum MercuryAPI {
 //                .setUsedVersion("3.0.0-DEV")
 //                .checkNow();
 
-        new Metrics(plugin, 14640);
+        new Metrics(getPlugin(), 14640);
     }
 
     public void stop() {
