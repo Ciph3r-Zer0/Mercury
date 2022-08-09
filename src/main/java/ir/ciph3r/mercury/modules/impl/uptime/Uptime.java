@@ -28,8 +28,8 @@ public class Uptime extends CommandModule {
 
 
         ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().UPTIME_MESSAGE
-                .replace("{h}", String.valueOf(h))
-                .replace("{m}", String.valueOf(m))
-                .replace("{s}", String.valueOf(s)));
+                .replace("{hour}", String.valueOf(h))
+                .replace("{minute}", String.valueOf(m))
+                .replace("{second}", String.valueOf(s)));
     }
 }

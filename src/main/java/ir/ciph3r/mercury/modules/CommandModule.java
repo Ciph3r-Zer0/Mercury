@@ -6,6 +6,7 @@ import lombok.Getter;
 import org.bukkit.event.Listener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Getter
 public abstract class CommandModule extends BaseCommand {
@@ -30,8 +31,6 @@ public abstract class CommandModule extends BaseCommand {
     }
 
     public void addListeners(Listener... listeners) {
-        for (Listener l : listeners) {
-            this.listeners.add(l);
-        }
+        Collections.addAll(this.listeners, listeners);
     }
 }

@@ -80,4 +80,4 @@ modules:
   time:
     message: "{prefix} &7time changed."
   uptime:
-    message: "{prefix} &7 server uptime is &c{h}hours {m} minutes &7and &c{s} seconds"
+    message: "{prefix} &7 server uptime is &c{hour} hours {minute} minutes &7and &c{second} seconds"
