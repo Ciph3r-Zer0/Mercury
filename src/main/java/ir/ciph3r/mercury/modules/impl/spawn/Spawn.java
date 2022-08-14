@@ -23,14 +23,18 @@ public class Spawn extends CommandModule {
     @CommandPermission("mercury.commands.spawn")
     @CommandCompletion("@players")
     public void onDefault(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
-        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
-        if (target == null) {
-            player.teleport(spawnLocation);
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE);
+        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) {
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_NOT_SET);
         } else {
-            if (player.hasPermission("mercury.commands.spawn.others")) {
-                target.getPlayer().teleport(spawnLocation);
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+            Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+            if (target == null) {
+                player.teleport(spawnLocation);
+                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE);
+            } else {
+                if (player.hasPermission("mercury.commands.spawn.others")) {
+                    target.getPlayer().teleport(spawnLocation);
+                    ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+                }
             }
         }
     }
