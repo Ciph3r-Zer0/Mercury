@@ -32,7 +32,7 @@ public class CTPRunnable extends BukkitRunnable {
             cancel();
         }
 
-        if (timeOut == 60) {
+        if (timeOut == 20) {
             cancel();
         }
     }

@@ -12,7 +12,9 @@ import java.util.concurrent.ExecutionException;
 
 @CommandAlias("CrossTeleport|CrossTP|CTP")
 public class CrossTeleport extends CommandModule {
-    private String channelName = "mercury-ctp";
+
+    private final String channelName = "mercury-ctp";
+
     public CrossTeleport() {
         super("CrossTeleport", MercuryAPI.INSTANCE.getConfig().CROSS_TELEPORT_ENABLED);
         setCommandNameAndSyntax("/CrossTeleport", "<player>");
@@ -29,14 +31,14 @@ public class CrossTeleport extends CommandModule {
            for (String server : servers) {
                MercuryAPI.INSTANCE.getBungeeAPI().getPlayerList(server).whenComplete((players, error2) -> {
                   if (players.stream().anyMatch(target::equalsIgnoreCase)) {
-                      byte[] data = String.valueOf(player.getName() + "," + target).getBytes();
+                      byte[] data = (player.getName() + "," + target).getBytes();
                       MercuryAPI.INSTANCE.getBungeeAPI().connect(player, server);
                       MercuryAPI.INSTANCE.getBungeeAPI().forward(server, channelName, data);
-                      return;
+                  } else {
+                      ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_SERVER.replace("{search}", target));
                   }
                });
            }
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_SERVER.replace("{search}", target));
         });
     }
 

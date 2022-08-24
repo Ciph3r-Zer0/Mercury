@@ -65,7 +65,7 @@
 
     <repositories>
         <repository><id>jitpack.io</id><url>https://jitpack.io</url></repository>
-        <repository><id>spigotmc-repo</id><url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url></repository>
+        <repository><id>spigot-repo</id><url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url></repository>
         <repository><id>jeff-media-public</id><url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url></repository>
         <repository><id>codemc-repo</id><url>https://repo.codemc.org/repository/maven-public/</url></repository>
     </repositories>
@@ -73,7 +73,7 @@
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
+            <artifactId>spigot-api</artifactId>
             <version>1.13.2-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
@@ -90,9 +90,9 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.GitHub.Ciph3r-Zer0.ACF-Framework</groupId>
+            <groupId>com.github.Ciph3r-Zer0.ACF-Framework</groupId>
             <artifactId>acf-paper</artifactId>
-            <version>90966dc9fd</version>
+            <version>20d12369e3</version>
         </dependency>
         <dependency>
             <groupId>com.jeff_media</groupId>
@@ -104,6 +104,12 @@
             <groupId>io.github.leonardosnt</groupId>
             <artifactId>bungeechannelapi</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.LeonMangler</groupId>
+            <artifactId>SuperVanish</artifactId>
+            <version>6.2.6-4</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
