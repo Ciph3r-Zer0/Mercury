@@ -65,7 +65,7 @@ public class Speed extends CommandModule {
     @CommandCompletion("@players")
     public void onReset(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
         player.setWalkSpeed(0.2f);
-        player.setFlySpeed(0.2f);
+        player.setFlySpeed(0.1f);
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_RESET_MESSAGE);
     }
 
@@ -75,7 +75,7 @@ public class Speed extends CommandModule {
     @CommandCompletion("@players")
     public void onResetOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setWalkSpeed(0.2f);
-        target.getPlayer().setFlySpeed(0.2f);
+        target.getPlayer().setFlySpeed(0.1f);
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_RESET_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 }
