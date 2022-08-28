@@ -5,6 +5,7 @@ import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.CommandModule;
 import ir.ciph3r.mercury.utility.ChatUtils;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("Lightning")
@@ -18,15 +19,17 @@ public class Lightning extends CommandModule {
     @Syntax("[player]")
     @CommandPermission("mercury.commands.lightning")
     @CommandCompletion("@players")
-    public void onDefault(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
-        if (target == null) {
-            player.getWorld().strikeLightning(player.getTargetBlock(null, 50).getLocation());
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().LIGHTNING_MESSAGE);
-        } else {
-            if (player.hasPermission("mercury.commands.lightning.others")) {
-                target.getPlayer().getWorld().strikeLightning(target.getPlayer().getLocation());
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().LIGHTNING_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
-            }
-        }
+    public void onLightning(Player player) {
+        player.getWorld().strikeLightning(player.getTargetBlock(null, 50).getLocation());
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().LIGHTNING_MESSAGE);
+    }
+
+    @Default
+    @Syntax("[player]")
+    @CommandPermission("mercury.commands.lightning.others")
+    @CommandCompletion("@players")
+    public void onLightningOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
+        target.getPlayer().getWorld().strikeLightning(target.getPlayer().getLocation());
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().LIGHTNING_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 }

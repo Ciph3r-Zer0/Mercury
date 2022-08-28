@@ -4,6 +4,7 @@ import co.aikar.commands.annotation.*;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.CommandModule;
 import ir.ciph3r.mercury.utility.ChatUtils;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("Time")
@@ -17,7 +18,7 @@ public class Time extends CommandModule {
     @Syntax("<set> <day, 1000, night>")
     @CommandPermission("mercury.commands.time")
     @CommandCompletion("set")
-    public void onDefault(Player player) {
+    public void onTime(CommandSender player) {
         ChatUtils.sendColorizedMSG(player, getCommandUsage());
     }
 
@@ -26,7 +27,7 @@ public class Time extends CommandModule {
     @CommandAlias("Day")
     @CommandPermission("mercury.commands.time")
     @CommandCompletion("Day|Night")
-    public void onDay(Player player) {
+    public void onTimeDay(Player player) {
         player.getWorld().setTime(1000);
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TIME_MESSAGE);
     }
@@ -36,7 +37,7 @@ public class Time extends CommandModule {
     @CommandAlias("Night")
     @CommandPermission("mercury.commands.time")
     @CommandCompletion("Day|Night")
-    public void onNight(Player player) {
+    public void onTimeNight(Player player) {
         player.getWorld().setTime(13000);
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TIME_MESSAGE);
     }
@@ -45,7 +46,7 @@ public class Time extends CommandModule {
     @Subcommand("set")
     @CommandPermission("mercury.commands.time")
     @CommandCompletion("1000")
-    public void onSet(Player player, long time) {
+    public void onTimeSet(Player player, long time) {
         player.getWorld().setTime(time);
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TIME_MESSAGE);
     }

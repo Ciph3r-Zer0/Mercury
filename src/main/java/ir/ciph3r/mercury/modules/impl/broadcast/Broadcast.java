@@ -18,11 +18,11 @@ public class Broadcast extends CommandModule {
     @Syntax("<message>")
     @CommandPermission("mercury.commands.broadcast")
     @CommandCompletion("@players")
-    public void onDefault(CommandSender sender, String[] args) {
+    public void onBroadcast(CommandSender sender, String[] args) {
         if (args.length == 0) {
             ChatUtils.sendColorizedMSG(sender, getCommandUsage());
-            return;
+        } else {
+            ChatUtils.broadcastToServer(MercuryAPI.INSTANCE.getMessages().BROADCAST_MESSAGE.replace("{message}", ArrayUtils.createStringFromArray(args, 0, args.length)));
         }
-        ChatUtils.broadcastToServer(MercuryAPI.INSTANCE.getMessages().BROADCAST_MESSAGE.replace("{message}", ArrayUtils.createStringFromArray(args, 0, args.length)));
     }
 }

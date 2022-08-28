@@ -26,7 +26,7 @@ public class CrossTeleport extends CommandModule {
     @Syntax("<player>")
     @CommandPermission("mercury.commands.crossteleport")
     @CommandCompletion("")
-    public void onDefault(Player player, String target){
+    public void onCrossTeleport(Player player, String target){
         MercuryAPI.INSTANCE.getBungeeAPI().getServers().whenComplete((servers, error) -> {
            for (String server : servers) {
                MercuryAPI.INSTANCE.getBungeeAPI().getPlayerList(server).whenComplete((players, error2) -> {

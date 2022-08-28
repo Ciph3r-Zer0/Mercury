@@ -20,7 +20,7 @@ public class Reply extends CommandModule {
     @Syntax("<message>")
     @CommandPermission("mercury.commands.reply")
     @CommandCompletion("@players")
-    public void onDefault(Player player, String[] args) {
+    public void onReply(Player player, String[] args) {
         if (args.length == 0) {
             ChatUtils.sendColorizedMSG(player, getCommandUsage());
             return;

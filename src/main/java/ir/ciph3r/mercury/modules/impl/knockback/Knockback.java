@@ -5,6 +5,8 @@ import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.CommandModule;
 import ir.ciph3r.mercury.utility.ChatUtils;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
@@ -19,12 +21,16 @@ public class Knockback extends CommandModule {
     @Syntax("<player>")
     @CommandPermission("mercury.commands.knockback")
     @CommandCompletion("@players")
-    public void onDefault(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
-        if (target == null) {
-            ChatUtils.sendColorizedMSG(player, getCommandUsage());
-        } else {
-            target.getPlayer().setVelocity(new Vector(2, 2, 2).normalize());
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().KNOCKBACK_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
-        }
+    public void onKnockback(CommandSender sender) {
+        ChatUtils.sendColorizedMSG(sender, getCommandUsage());
+    }
+
+    @Default
+    @Syntax("<player>")
+    @CommandPermission("mercury.commands.knockback")
+    @CommandCompletion("@players")
+    public void onKnockbackOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
+        target.getPlayer().setVelocity(new Vector(2, 2, 2).normalize());
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().KNOCKBACK_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
     }
 }

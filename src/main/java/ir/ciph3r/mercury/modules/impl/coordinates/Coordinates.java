@@ -6,6 +6,7 @@ import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.CommandModule;
 import ir.ciph3r.mercury.utility.ChatUtils;
 import org.bukkit.Location;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.text.DecimalFormat;
@@ -17,29 +18,32 @@ public class Coordinates extends CommandModule {
         setCommandNameAndSyntax("/Coordinates", "[player]");
     }
 
+    private final DecimalFormat decimalFormat = new DecimalFormat("0.00");
+
     @Default
     @Syntax("[player]")
     @CommandPermission("mercury.commands.coordinates")
     @CommandCompletion("@players")
-    public void onDefault(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
-        final DecimalFormat decimalFormat = new DecimalFormat("0.00");
-        if (target == null) {
-            Location loc = player.getLocation();
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().COORDINATES_MESSAGE
-                    .replace("{world}", loc.getWorld().getName())
-                    .replace("{x}", decimalFormat.format(loc.getX()))
-                    .replace("{y}", decimalFormat.format(loc.getY()))
-                    .replace("{z}", decimalFormat.format(loc.getZ())));
-        } else {
-            if (player.hasPermission("mercury.commands.coordinates.others")) {
-                Location loc = target.player.getLocation();
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().COORDINATES_MESSAGE_OTHERS
-                        .replace("{player}", target.getPlayer().getName())
-                        .replace("{world}", loc.getWorld().getName())
-                        .replace("{x}", decimalFormat.format(loc.getX()))
-                        .replace("{y}", decimalFormat.format(loc.getY()))
-                        .replace("{z}", decimalFormat.format(loc.getZ())));
-            }
-        }
+    public void onCoordinates(Player player) {
+        Location loc = player.getLocation();
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().COORDINATES_MESSAGE
+                .replace("{world}", loc.getWorld().getName())
+                .replace("{x}", decimalFormat.format(loc.getX()))
+                .replace("{y}", decimalFormat.format(loc.getY()))
+                .replace("{z}", decimalFormat.format(loc.getZ())));
+    }
+
+    @Default
+    @Syntax("[player]")
+    @CommandPermission("mercury.commands.coordinates.others")
+    @CommandCompletion("@players")
+    public void onCoordinatesOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
+        Location loc = target.player.getLocation();
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().COORDINATES_MESSAGE_OTHERS
+                .replace("{player}", target.getPlayer().getName())
+                .replace("{world}", loc.getWorld().getName())
+                .replace("{x}", decimalFormat.format(loc.getX()))
+                .replace("{y}", decimalFormat.format(loc.getY()))
+                .replace("{z}", decimalFormat.format(loc.getZ())));
     }
 }

@@ -20,7 +20,7 @@ public class SetSpawn extends CommandModule {
 
     @Default
     @CommandPermission("mercury.commands.setspawn")
-    public void onDefault(Player player) {
+    public void onSetSpawn(Player player) {
         try {
             MercuryAPI.INSTANCE.getConfig().set("modules.spawn.location", LocationUtils.serializeLocation(player.getLocation()));
             MercuryAPI.INSTANCE.getConfig().reloadSpawnLocation();

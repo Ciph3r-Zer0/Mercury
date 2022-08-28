@@ -21,7 +21,7 @@ public class Tell extends CommandModule {
     @Syntax("<player> <message>")
     @CommandPermission("mercury.commands.tell")
     @CommandCompletion("@players")
-    public void onDefault(Player player, @Conditions("notYourSelf") OnlinePlayer target, String[] args){
+    public void onTell(Player player, @Conditions("notYourSelf") OnlinePlayer target, String[] args){
         String msg = ArrayUtils.createStringFromArray(args, 0, args.length);
         ChatUtils.sendColorizedMSG(target.getPlayer(), MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE
                 .replace("{sender}", player.getName())

@@ -18,7 +18,7 @@ public class Uptime extends CommandModule {
 
     @Default
     @CommandPermission("mercury.commands.uptime")
-    public void onDefault(CommandSender sender) {
+    public void onUptime(CommandSender sender) {
         Duration duration = Duration.ofMillis(System.currentTimeMillis() - MercuryAPI.INSTANCE.getStartupTime());
         long seconds = duration.getSeconds();
 

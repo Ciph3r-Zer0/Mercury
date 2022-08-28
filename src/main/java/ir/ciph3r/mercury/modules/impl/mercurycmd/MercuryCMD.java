@@ -20,7 +20,7 @@ public class MercuryCMD extends CommandModule {
     @Default
     @Syntax("[Reload]")
     @CommandCompletion("reload")
-    public void onCMD(CommandSender sender) {
+    public void onMercury(CommandSender sender) {
         ChatUtils.sendColorizedMSG(sender, "&5Mercury &8&k||&r &cMercury &7version &c" + MercuryAPI.INSTANCE.getPlugin().getDescription().getVersion() + " &7made by &cCiph3r");
     }
 

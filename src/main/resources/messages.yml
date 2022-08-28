@@ -17,16 +17,16 @@ modules:
   broadcast:
     broadcast_message: "{message}"
   clear_inventory:
-    message: "{prefix} &7Inventory cleared"
-    message_others: "{prefix} &c{player} &7inventory cleared"
+    message: "{prefix} &7Inventory cleared."
+    message_others: "{prefix} &7Inventory of &c{player} &7has been cleared."
   coordinates:
-    message: "{prefix} &7You're in Word: &c{world}&7, X: &c{x}&7, Y: &c{y}&7, Z: &c{z}"
-    message_others: "{prefix} &c{player} &7is in Word: &c{world}&7, X: &c{x}&7, Y: &c{y}&7, Z: &c{z}"
+    message: "{prefix} &7You're in Word: &c{world}&7, X: &c{x}&7, Y: &c{y}&7, Z: &c{z}."
+    message_others: "{prefix} &c{player} &7is in Word: &c{world}&7, X: &c{x}&7, Y: &c{y}&7, Z: &c{z}."
   cross_teleport:
-    message: "{prefix} &7Teleported to &c{player} &7in &c{server}"
+    message: "{prefix} &7Teleported to &c{player} &7in &c{server}."
   feed:
-    message: "{prefix} &7You've been fed"
-    message_others: "{prefix} &c{player} &7fed"
+    message: "{prefix} &7You've been fed."
+    message_others: "{prefix} &c{player} &7has been fed."
   fly:
     message: "{prefix} &7Flying {status}"
     message_others: "{prefix} &7Flying {status} &7for &c{player}"
@@ -42,11 +42,11 @@ modules:
     message_others: "{prefix} &7Knockback applied to &c{player}"
   lightning:
     message: "{prefix} &7Lightning struck"
-    message_others: "{prefix} &c{player} &7struck by lightning"
+    message_others: "{prefix} &c{target} &7struck by lightning"
   plugin_list:
     first_line: "&8*-----------&7[&5PluginList&7]&8-----------*"
     list_design: " &7* {plugin} &8[&7{version}&8]"
-    last_line: "------------&7(&c{amount}&7)------------"
+    last_line: "&8*-------------&7(&c{amount}&7)&8-------------*"
   private_chat:
     message: "{sender} -> {receiver} >> {message}"
     message_self: "{sender} -> {receiver} >> {message}"
@@ -71,7 +71,7 @@ modules:
     message_reset: "{prefix} &7Fly & Walk speed reset"
     message_reset_others: "{prefix} &7Fly & Walk speed reset for &c{target}"
   sudo:
-    message: "{prefix} &c{player} &7sudo successful"
+    message: "{prefix} &7sudo successful for &c{player}"
   teleport:
     message: "{prefix} &7You've been teleported to &c{player}"
     message_others: "{prefix} &7Teleported &c{player} &7to &c{target}"

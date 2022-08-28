@@ -5,6 +5,7 @@ import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.CommandModule;
 import ir.ciph3r.mercury.utility.ChatUtils;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("Clearinventory|CI|ClearINV")
@@ -18,15 +19,18 @@ public class ClearInventory extends CommandModule {
     @Syntax("[player]")
     @CommandPermission("mercury.commands.clearinventory")
     @CommandCompletion("@players")
-    public void onDefault(Player sender, @Optional @Conditions("noAdmin") OnlinePlayer target) {
-        if (target == null) {
-            sender.getInventory().clear();
-            ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().CLEAR_INVENTORY_MESSAGE);
-        } else {
-            if (target.getPlayer().hasPermission("mercury.commands.clearinventory.others")) {
-                target.getPlayer().getInventory().clear();
-                ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().CLEAR_INVENTORY_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
-            }
-        }
+    public void onClearInventory(Player sender) {
+        sender.getInventory().clear();
+        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().CLEAR_INVENTORY_MESSAGE);
     }
+
+    @Default
+    @Syntax("[player]")
+    @CommandPermission("mercury.commands.clearinventory.others")
+    @CommandCompletion("@players")
+    public void onClearInventoryOthers(CommandSender sender, @Conditions("noAdmin") OnlinePlayer target) {
+        target.getPlayer().getInventory().clear();
+        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().CLEAR_INVENTORY_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+    }
+
 }

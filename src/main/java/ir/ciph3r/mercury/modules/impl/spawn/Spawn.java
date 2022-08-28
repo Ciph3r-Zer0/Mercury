@@ -8,6 +8,7 @@ import ir.ciph3r.mercury.modules.impl.spawn.listener.SpawnListener;
 import ir.ciph3r.mercury.utility.ChatUtils;
 import ir.ciph3r.mercury.utility.LocationUtils;
 import org.bukkit.Location;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("Spawn")
@@ -22,20 +23,27 @@ public class Spawn extends CommandModule {
     @Syntax("[player]")
     @CommandPermission("mercury.commands.spawn")
     @CommandCompletion("@players")
-    public void onDefault(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
+    public void onSpawn(Player player) {
         if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) {
             ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_NOT_SET);
         } else {
             Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
-            if (target == null) {
-                player.teleport(spawnLocation);
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE);
-            } else {
-                if (player.hasPermission("mercury.commands.spawn.others")) {
-                    target.getPlayer().teleport(spawnLocation);
-                    ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
-                }
-            }
+            player.teleport(spawnLocation);
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE);
+        }
+    }
+
+    @Default
+    @Syntax("[player]")
+    @CommandPermission("mercury.commands.spawn.others")
+    @CommandCompletion("@players")
+    public void onSpawnOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
+        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) {
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_NOT_SET);
+        } else {
+            Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+            target.getPlayer().teleport(spawnLocation);
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
         }
     }
 }
