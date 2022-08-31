@@ -43,13 +43,16 @@ modules:
   lightning:
     message: "{prefix} &7Lightning struck"
     message_others: "{prefix} &c{target} &7struck by lightning"
+  messages:
+    join: "&a&l[+] &c{player} &7joined the server."
+    quit: "&4&l[-] &c{player} &7left the server."
   plugin_list:
-    first_line: "&8*-----------&7[&5PluginList&7]&8-----------*"
+    first_line: "&8*-----------&7[&5Plugins&7]&8-----------*"
     list_design: " &7* {plugin} &8[&7{version}&8]"
-    last_line: "&8*-------------&7(&c{amount}&7)&8-------------*"
+    last_line: "&8*------------&7(&c{amount}&7)&8------------*"
   private_chat:
-    message: "{sender} -> {receiver} >> {message}"
-    message_self: "{sender} -> {receiver} >> {message}"
+    message: "&c{sender} &7-> &5{receiver} &7>> &f{message}"
+    message_self: "&c{sender} &7-> &5{receiver} &7>> &f{message}"
     message_can_not_send_self: "{prefix} &7Can not send message to yourself."
     message_no_one_to_reply: "{prefix} &7There is no one to reply."
   reload:

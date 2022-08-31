@@ -53,6 +53,9 @@ public class Messages extends YamlModel {
 			LIGHTNING_MESSAGE,
 			LIGHTNING_MESSAGE_OTHERS,
 
+			MESSAGES_JOIN,
+			MESSAGES_QUIT,
+
 			PLUGIN_LIST_FIRST_LINE,
 			PLUGIN_LIST_LIST_DESIGN,
 			PLUGIN_LIST_LAST_LINE,
@@ -136,6 +139,9 @@ public class Messages extends YamlModel {
 
 		LIGHTNING_MESSAGE = getFileConfig().getString("modules.lightning.message").replace("{prefix}", PREFIX);
 		LIGHTNING_MESSAGE_OTHERS = getFileConfig().getString("modules.lightning.message_others").replace("{prefix}", PREFIX);
+
+		MESSAGES_JOIN = getFileConfig().getString("modules.messages.join").replace("{prefix}", PREFIX);
+		MESSAGES_QUIT = getFileConfig().getString("modules.messages.quit").replace("{prefix}", PREFIX);
 
 		PLUGIN_LIST_FIRST_LINE = getFileConfig().getString("modules.plugin_list.first_line").replace("{prefix}", PREFIX);
 		PLUGIN_LIST_LIST_DESIGN = getFileConfig().getString("modules.plugin_list.list_design").replace("{prefix}", PREFIX);

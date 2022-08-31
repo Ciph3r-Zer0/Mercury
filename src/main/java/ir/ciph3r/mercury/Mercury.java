@@ -9,6 +9,8 @@ public final class Mercury extends JavaPlugin {
 	//TODO: try to refactor CrossTeleport module and make it compatible with vanish plugins
 	//TODO: add setMaxPlayers module
 	//TODO: add join/quit message module
+	//TODO: add TPA module
+	//TODO: add CommandSpy module
 
 	@Override
 	public void onEnable() {

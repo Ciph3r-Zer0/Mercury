@@ -21,6 +21,9 @@ modules:
     enabled: true
   lightning:
     enabled: true
+  messages:
+    join: true
+    quit: true
   plugin_list:
     enabled: true
   private_chat:

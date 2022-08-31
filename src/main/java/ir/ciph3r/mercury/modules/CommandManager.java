@@ -18,6 +18,8 @@ import ir.ciph3r.mercury.modules.impl.kill.Kill;
 import ir.ciph3r.mercury.modules.impl.knockback.Knockback;
 import ir.ciph3r.mercury.modules.impl.lightning.Lightning;
 import ir.ciph3r.mercury.modules.impl.mercurycmd.MercuryCMD;
+import ir.ciph3r.mercury.modules.impl.messages.Join;
+import ir.ciph3r.mercury.modules.impl.messages.Quit;
 import ir.ciph3r.mercury.modules.impl.pluginlist.PluginList;
 import ir.ciph3r.mercury.modules.impl.privatechat.Reply;
 import ir.ciph3r.mercury.modules.impl.rotate.Rotate;
@@ -67,6 +69,8 @@ public class CommandManager {
         modules.add(new Kill());
         modules.add(new Knockback());
         modules.add(new Lightning());
+        modules.add(new Join());
+        modules.add(new Quit());
         modules.add(new PluginList());
         modules.add(new Tell());
         modules.add(new Reply());

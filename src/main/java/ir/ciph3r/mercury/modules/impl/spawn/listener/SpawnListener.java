@@ -3,6 +3,7 @@ package ir.ciph3r.mercury.modules.impl.spawn.listener;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.utility.ChatUtils;
 import ir.ciph3r.mercury.utility.LocationUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -51,7 +52,12 @@ public class SpawnListener implements Listener {
         Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
 
         event.setCancelled(true);
-        player.teleport(spawnLocation);
-        player.setFallDistance(0);
+
+        //Using a task timer because teleporting player instantly when taking void damage in 1.19+ servers causes
+        //Players being stuck in one place and unable to move and also unable to see other players
+        Bukkit.getScheduler().runTaskLater(MercuryAPI.INSTANCE.getPlugin(), () -> {
+            player.teleport(spawnLocation);
+            player.setFallDistance(0);
+        } ,1L);
     }
 }

@@ -34,6 +34,9 @@ public class Config extends YamlModel {
 
 			LIGHTNING_ENABLED,
 
+			MESSAGES_JOIN,
+			MESSAGES_QUIT,
+
 			PLUGIN_LIST_ENABLED,
 
 			PRIVATE_CHAT_ENABLED,
@@ -83,6 +86,9 @@ public class Config extends YamlModel {
 		KNOCKBACK_ENABLED = getFileConfig().getBoolean("modules.knockback.enabled");
 
 		LIGHTNING_ENABLED = getFileConfig().getBoolean("modules.lightning.enabled");
+
+		MESSAGES_JOIN = getFileConfig().getBoolean("modules.messages.join");
+		MESSAGES_QUIT = getFileConfig().getBoolean("modules.messages.quit");
 
 		PLUGIN_LIST_ENABLED = getFileConfig().getBoolean("modules.plugin_list.enabled");
 
