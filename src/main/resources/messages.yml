@@ -44,8 +44,11 @@ modules:
     message: "{prefix} &7Lightning struck"
     message_others: "{prefix} &c{target} &7struck by lightning"
   messages:
-    join: "&a&l[+] &c{player} &7joined the server."
-    quit: "&4&l[-] &c{player} &7left the server."
+    join:
+      message: "&a&l[+] &c{player} &7joined the server."
+      message_first_join: "&a&l[+] &c{player} &7joined the server for the first time."
+    quit:
+      message: "&4&l[-] &c{player} &7left the server."
   plugin_list:
     first_line: "&8*-----------&7[&5Plugins&7]&8-----------*"
     list_design: " &7* {plugin} &8[&7{version}&8]"

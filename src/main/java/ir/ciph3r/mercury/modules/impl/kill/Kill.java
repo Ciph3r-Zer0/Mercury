@@ -6,9 +6,8 @@ import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.CommandModule;
 import ir.ciph3r.mercury.utility.ChatUtils;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
-@CommandAlias("Kill")
+@CommandAlias("Kill|Slay")
 public class Kill extends CommandModule {
     public Kill() {
         super("Kill", MercuryAPI.INSTANCE.getConfig().KILL_ENABLED);

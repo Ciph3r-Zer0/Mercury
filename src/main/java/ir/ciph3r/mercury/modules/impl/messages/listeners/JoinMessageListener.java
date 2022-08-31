@@ -10,6 +10,10 @@ public class JoinMessageListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        event.setJoinMessage(ChatUtils.colorize(MercuryAPI.INSTANCE.getMessages().MESSAGES_JOIN.replace("{player}", event.getPlayer().getName())));
+        if (event.getPlayer().hasPlayedBefore()) {
+            event.setJoinMessage(ChatUtils.colorize(MercuryAPI.INSTANCE.getMessages().MESSAGES_FIRST_JOIN.replace("{player}", event.getPlayer().getName())));
+        } else {
+            event.setJoinMessage(ChatUtils.colorize(MercuryAPI.INSTANCE.getMessages().MESSAGES_JOIN.replace("{player}", event.getPlayer().getName())));
+        }
     }
 }

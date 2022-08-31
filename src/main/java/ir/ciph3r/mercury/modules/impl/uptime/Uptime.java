@@ -14,6 +14,7 @@ import java.time.Duration;
 public class Uptime extends CommandModule {
     public Uptime() {
         super(" Uptime", MercuryAPI.INSTANCE.getConfig().UPTIME_ENABLED);
+        setCommandNameAndSyntax("/Uptime", null);
     }
 
     @Default
