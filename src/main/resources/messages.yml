@@ -4,7 +4,7 @@ unknown_command: "{prefix} &7Command unknown!"
 multiple_players_match: "{prefix} &7Multiple players matched &c{search}&7(&c{all}&7)"
 is_not_a_valid_name: "{prefix} &c{name} &7is not a valid username."
 no_player_found_server: "{prefix} &7No player matching &C{search} &7is connected to this server."
-no_player_found_offline: "{preifx} &7No player matching &c{search} &7could be found."
+no_player_found_offline: "{prefix} &7No player matching &c{search} &7could be found."
 not_to_admin: "{prefix} &7Can't execute that command on admin."
 not_allowed_on_console: "{prefix} &7Console may not execute this command."
 must_be_a_number: "{prefix} &c{num} &7must be a number."
@@ -23,7 +23,7 @@ modules:
     message: "{prefix} &7You're in Word: &c{world}&7, X: &c{x}&7, Y: &c{y}&7, Z: &c{z}."
     message_others: "{prefix} &c{player} &7is in Word: &c{world}&7, X: &c{x}&7, Y: &c{y}&7, Z: &c{z}."
   cross_teleport:
-    message: "{prefix} &7Teleported to &c{player} &7in &c{server}."
+    message: "{prefix} &7Teleported to &c{player}."
   feed:
     message: "{prefix} &7You've been fed."
     message_others: "{prefix} &c{player} &7has been fed."
@@ -66,7 +66,7 @@ modules:
     message_others: "{prefix} &c{player} &7hotbar shuffled"
   spawn:
     message_not_set: "{prefix} &7Spawn has not been set."
-    message_set: "{prefix} &7Spawnpoit set {status}"
+    message_set: "{prefix} &7Spawn point set {status}"
     message: "{prefix} &7You've been teleported to spawn"
     message_others: "{prefix} &c{player} &7has been teleported to spawn"
   speed:

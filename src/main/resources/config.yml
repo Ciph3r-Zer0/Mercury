@@ -1,3 +1,7 @@
+update_checker:
+  notify_on_join: true
+  check_delay: 1
+
 modules:
   broadcast:
     enabled: true
@@ -7,6 +11,7 @@ modules:
     enabled: true
   cross_teleport:
     enabled: true
+    send_delay: 1
   feed:
     enabled: true
   fly:

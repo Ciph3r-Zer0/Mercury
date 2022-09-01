@@ -6,7 +6,7 @@
 
     <groupId>ir.Ciph3r</groupId>
     <artifactId>Mercury</artifactId>
-    <version>3.0.0-DEV</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <name>Mercury</name>

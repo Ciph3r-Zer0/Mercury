@@ -12,6 +12,8 @@ public class Config extends YamlModel {
 	}
 
 	public boolean
+			UPDATE_CHECKER_NOTIFY_ON_JOIN,
+
 			BROADCAST_ENABLED,
 
 			CLEAR_INVENTORY_ENABLED,
@@ -63,8 +65,17 @@ public class Config extends YamlModel {
 	public String
 			SPAWN_LOCATION;
 
+	public int
+			UPDATE_CHECKER_CHECK_DELAY;
+
+	public long
+			CROSS_TELEPORT_SEND_DELAY;
+
 	@Override
 	public void init() {
+		UPDATE_CHECKER_NOTIFY_ON_JOIN = getFileConfig().getBoolean("update_checker.notify_on_join");
+		UPDATE_CHECKER_CHECK_DELAY = getFileConfig().getInt("update_checker.check_delay");
+
 		BROADCAST_ENABLED = getFileConfig().getBoolean("modules.broadcast.enabled");
 
 		CLEAR_INVENTORY_ENABLED = getFileConfig().getBoolean("modules.clear_inventory.enabled");
@@ -72,6 +83,8 @@ public class Config extends YamlModel {
 		COORDINATES_ENABLED = getFileConfig().getBoolean("modules.coordinates.enabled");
 
 		CROSS_TELEPORT_ENABLED = getFileConfig().getBoolean("modules.cross_teleport.enabled");
+
+		CROSS_TELEPORT_SEND_DELAY = getFileConfig().getLong("modules.cross_teleport.send_delay");
 
 		FEED_ENABLED = getFileConfig().getBoolean("modules.feed.enabled");
 
