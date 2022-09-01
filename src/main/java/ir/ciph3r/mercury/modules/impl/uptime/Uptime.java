@@ -15,12 +15,16 @@ public class Uptime extends CommandModule {
     public Uptime() {
         super(" Uptime", MercuryAPI.INSTANCE.getConfig().UPTIME_ENABLED);
         setCommandNameAndSyntax("/Uptime", null);
+
+        this.startupTime = System.currentTimeMillis();
     }
+
+    private final long startupTime;
 
     @Default
     @CommandPermission("mercury.commands.uptime")
     public void onUptime(CommandSender sender) {
-        Duration duration = Duration.ofMillis(System.currentTimeMillis() - MercuryAPI.INSTANCE.getStartupTime());
+        Duration duration = Duration.ofMillis(System.currentTimeMillis() - startupTime);
         long seconds = duration.getSeconds();
 
         long h = seconds / 3600;

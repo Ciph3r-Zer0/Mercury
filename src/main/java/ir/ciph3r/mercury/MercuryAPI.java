@@ -16,10 +16,8 @@ public enum MercuryAPI {
     INSTANCE;
 
     private JavaPlugin plugin;
-    private long startupTime;
     private Config config;
     private Messages messages;
-    private BungeeChannelApi bungeeAPI;
     private Depends depends;
     private CommandManager commandManager;
     private UpdateChecker updateChecker;
@@ -27,10 +25,8 @@ public enum MercuryAPI {
     public void start(final JavaPlugin plugin) {
         this.plugin = plugin;
 
-        this.startupTime = System.currentTimeMillis();
         this.config = new Config();
         this.messages = new Messages();
-        this.bungeeAPI = BungeeChannelApi.of(getPlugin());
         this.depends = new Depends();
         this.commandManager = new CommandManager();
 
@@ -39,7 +35,7 @@ public enum MercuryAPI {
                 .setNotifyOpsOnJoin(getConfig().UPDATE_CHECKER_NOTIFY_ON_JOIN)
                 .checkEveryXHours(getConfig().UPDATE_CHECKER_CHECK_DELAY)
                 .setDownloadLink("https://github.com/Ciph3r-Zer0/Mercury/releases")
-                .setUsedVersion("3.0.0-DEV")
+                .setUsedVersion("3.0.0")
                 .checkNow();
 
         new Metrics(getPlugin(), 14640);
