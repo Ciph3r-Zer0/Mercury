@@ -23,8 +23,8 @@ public class CrossTeleportListener implements Listener {
             ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_OFFLINE.replace("{search}", toBeTeleported.get(player.getName())));
         } else {
             MercuryAPI.INSTANCE.getDepends().getVanish().teleport(player, target);
-            toBeTeleported.remove(player.getName());
             ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().CROSS_TELEPORT_MESSAGE.replace("{player}", target.getName()));
+            toBeTeleported.remove(player.getName());
         }
     }
 }
