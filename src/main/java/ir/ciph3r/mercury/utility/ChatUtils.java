@@ -32,4 +32,15 @@ public class ChatUtils {
             sendColorizedMSG(p, msg);
         });
     }
+
+    public static void printSplashScreen() {
+        Logger.log("&5  __  __                                ");
+        Logger.log("&5 |  \\/  |                               ");
+        Logger.log("&5 | \\  / | ___ _ __ ___ _   _ _ __ _   _ ");
+        Logger.log("&5 | |\\/| |/ _ \\ '__/ __| | | | '__| | | |");
+        Logger.log("&5 | |  | |  __/ | | (__| |_| | |  | |_| |");
+        Logger.log("&5 |_|  |_|\\___|_|  \\___|\\__,_|_|   \\__, |");
+        Logger.log("&5                                   __/ |");
+        Logger.log("&5                                  |___/ ");
+    }
 }

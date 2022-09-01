@@ -32,6 +32,7 @@ import ir.ciph3r.mercury.modules.impl.teleport.Teleport;
 import ir.ciph3r.mercury.modules.impl.privatechat.Tell;
 import ir.ciph3r.mercury.modules.impl.time.Time;
 import ir.ciph3r.mercury.modules.impl.uptime.Uptime;
+import ir.ciph3r.mercury.utility.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.event.Listener;
@@ -43,6 +44,7 @@ import java.util.Locale;
 public class CommandManager {
     public ArrayList<CommandModule> modules = new ArrayList<>();
     public final PaperCommandManager commandManager = new PaperCommandManager(MercuryAPI.INSTANCE.getPlugin());
+    private int registeredCount = 0;
 
     public CommandManager() {
         register();
@@ -51,41 +53,46 @@ public class CommandManager {
     public void register() {
         try {
             commandManager.getLocales().loadYamlLanguageFile("messages.yml", Locale.ENGLISH);
+
+            registerConditions();
+            registerPlaceHolders();
+
+            modules.add(new MercuryCMD());
+            modules.add(new Broadcast());
+            modules.add(new ClearInventory());
+            modules.add(new Coordinates());
+            modules.add(new CrossTeleport());
+            modules.add(new Feed());
+            modules.add(new Fly());
+            modules.add(new Gamemode());
+            modules.add(new Heal());
+            modules.add(new Kill());
+            modules.add(new Knockback());
+            modules.add(new Lightning());
+            modules.add(new Join());
+            modules.add(new Quit());
+            modules.add(new PluginList());
+            modules.add(new Tell());
+            modules.add(new Reply());
+            modules.add(new Rotate());
+            modules.add(new Shuffle());
+            modules.add(new SetSpawn());
+            modules.add(new Spawn());
+            modules.add(new Speed());
+            modules.add(new Sudo());
+            modules.add(new Teleport());
+            modules.add(new Time());
+            modules.add(new Uptime());
+
+            Logger.log("&7Registering &aModules &7...");
+
+            for (CommandModule module : modules) {
+                registerModule(module);
+            }
+
+            Logger.log("&a" + registeredCount + "&7/" + "&a" + modules.size() + " &7Modules registered.");
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
-        }
-        registerConditions();
-        registerPlaceHolders();
-
-        modules.add(new MercuryCMD());
-        modules.add(new Broadcast());
-        modules.add(new ClearInventory());
-        modules.add(new Coordinates());
-        modules.add(new CrossTeleport());
-        modules.add(new Feed());
-        modules.add(new Fly());
-        modules.add(new Gamemode());
-        modules.add(new Heal());
-        modules.add(new Kill());
-        modules.add(new Knockback());
-        modules.add(new Lightning());
-        modules.add(new Join());
-        modules.add(new Quit());
-        modules.add(new PluginList());
-        modules.add(new Tell());
-        modules.add(new Reply());
-        modules.add(new Rotate());
-        modules.add(new Shuffle());
-        modules.add(new SetSpawn());
-        modules.add(new Spawn());
-        modules.add(new Speed());
-        modules.add(new Sudo());
-        modules.add(new Teleport());
-        modules.add(new Time());
-        modules.add(new Uptime());
-
-        for (CommandModule module : modules) {
-            registerModule(module);
         }
     }
 
@@ -97,6 +104,7 @@ public class CommandManager {
                     Bukkit.getServer().getPluginManager().registerEvents(listener, MercuryAPI.INSTANCE.getPlugin());
                 }
             }
+            registeredCount++;
         }
     }
 

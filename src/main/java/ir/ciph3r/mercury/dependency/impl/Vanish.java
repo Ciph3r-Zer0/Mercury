@@ -1,6 +1,7 @@
 package ir.ciph3r.mercury.dependency.impl;
 
 import de.myzelyam.api.vanish.VanishAPI;
+import ir.ciph3r.mercury.utility.Logger;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -12,6 +13,9 @@ public class Vanish {
     public Vanish() {
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")) {
             this.enabled = true;
+            Logger.log("&7Hooking into &aVanishAPI&7.");
+        } else {
+            Logger.log("&7Hooking into &cVanishAPI&7.");
         }
     }
 

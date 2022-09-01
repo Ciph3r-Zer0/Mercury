@@ -1,6 +1,7 @@
 package ir.ciph3r.mercury.storage.yaml.models;
 
 import ir.ciph3r.mercury.MercuryAPI;
+import ir.ciph3r.mercury.utility.Logger;
 import lombok.Getter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,7 +24,9 @@ public abstract class YamlModel {
         try {
             create();
             load();
+            Logger.log("&7Loading &a" + fileName + "&7.");
         } catch (IOException | InvalidConfigurationException e) {
+            Logger.log("&7Loading &c" + fileName + "&7.");
             e.printStackTrace();
         }
         init();

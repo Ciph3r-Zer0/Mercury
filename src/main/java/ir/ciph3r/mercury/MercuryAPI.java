@@ -2,11 +2,12 @@ package ir.ciph3r.mercury;
 
 import com.jeff_media.updatechecker.UpdateCheckSource;
 import com.jeff_media.updatechecker.UpdateChecker;
-import io.github.leonardosnt.bungeechannelapi.BungeeChannelApi;
 import ir.ciph3r.mercury.dependency.Depends;
 import ir.ciph3r.mercury.modules.CommandManager;
 import ir.ciph3r.mercury.storage.yaml.Config;
 import ir.ciph3r.mercury.storage.yaml.Messages;
+import ir.ciph3r.mercury.utility.ChatUtils;
+import ir.ciph3r.mercury.utility.Logger;
 import lombok.Getter;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,6 +24,7 @@ public enum MercuryAPI {
     private UpdateChecker updateChecker;
 
     public void start(final JavaPlugin plugin) {
+        ChatUtils.printSplashScreen();
         this.plugin = plugin;
 
         this.config = new Config();
@@ -39,6 +41,7 @@ public enum MercuryAPI {
                 .checkNow();
 
         new Metrics(getPlugin(), 14640);
+        Logger.log("");
     }
 
     public void stop() {
