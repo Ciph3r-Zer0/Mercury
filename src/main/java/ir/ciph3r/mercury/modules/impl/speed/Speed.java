@@ -12,18 +12,18 @@ import org.bukkit.entity.Player;
 public class Speed extends CommandModule {
     public Speed() {
         super("Speed", MercuryAPI.INSTANCE.getConfig().SPEED_ENABLED);
-        setCommandNameAndSyntax("/Speed", "<Walk, Fly, Reset> <0-10> [player]");
+        setCommandNameAndSyntax("/Speed", "<Walk, Fly, Reset> [0-10] [player]");
     }
 
     @Default
-    @Syntax("<Walk, Fly, Reset> <0-10> [player]")
+    @Syntax("<Walk, Fly, Reset> [0-10] [player]")
     @CommandPermission("mercury.commands.speed")
     @CommandCompletion("Walk|Fly|Reset")
     public void onSpeed(CommandSender player) {
         ChatUtils.sendColorizedMSG(player, getCommandUsage());
     }
 
-    @Syntax("<0-10> [player]")
+    @Syntax("[0-10] [player]")
     @Subcommand("Walk|W")
     @CommandPermission("mercury.commands.speed")
     @CommandCompletion("3 @players")
@@ -32,7 +32,7 @@ public class Speed extends CommandModule {
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_WALK_MESSAGE.replace("{amount}", String.valueOf(speed)));
     }
 
-    @Syntax("<0-10> [player]")
+    @Syntax("[0-10] [player]")
     @Subcommand("Walk|W")
     @CommandPermission("mercury.commands.speed.others")
     @CommandCompletion("3 @players")
@@ -41,7 +41,7 @@ public class Speed extends CommandModule {
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_WALK_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{amount}", String.valueOf(speed)));
     }
 
-    @Syntax("<0-10> [player]")
+    @Syntax("[0-10] [player]")
     @Subcommand("Fly|F")
     @CommandPermission("mercury.commands.speed")
     @CommandCompletion("3 @players")
@@ -50,7 +50,7 @@ public class Speed extends CommandModule {
         ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_FLY_MESSAGE.replace("{amount}", String.valueOf(speed)));
     }
 
-    @Syntax("<0-10> [player]")
+    @Syntax("[0-10] [player]")
     @Subcommand("Fly|F")
     @CommandPermission("mercury.commands.speed.others")
     @CommandCompletion("3 @players")

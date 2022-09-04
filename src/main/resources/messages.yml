@@ -1,4 +1,5 @@
 prefix: "&5Mercury &8&k||&r"
+
 permission_denied: "{prefix} &7You don't have permission: &c{permission}"
 unknown_command: "{prefix} &7Command unknown!"
 multiple_players_match: "{prefix} &7Multiple players matched &c{search}&7(&c{all}&7)"

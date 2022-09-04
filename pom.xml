@@ -6,7 +6,7 @@
 
     <groupId>ir.Ciph3r</groupId>
     <artifactId>Mercury</artifactId>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <packaging>jar</packaging>
 
     <name>Mercury</name>
@@ -35,11 +35,13 @@
                 <configuration>
                     <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
                     <relocations>
-                        <relocation><pattern>org.bstats</pattern><shadedPattern>ir.ciph3r.mercury.shaded.bstats</shadedPattern></relocation>
-                        <relocation><pattern>co.aikar.commands</pattern><shadedPattern>ir.ciph3r.mercury.shaded.acf</shadedPattern></relocation>
-                        <relocation><pattern>co.aikar.locales</pattern><shadedPattern>ir.ciph3r.mercury.shaded.acf.locales</shadedPattern></relocation>
-                        <relocation><pattern>com.jeff_media.updatechecker</pattern><shadedPattern>ir.ciph3r.mercury.shaded.updatechecker</shadedPattern></relocation>
-                        <relocation><pattern>io.github.leonardosnt.bungeechannelapi</pattern><shadedPattern>ir.ciph3r.mercury.shaded.bungeechannelapi</shadedPattern></relocation>
+                        <relocation><pattern>alexh</pattern><shadedPattern>ir.ciph3r.mercury.shaded.alexh</shadedPattern></relocation>
+                        <relocation><pattern>co</pattern><shadedPattern>ir.ciph3r.mercury.shaded.co</shadedPattern></relocation>
+                        <relocation><pattern>com</pattern><shadedPattern>ir.ciph3r.mercury.shaded.com</shadedPattern></relocation>
+                        <relocation><pattern>github</pattern><shadedPattern>ir.ciph3r.mercury.shaded.github</shadedPattern></relocation>
+                        <relocation><pattern>io</pattern><shadedPattern>ir.ciph3r.mercury.shaded.io</shadedPattern></relocation>
+                        <relocation><pattern>junit</pattern><shadedPattern>ir.ciph3r.mercury.shaded.junit</shadedPattern></relocation>
+                        <relocation><pattern>org</pattern><shadedPattern>ir.ciph3r.mercury.shaded.org</shadedPattern></relocation>
                     </relocations>
                 </configuration>
                 <executions>
@@ -66,6 +68,7 @@
         <repository><id>jeff-media-public</id><url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url></repository>
         <repository><id>codemc-repo</id><url>https://repo.codemc.org/repository/maven-public/</url></repository>
         <repository><id>placeholderapi</id><url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url></repository>
+        <repository><id>scarsz</id><url>https://nexus.scarsz.me/content/groups/public/</url></repository>
     </repositories>
 
     <dependencies>
@@ -114,6 +117,11 @@
             <artifactId>placeholderapi</artifactId>
             <version>2.11.2</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>github.scarsz</groupId>
+            <artifactId>configuralize</artifactId>
+            <version>1.4.0</version>
         </dependency>
     </dependencies>
 </project>

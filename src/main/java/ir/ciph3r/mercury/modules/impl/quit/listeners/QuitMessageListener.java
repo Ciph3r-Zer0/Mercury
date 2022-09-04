@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.modules.impl.messages.listeners;
+package ir.ciph3r.mercury.modules.impl.quit.listeners;
 
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.utility.ChatUtils;
@@ -10,6 +10,6 @@ public class QuitMessageListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerQuitEvent event) {
-        event.setQuitMessage(ChatUtils.colorize(MercuryAPI.INSTANCE.getMessages().MESSAGES_QUIT.replace("{player}", event.getPlayer().getName())));
+        event.setQuitMessage(ChatUtils.colorize(MercuryAPI.INSTANCE.getDepends().getPapiAPI().setPlaceHolders(event.getPlayer(), MercuryAPI.INSTANCE.getMessages().MESSAGES_QUIT)));
     }
 }
