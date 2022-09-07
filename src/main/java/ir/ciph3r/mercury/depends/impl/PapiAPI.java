@@ -15,15 +15,17 @@ public class PapiAPI {
             this.enabled = true;
             Logger.log("&7Hooking into &apapiAPI&7.");
         } else {
-            Logger.log("&7Hooking into &cpapiAPI&7.");
+            Logger.log("&7Cloud not found &cpapiAPI&7 &7skipping...");
         }
     }
 
     public String setPlaceHolders(Player player, String message) {
         if (isEnabled()) {
-            return PlaceholderAPI.setPlaceholders(player, message);
+            return PlaceholderAPI.setPlaceholders(player, message.replace("{player}", player.getName()));
         } else {
-            return message.replace("{player}", player.getName());
+            return message
+                    .replace("{player}", player.getName())
+                    .replace("%player_name%", player.getName());
         }
     }
 }

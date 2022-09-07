@@ -6,7 +6,7 @@ import ir.ciph3r.mercury.modules.impl.quitmessage.listeners.QuitMessageListener;
 
 public class QuitMessage extends CommandModule {
     public QuitMessage() {
-        super("Quit", MercuryAPI.INSTANCE.getConfigManager().getValues().QUIT_MESSAGE_ENABLED);
+        super("QuitMessage", MercuryAPI.INSTANCE.getConfigManager().getValues().QUIT_MESSAGE_ENABLED);
         addListeners(new QuitMessageListener());
     }
 }

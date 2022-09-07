@@ -7,6 +7,7 @@ import co.aikar.commands.PaperCommandManager;
 import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.impl.broadcast.Broadcast;
+import ir.ciph3r.mercury.modules.impl.chatformat.ChatFormat;
 import ir.ciph3r.mercury.modules.impl.clearinventory.ClearInventory;
 import ir.ciph3r.mercury.modules.impl.coordinates.Coordinates;
 import ir.ciph3r.mercury.modules.impl.crossteleport.CrossTeleport;
@@ -59,6 +60,7 @@ public class CommandManager {
 
             modules.add(new MercuryCMD());
             modules.add(new Broadcast());
+            modules.add(new ChatFormat());
             modules.add(new ClearInventory());
             modules.add(new Coordinates());
             modules.add(new CrossTeleport());

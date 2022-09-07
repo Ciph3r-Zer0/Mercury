@@ -11,6 +11,7 @@ public class ConfigValues {
     public boolean
             UPDATE_CHECKER_NOTIFY_ON_JOIN,
             BROADCAST_ENABLED,
+            CHAT_FORMAT_ENABLED,
             CLEAR_INVENTORY_ENABLED,
             COORDINATED_ENABLED,
             CROSS_TELEPORT_ENABLED,
@@ -59,6 +60,7 @@ public class ConfigValues {
             RELOAD_MESSAGE,
 
             BROADCAST_MESSAGE,
+            CHAT_FORMAT_MESSAGE,
             CLEAR_INVENTORY_MESSAGE,
             CLEAR_INVENTORY_MESSAGE_OTHERS,
             COORDINATES_MESSAGE,
@@ -84,8 +86,8 @@ public class ConfigValues {
             PLUGIN_LIST_LAST_LINE,
             PRIVATE_CHAT_MESSAGE,
             PRIVATE_CHAT_MESSAGE_SELF,
-                    PRIVATE_CHAT_CAN_NOT_SEND_SELF,
-                    PRIVATE_NO_ONE_TO_REPLY,
+            PRIVATE_CHAT_CAN_NOT_SEND_SELF,
+            PRIVATE_NO_ONE_TO_REPLY,
             ROTATE_MESSAGE,
             SHUFFLE_MESSAGE,
             SPAWN_NOT_SET,
@@ -111,6 +113,7 @@ public class ConfigValues {
         UPDATE_CHECKER_NOTIFY_ON_JOIN = dynamicConfig.getBoolean("update-checker.notify-on-join");
         UPDATE_CHECKER_INTERVAL = dynamicConfig.getInt("update-checker.check-interval");
         BROADCAST_ENABLED = dynamicConfig.getBoolean("modules-configs.broadcast.enabled");
+        CHAT_FORMAT_ENABLED = dynamicConfig.getBoolean("modules-configs.chat-format.enabled");
         CLEAR_INVENTORY_ENABLED = dynamicConfig.getBoolean("modules-configs.clear-inventory.enabled");
         COORDINATED_ENABLED = dynamicConfig.getBoolean("modules-configs.coordinates.enabled");
         CROSS_TELEPORT_ENABLED = dynamicConfig.getBoolean("modules-configs.cross-teleport.enabled");
@@ -157,6 +160,7 @@ public class ConfigValues {
         RELOAD_MESSAGE = dynamicConfig.getString("reload_message").replace("{prefix}", PREFIX);
 
         BROADCAST_MESSAGE = dynamicConfig.getString("modules-messages.broadcast.message").replace("{prefix}", PREFIX);
+        CHAT_FORMAT_MESSAGE = dynamicConfig.getString("modules-messages.chat-format.message").replace("{prefix}", PREFIX);
         CLEAR_INVENTORY_MESSAGE = dynamicConfig.getString("modules-messages.clear-inventory.message").replace("{prefix}", PREFIX);
         CLEAR_INVENTORY_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.clear-inventory.message-others").replace("{prefix}", PREFIX);
         COORDINATES_MESSAGE = dynamicConfig.getString("modules-messages.coordinates.message").replace("{prefix}", PREFIX);

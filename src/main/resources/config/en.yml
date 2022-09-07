@@ -2,10 +2,12 @@ config-version: 1
 
 update-checker:
   notify-on-join: true
-  check-interval: 1
+  check-interval: 2
 
 modules-configs:
   broadcast:
+    enabled: true
+  chat-format:
     enabled: true
   clear-inventory:
     enabled: true

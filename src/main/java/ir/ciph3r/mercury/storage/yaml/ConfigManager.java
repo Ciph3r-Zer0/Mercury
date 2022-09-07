@@ -4,6 +4,7 @@ import github.scarsz.configuralize.DynamicConfig;
 import github.scarsz.configuralize.ParseException;
 import ir.ciph3r.mercury.Mercury;
 import ir.ciph3r.mercury.MercuryAPI;
+import ir.ciph3r.mercury.utility.Logger;
 import lombok.Getter;
 
 import java.io.File;
@@ -20,7 +21,6 @@ public class ConfigManager {
 
     public ConfigManager() {
         load();
-        cacheValues();
     }
 
     public void load() {
@@ -30,8 +30,11 @@ public class ConfigManager {
         config.addSource(Mercury.class, "config", getConfigFile());
         config.addSource(Mercury.class, "messages", getMessagesFile());
         config.addSource(Mercury.class, "global", getGlobalFile());
+        Logger.log("&7Loading &aconfig &7files...");
 
         reload();
+        cacheValues();
+        Logger.log("&7Caching &aconfig values...");
     }
 
     public void cacheValues() {
@@ -44,6 +47,7 @@ public class ConfigManager {
             config.loadAll();
             cacheValues();
         } catch (IOException | ParseException e) {
+            Logger.log("&cAn error occured while loading config files.");
             e.printStackTrace();
         }
     }

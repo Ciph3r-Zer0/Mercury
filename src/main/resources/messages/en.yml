@@ -18,6 +18,8 @@ reload_message: "{prefix} &7Config reload {status}"
 modules-messages:
   broadcast:
     message: "{message}"
+  chat-format:
+    message: "&7{player} &b>> &f{message}"
   clear-inventory:
     message: "{prefix} &7Inventory cleared."
     message-others: "{prefix} &7Inventory of &c{target} &7has been cleared."

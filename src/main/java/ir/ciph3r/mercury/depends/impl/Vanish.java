@@ -15,7 +15,7 @@ public class Vanish {
             this.enabled = true;
             Logger.log("&7Hooking into &aVanishAPI&7.");
         } else {
-            Logger.log("&7Hooking into &cVanishAPI&7.");
+            Logger.log("&7Cloud not found &cVanishAPI&7 &7skipping...");
         }
     }
 
