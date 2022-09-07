@@ -38,7 +38,7 @@ public class Reply extends CommandModule {
                         .replace("{receiver}", target.getName())
                         .replace("{message}", msg));
 
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_MESSAGE
+                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_MESSAGE_SELF
                         .replace("{sender}", player.getName())
                         .replace("{receiver}", target.getName())
                         .replace("{message}", msg));
