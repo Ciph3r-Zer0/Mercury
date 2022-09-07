@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Reply|R")
 public class Reply extends CommandModule {
     public Reply() {
-        super("PrivateChat", MercuryAPI.INSTANCE.getConfig().PRIVATE_CHAT_ENABLED);
+        super("PrivateChat", MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_ENABLED);
         setCommandNameAndSyntax("/Reply", "<message>");
     }
 
@@ -26,19 +26,19 @@ public class Reply extends CommandModule {
             return;
         }
         if (!(PrivateChatListener.replyList.containsKey(player.getName()))) {
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE_NO_ONE_TO_REPLY);
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_NO_ONE_TO_REPLY);
         } else {
             Player target = Bukkit.getPlayer(PrivateChatListener.replyList.get(player.getName()));
             if (target == null) {
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_OFFLINE.replace("{search}", PrivateChatListener.replyList.get(player.getName())));
+                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().NO_PLAYER_FOUND_OFFLINE.replace("{search}", PrivateChatListener.replyList.get(player.getName())));
             } else {
                 String msg = ArrayUtils.createStringFromArray(args, 0, args.length);
-                ChatUtils.sendColorizedMSG(target, MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE
+                ChatUtils.sendColorizedMSG(target, MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_MESSAGE
                         .replace("{sender}", player.getName())
                         .replace("{receiver}", target.getName())
                         .replace("{message}", msg));
 
-                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE
+                ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_MESSAGE
                         .replace("{sender}", player.getName())
                         .replace("{receiver}", target.getName())
                         .replace("{message}", msg));

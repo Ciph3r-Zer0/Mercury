@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Feed")
 public class Feed extends CommandModule {
     public Feed() {
-        super("Feed", MercuryAPI.INSTANCE.getConfig().FEED_ENABLED);
+        super("Feed", MercuryAPI.INSTANCE.getConfigManager().getValues().FEED_ENABLED);
         setCommandNameAndSyntax("/Feed", "[player]");
     }
 
@@ -21,7 +21,7 @@ public class Feed extends CommandModule {
     @CommandCompletion("@players")
     public void onFeed(Player player) {
         player.setFoodLevel(20);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().FEED_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().FEED_MESSAGE);
     }
 
     @Default
@@ -30,6 +30,6 @@ public class Feed extends CommandModule {
     @CommandCompletion("@players")
     public void onFeedOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setFoodLevel(20);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().FEED_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().FEED_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 }

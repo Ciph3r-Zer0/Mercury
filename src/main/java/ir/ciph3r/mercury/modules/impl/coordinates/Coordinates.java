@@ -14,7 +14,7 @@ import java.text.DecimalFormat;
 @CommandAlias("Coordinates|Coords")
 public class Coordinates extends CommandModule {
     public Coordinates() {
-        super("Coordinates", MercuryAPI.INSTANCE.getConfig().COORDINATES_ENABLED);
+        super("Coordinates", MercuryAPI.INSTANCE.getConfigManager().getValues().COORDINATED_ENABLED);
         setCommandNameAndSyntax("/Coordinates", "[player]");
     }
 
@@ -26,7 +26,7 @@ public class Coordinates extends CommandModule {
     @CommandCompletion("@players")
     public void onCoordinates(Player player) {
         Location loc = player.getLocation();
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().COORDINATES_MESSAGE
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().COORDINATES_MESSAGE
                 .replace("{world}", loc.getWorld().getName())
                 .replace("{x}", decimalFormat.format(loc.getX()))
                 .replace("{y}", decimalFormat.format(loc.getY()))
@@ -39,8 +39,8 @@ public class Coordinates extends CommandModule {
     @CommandCompletion("@players")
     public void onCoordinatesOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         Location loc = target.player.getLocation();
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().COORDINATES_MESSAGE_OTHERS
-                .replace("{player}", target.getPlayer().getName())
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().COORDINATES_MESSAGE_OTHERS
+                .replace("{target}", target.getPlayer().getName())
                 .replace("{world}", loc.getWorld().getName())
                 .replace("{x}", decimalFormat.format(loc.getX()))
                 .replace("{y}", decimalFormat.format(loc.getY()))

@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 @CommandAlias("Kill|Slay")
 public class Kill extends CommandModule {
     public Kill() {
-        super("Kill", MercuryAPI.INSTANCE.getConfig().KILL_ENABLED);
+        super("Kill", MercuryAPI.INSTANCE.getConfigManager().getValues().KILL_ENABLED);
         setCommandNameAndSyntax("Kill", "<player>");
     }
 
@@ -27,6 +27,6 @@ public class Kill extends CommandModule {
     @CommandCompletion("@players")
     public void onKillOthers(CommandSender player, @Conditions("noAdmin")OnlinePlayer target) {
         target.getPlayer().setHealth(0);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().KILL_MESSAGE.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().KILL_MESSAGE.replace("{target}", target.getPlayer().getName()));
     }
 }

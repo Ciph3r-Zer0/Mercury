@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 @CommandAlias("Broadcast|BC")
 public class Broadcast extends CommandModule {
     public Broadcast() {
-        super("Broadcast", MercuryAPI.INSTANCE.getConfig().BROADCAST_ENABLED);
+        super("Broadcast", MercuryAPI.INSTANCE.getConfigManager().getValues().BROADCAST_ENABLED);
         setCommandNameAndSyntax("/Broadcast", "<message>");
     }
 
@@ -22,7 +22,7 @@ public class Broadcast extends CommandModule {
         if (args.length == 0) {
             ChatUtils.sendColorizedMSG(sender, getCommandUsage());
         } else {
-            ChatUtils.broadcastToServer(MercuryAPI.INSTANCE.getMessages().BROADCAST_MESSAGE.replace("{message}", ArrayUtils.createStringFromArray(args, 0, args.length)));
+            ChatUtils.broadcastToServer(MercuryAPI.INSTANCE.getConfigManager().getValues().BROADCAST_MESSAGE.replace("{message}", ArrayUtils.createStringFromArray(args, 0, args.length)));
         }
     }
 }

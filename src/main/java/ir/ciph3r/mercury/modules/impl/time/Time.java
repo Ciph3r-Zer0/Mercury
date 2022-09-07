@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Time")
 public class Time extends CommandModule {
     public Time() {
-        super("Time", MercuryAPI.INSTANCE.getConfig().TIME_ENABLED);
+        super("Time", MercuryAPI.INSTANCE.getConfigManager().getValues().TIME_ENABLED);
         setCommandNameAndSyntax("/Time", "<set> <Day, 1000, Night>");
     }
 
@@ -29,7 +29,7 @@ public class Time extends CommandModule {
     @CommandCompletion("Day|Night")
     public void onTimeDay(Player player) {
         player.getWorld().setTime(1000);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TIME_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TIME_MESSAGE);
     }
 
     @Syntax("<day, 1000, night>")
@@ -39,7 +39,7 @@ public class Time extends CommandModule {
     @CommandCompletion("Day|Night")
     public void onTimeNight(Player player) {
         player.getWorld().setTime(13000);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TIME_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TIME_MESSAGE);
     }
 
     @Syntax("<day, 1000, night>")
@@ -48,6 +48,6 @@ public class Time extends CommandModule {
     @CommandCompletion("1000")
     public void onTimeSet(Player player, long time) {
         player.getWorld().setTime(time);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TIME_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TIME_MESSAGE);
     }
 }

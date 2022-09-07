@@ -28,14 +28,13 @@ public class MercuryCMD extends CommandModule {
     @CommandPermission("mercury.commands.reload")
     public void onReload(CommandSender sender) {
         try {
-            MercuryAPI.INSTANCE.getConfig().reload();
-            MercuryAPI.INSTANCE.getMessages().reload();
+            MercuryAPI.INSTANCE.getConfigManager().reload();
             MercuryAPI.INSTANCE.getCommandManager().commandManager.getLocales().loadYamlLanguageFile("messages.yml", Locale.ENGLISH);
             MercuryAPI.INSTANCE.getCommandManager().registerPlaceHolders();
 
-            ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().RELOAD_MESSAGE.replace("{status}", "&aSuccess"));
+            ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().RELOAD_MESSAGE.replace("{status}", "&aSuccess"));
         } catch (IOException | InvalidConfigurationException e) {
-            ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().RELOAD_MESSAGE.replace("{status}", "&cFail"));
+            ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().RELOAD_MESSAGE.replace("{status}", "&cFail"));
             e.printStackTrace();
         }
     }

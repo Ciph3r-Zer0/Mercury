@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Shuffle")
 public class Shuffle extends CommandModule {
     public Shuffle() {
-        super("Shuffle", MercuryAPI.INSTANCE.getConfig().SHUFFLE_ENABLED);
+        super("Shuffle", MercuryAPI.INSTANCE.getConfigManager().getValues().SHUFFLE_ENABLED);
         setCommandNameAndSyntax("/Shuffle", "<player>");
     }
 
@@ -30,6 +30,6 @@ public class Shuffle extends CommandModule {
     @CommandCompletion("@players")
     public void onShuffleOthers(CommandSender sender, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().getInventory().setHeldItemSlot(NumeralUtils.generateNonDupeRandomNumber(0, 8, target.getPlayer().getInventory().getHeldItemSlot()));
-        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().SHUFFLE_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().SHUFFLE_MESSAGE.replace("{target}", target.getPlayer().getName()));
     }
 }

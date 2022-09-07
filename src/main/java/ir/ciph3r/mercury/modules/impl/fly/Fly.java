@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Fly")
 public class Fly extends CommandModule {
     public Fly() {
-        super("Fly", MercuryAPI.INSTANCE.getConfig().FLY_ENABLED);
+        super("Fly", MercuryAPI.INSTANCE.getConfigManager().getValues().FLY_ENABLED);
         setCommandNameAndSyntax("/Fly", "[player]");
     }
 
@@ -21,7 +21,7 @@ public class Fly extends CommandModule {
     @CommandCompletion("@players")
     public void onFly(Player player) {
         player.setAllowFlight(!(player.getAllowFlight()));
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().FLY_MESSAGE
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().FLY_MESSAGE
                 .replace("{status}", handleFlyStatus(player)));
     }
 
@@ -31,8 +31,8 @@ public class Fly extends CommandModule {
     @CommandCompletion("@players")
     public void onFlyOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setAllowFlight(!(target.getPlayer().getAllowFlight()));
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().FLY_MESSAGE_OTHERS
-                .replace("{player}", target.getPlayer().getName())
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().FLY_MESSAGE_OTHERS
+                .replace("{target}", target.getPlayer().getName())
                 .replace("{status}", handleFlyStatus(target.getPlayer())));
     }
 

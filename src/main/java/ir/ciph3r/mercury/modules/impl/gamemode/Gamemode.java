@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Gamemode|GM")
 public class Gamemode extends CommandModule {
     public Gamemode() {
-        super("Gamemode", MercuryAPI.INSTANCE.getConfig().GAMEMODE_ENABLED);
+        super("Gamemode", MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_ENABLED);
         setCommandNameAndSyntax("/Gamemode", "<Creative, Survival, Adventure, Spectator> [player]");
     }
 
@@ -31,7 +31,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onCreative(Player player) {
         player.setGameMode(GameMode.CREATIVE);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE.replace("{gamemode}", "Creative"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE.replace("{gamemode}", "Creative"));
     }
 
     @Syntax("[player]")
@@ -41,7 +41,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onCreativeOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setGameMode(GameMode.CREATIVE);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()).replace("{gamemode}", "Creative"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{gamemode}", "Creative"));
     }
 
     @Syntax("[player]")
@@ -51,7 +51,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onSurvival(Player player) {
         player.setGameMode(GameMode.SURVIVAL);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE.replace("{gamemode}", "Survival"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE.replace("{gamemode}", "Survival"));
     }
 
     @Syntax("[player]")
@@ -61,7 +61,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onSurvivalOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setGameMode(GameMode.SURVIVAL);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()).replace("{gamemode}", "Survival"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{gamemode}", "Survival"));
     }
 
     @Syntax("[player]")
@@ -71,7 +71,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onAdventure(Player player) {
         player.setGameMode(GameMode.ADVENTURE);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE.replace("{gamemode}", "Adventure"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE.replace("{gamemode}", "Adventure"));
     }
 
     @Syntax("[player]")
@@ -81,7 +81,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onAdventureOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setGameMode(GameMode.ADVENTURE);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()).replace("{gamemode}", "Adventure"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{gamemode}", "Adventure"));
     }
 
     @Syntax("[player]")
@@ -91,7 +91,7 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onSpectator(Player player) {
         player.setGameMode(GameMode.SPECTATOR);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE.replace("{gamemode}", "Spectator"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE.replace("{gamemode}", "Spectator"));
     }
 
     @Syntax("[player]")
@@ -101,6 +101,6 @@ public class Gamemode extends CommandModule {
     @CommandCompletion("@players")
     public void onSpectatorOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setGameMode(GameMode.SPECTATOR);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().GAMEMODE_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()).replace("{gamemode}", "Spectator"));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().GAMEMODE_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{gamemode}", "Spectator"));
     }
 }

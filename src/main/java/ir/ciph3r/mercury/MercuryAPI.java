@@ -2,10 +2,9 @@ package ir.ciph3r.mercury;
 
 import com.jeff_media.updatechecker.UpdateCheckSource;
 import com.jeff_media.updatechecker.UpdateChecker;
-import ir.ciph3r.mercury.dependency.Depends;
+import ir.ciph3r.mercury.depends.Depends;
 import ir.ciph3r.mercury.modules.CommandManager;
-import ir.ciph3r.mercury.storage.yaml.Config;
-import ir.ciph3r.mercury.storage.yaml.Messages;
+import ir.ciph3r.mercury.storage.yaml.ConfigManager;
 import ir.ciph3r.mercury.utility.ChatUtils;
 import ir.ciph3r.mercury.utility.Logger;
 import lombok.Getter;
@@ -17,8 +16,7 @@ public enum MercuryAPI {
     INSTANCE;
 
     private JavaPlugin plugin;
-    private Config config;
-    private Messages messages;
+    private ConfigManager configManager;
     private Depends depends;
     private CommandManager commandManager;
     private UpdateChecker updateChecker;
@@ -27,15 +25,14 @@ public enum MercuryAPI {
         ChatUtils.printSplashScreen();
         this.plugin = plugin;
 
-        this.config = new Config();
-        this.messages = new Messages();
+        this.configManager = new ConfigManager();
         this.depends = new Depends();
         this.commandManager = new CommandManager();
 
         updateChecker =  new UpdateChecker(plugin, UpdateCheckSource.CUSTOM_URL, "https://ez-pz.ir/updates/minecraft/Mercury/version.txt")
                 .setNotifyByPermissionOnJoin("mercury.events.update.notify")
-                .setNotifyOpsOnJoin(getConfig().UPDATE_CHECKER_NOTIFY_ON_JOIN)
-                .checkEveryXHours(getConfig().UPDATE_CHECKER_CHECK_DELAY)
+                .setNotifyOpsOnJoin(getConfigManager().getValues().UPDATE_CHECKER_NOTIFY_ON_JOIN)
+                .checkEveryXHours(getConfigManager().getValues().UPDATE_CHECKER_INTERVAL)
                 .setDownloadLink("https://github.com/Ciph3r-Zer0/Mercury/releases")
                 .setUsedVersion("3.0.0")
                 .checkNow();

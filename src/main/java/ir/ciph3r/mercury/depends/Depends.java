@@ -1,9 +1,9 @@
-package ir.ciph3r.mercury.dependency;
+package ir.ciph3r.mercury.depends;
 
 import io.github.leonardosnt.bungeechannelapi.BungeeChannelApi;
 import ir.ciph3r.mercury.MercuryAPI;
-import ir.ciph3r.mercury.dependency.impl.PapiAPI;
-import ir.ciph3r.mercury.dependency.impl.Vanish;
+import ir.ciph3r.mercury.depends.impl.PapiAPI;
+import ir.ciph3r.mercury.depends.impl.Vanish;
 import lombok.Getter;
 
 @Getter

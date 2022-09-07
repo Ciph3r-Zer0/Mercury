@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Lightning")
 public class Lightning extends CommandModule {
     public Lightning() {
-        super("Lightning", MercuryAPI.INSTANCE.getConfig().LIGHTNING_ENABLED);
+        super("Lightning", MercuryAPI.INSTANCE.getConfigManager().getValues().LIGHTNING_ENABLED);
         setCommandNameAndSyntax("/Lightning", "[player]");
     }
 
@@ -21,7 +21,7 @@ public class Lightning extends CommandModule {
     @CommandCompletion("@players")
     public void onLightning(Player player) {
         player.getWorld().strikeLightning(player.getTargetBlock(null, 50).getLocation());
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().LIGHTNING_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().LIGHTNING_MESSAGE);
     }
 
     @Default
@@ -30,6 +30,6 @@ public class Lightning extends CommandModule {
     @CommandCompletion("@players")
     public void onLightningOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().getWorld().strikeLightning(target.getPlayer().getLocation());
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().LIGHTNING_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().LIGHTNING_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 }

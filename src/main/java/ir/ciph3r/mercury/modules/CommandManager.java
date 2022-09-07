@@ -18,8 +18,8 @@ import ir.ciph3r.mercury.modules.impl.kill.Kill;
 import ir.ciph3r.mercury.modules.impl.knockback.Knockback;
 import ir.ciph3r.mercury.modules.impl.lightning.Lightning;
 import ir.ciph3r.mercury.modules.impl.mercurycmd.MercuryCMD;
-import ir.ciph3r.mercury.modules.impl.join.Join;
-import ir.ciph3r.mercury.modules.impl.quit.Quit;
+import ir.ciph3r.mercury.modules.impl.joinmessage.JoinMessage;
+import ir.ciph3r.mercury.modules.impl.quitmessage.QuitMessage;
 import ir.ciph3r.mercury.modules.impl.pluginlist.PluginList;
 import ir.ciph3r.mercury.modules.impl.privatechat.Reply;
 import ir.ciph3r.mercury.modules.impl.rotate.Rotate;
@@ -69,8 +69,8 @@ public class CommandManager {
             modules.add(new Kill());
             modules.add(new Knockback());
             modules.add(new Lightning());
-            modules.add(new Join());
-            modules.add(new Quit());
+            modules.add(new JoinMessage());
+            modules.add(new QuitMessage());
             modules.add(new PluginList());
             modules.add(new Tell());
             modules.add(new Reply());
@@ -112,14 +112,14 @@ public class CommandManager {
         commandManager.getCommandConditions().addCondition(OnlinePlayer.class, "noAdmin", (context, execContext, value) -> {
             if (value == null) return;
             if ((!context.getIssuer().hasPermission("mercury.admin")) && value.getPlayer().hasPermission("mercury.commands.exempt")) {
-                throw new ConditionFailedException(MercuryAPI.INSTANCE.getMessages().NOT_TO_ADMIN);
+                throw new ConditionFailedException(MercuryAPI.INSTANCE.getConfigManager().getValues().NOT_TO_ADMIN);
             }
         });
 
         commandManager.getCommandConditions().addCondition(OnlinePlayer.class, "notYourSelf", (context, execContext, value) -> {
             if (value == null) return;
             if (value.getPlayer().getUniqueId().equals(context.getIssuer().getUniqueId())) {
-                throw new ConditionFailedException(MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE_CAN_NOT_SEND_SELF);
+                throw new ConditionFailedException(MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_CAN_NOT_SEND_SELF);
             }
         });
 
@@ -128,45 +128,45 @@ public class CommandManager {
                 return;
             }
             if (c.hasConfig("min") && c.getConfigValue("min", 0) > value) {
-                throw new ConditionFailedException(MercuryAPI.INSTANCE.getMessages().PLEASE_SPECIFY_AT_LEAST.replace("{min}", String.valueOf(c.getConfigValue("min", 0))));
+                throw new ConditionFailedException(MercuryAPI.INSTANCE.getConfigManager().getValues().PLEASE_SPECIFY_AT_LEAST.replace("{min}", String.valueOf(c.getConfigValue("min", 0))));
             }
             if (c.hasConfig("max") && c.getConfigValue("max", 3) < value) {
-                throw new ConditionFailedException(MercuryAPI.INSTANCE.getMessages().PLEASE_SPECIFY_AT_MOST.replace("{max}", String.valueOf(c.getConfigValue("max", 3))));
+                throw new ConditionFailedException(MercuryAPI.INSTANCE.getConfigManager().getValues().PLEASE_SPECIFY_AT_MOST.replace("{max}", String.valueOf(c.getConfigValue("max", 3))));
             }
         });
     }
 
     public void registerPlaceHolders() {
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.PERMISSION_DENIED, commandManager.getLocales().getMessage(null, MessageKeys.PERMISSION_DENIED)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.PERMISSION_DENIED_PARAMETER, commandManager.getLocales().getMessage(null, MessageKeys.PERMISSION_DENIED_PARAMETER)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.ERROR_GENERIC_LOGGED, commandManager.getLocales().getMessage(null, MessageKeys.ERROR_GENERIC_LOGGED)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.UNKNOWN_COMMAND, commandManager.getLocales().getMessage(null, MessageKeys.UNKNOWN_COMMAND)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
-        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.INVALID_SYNTAX, MercuryAPI.INSTANCE.getMessages().COMMAND_USAGE_SYNTAX
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
+        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.INVALID_SYNTAX, MercuryAPI.INSTANCE.getConfigManager().getValues().COMMAND_USAGE_SYNTAX
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.ERROR_PREFIX, "{message}"
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.ERROR_PERFORMING_COMMAND, commandManager.getLocales().getMessage(null, MessageKeys.ERROR_PERFORMING_COMMAND)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.INFO_MESSAGE, commandManager.getLocales().getMessage(null, MessageKeys.INFO_MESSAGE)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.PLEASE_SPECIFY_ONE_OF, commandManager.getLocales().getMessage(null, MessageKeys.PLEASE_SPECIFY_ONE_OF)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.MUST_BE_A_NUMBER, commandManager.getLocales().getMessage(null, MessageKeys.MUST_BE_A_NUMBER)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.MUST_BE_MIN_LENGTH, commandManager.getLocales().getMessage(null, MessageKeys.MUST_BE_MIN_LENGTH)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.MUST_BE_MAX_LENGTH, commandManager.getLocales().getMessage(null, MessageKeys.MUST_BE_MAX_LENGTH)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.PLEASE_SPECIFY_AT_MOST, commandManager.getLocales().getMessage(null, MessageKeys.PLEASE_SPECIFY_AT_MOST)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.PLEASE_SPECIFY_AT_LEAST, commandManager.getLocales().getMessage(null, MessageKeys.PLEASE_SPECIFY_AT_LEAST)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.NOT_ALLOWED_ON_CONSOLE, commandManager.getLocales().getMessage(null, MessageKeys.NOT_ALLOWED_ON_CONSOLE)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.COULD_NOT_FIND_PLAYER, commandManager.getLocales().getMessage(null, MessageKeys.COULD_NOT_FIND_PLAYER)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MessageKeys.NO_COMMAND_MATCHED_SEARCH, commandManager.getLocales().getMessage(null, MessageKeys.NO_COMMAND_MATCHED_SEARCH)
@@ -197,13 +197,13 @@ public class CommandManager {
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.USERNAME_TOO_SHORT, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.USERNAME_TOO_SHORT)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.IS_NOT_A_VALID_NAME, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.IS_NOT_A_VALID_NAME)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.MULTIPLE_PLAYERS_MATCH, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.MULTIPLE_PLAYERS_MATCH)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.NO_PLAYER_FOUND_SERVER, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.NO_PLAYER_FOUND_SERVER)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
         commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.NO_PLAYER_FOUND_OFFLINE, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.NO_PLAYER_FOUND_OFFLINE)
-                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
+                .replace("{prefix}", MercuryAPI.INSTANCE.getConfigManager().getValues().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.NO_PLAYER_FOUND, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.NO_PLAYER_FOUND)
 //                .replace("{prefix}", MercuryAPI.INSTANCE.getMessages().PREFIX));
 //        commandManager.getLocales().addMessage(Locale.ENGLISH, MinecraftMessageKeys.LOCATION_PLEASE_SPECIFY_WORLD, commandManager.getLocales().getMessage(null, MinecraftMessageKeys.LOCATION_PLEASE_SPECIFY_WORLD)

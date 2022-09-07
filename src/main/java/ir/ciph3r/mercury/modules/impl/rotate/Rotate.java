@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Rotate")
 public class Rotate extends CommandModule {
     public Rotate() {
-        super("Rotate", MercuryAPI.INSTANCE.getConfig().ROTATE_ENABLED);
+        super("Rotate", MercuryAPI.INSTANCE.getConfigManager().getValues().ROTATE_ENABLED);
         setCommandNameAndSyntax("/Rotate", "<player>");
     }
 
@@ -39,6 +39,6 @@ public class Rotate extends CommandModule {
         rotatedLocation.setYaw(generatedYaw);
 
         target.getPlayer().teleport(rotatedLocation);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().ROTATE_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().ROTATE_MESSAGE.replace("{target}", target.getPlayer().getName()));
     }
 }

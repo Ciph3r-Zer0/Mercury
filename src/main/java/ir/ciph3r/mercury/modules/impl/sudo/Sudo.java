@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Sudo")
 public class Sudo extends CommandModule {
     public Sudo() {
-        super("Sudo", MercuryAPI.INSTANCE.getConfig().SUDO_ENABLED);
+        super("Sudo", MercuryAPI.INSTANCE.getConfigManager().getValues().SUDO_ENABLED);
         setCommandNameAndSyntax("/Sudo", "<player> [c:]<message>");
     }
 
@@ -32,7 +32,7 @@ public class Sudo extends CommandModule {
             } else {
                 target.getPlayer().chat(argsMessage.substring(2));
             }
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SUDO_MESSAGE.replace("{player}", target.getPlayer().getName()));
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SUDO_MESSAGE.replace("{target}", target.getPlayer().getName()));
         }
     }
 }

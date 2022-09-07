@@ -27,7 +27,7 @@ public abstract class CommandModule extends BaseCommand {
     }
 
     public String getCommandUsage() {
-        return MercuryAPI.INSTANCE.getMessages().COMMAND_USAGE_SYNTAX.replace("{command}", getCommandName()).replace("{syntax}", getCommandSyntax());
+        return MercuryAPI.INSTANCE.getConfigManager().getValues().COMMAND_USAGE_SYNTAX.replace("{command}", getCommandName()).replace("{syntax}", getCommandSyntax());
     }
 
     public void addListeners(Listener... listeners) {

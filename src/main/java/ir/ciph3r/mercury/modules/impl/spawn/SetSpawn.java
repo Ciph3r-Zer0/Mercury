@@ -15,19 +15,14 @@ import java.io.IOException;
 @CommandAlias("SetSpawn")
 public class SetSpawn extends CommandModule {
     public SetSpawn() {
-        super("SetSpawn", MercuryAPI.INSTANCE.getConfig().SPAWN_ENABLED);
+        super("SetSpawn", MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_ENABLED);
     }
 
     @Default
     @CommandPermission("mercury.commands.setspawn")
     public void onSetSpawn(Player player) {
-        try {
-            MercuryAPI.INSTANCE.getConfig().set("modules.spawn.location", LocationUtils.serializeLocation(player.getLocation()));
-            MercuryAPI.INSTANCE.getConfig().reloadSpawnLocation();
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_SET.replace("{status}", "&aSuccess"));
-        } catch (IOException | InvalidConfigurationException e) {
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_SET.replace("{status}", "&cFail"));
-            e.printStackTrace();
-        }
+        MercuryAPI.INSTANCE.getConfigManager().setSpawnPoint(LocationUtils.serializeLocation(player.getLocation()));
+        MercuryAPI.INSTANCE.getConfigManager().reload();
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_SET.replace("{status}", "&aSuccess"));
     }
 }

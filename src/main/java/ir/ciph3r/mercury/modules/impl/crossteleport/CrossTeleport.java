@@ -11,11 +11,11 @@ import org.bukkit.entity.Player;
 @CommandAlias("CrossTeleport|CrossTP|CTeleport|CTP")
 public class CrossTeleport extends CommandModule {
     public CrossTeleport() {
-        super("CrossTeleport", MercuryAPI.INSTANCE.getConfig().CROSS_TELEPORT_ENABLED);
+        super("CrossTeleport", MercuryAPI.INSTANCE.getConfigManager().getValues().CROSS_TELEPORT_ENABLED);
         setCommandNameAndSyntax("/CrossTeleport", "<player>");
         addListeners(new CrossTeleportListener());
 
-        if (MercuryAPI.INSTANCE.getConfig().CROSS_TELEPORT_ENABLED) registerBungeeListener();
+        if (MercuryAPI.INSTANCE.getConfigManager().getValues().CROSS_TELEPORT_ENABLED) registerBungeeListener();
     }
 
     private final String channelName = "mercury-ctp";
@@ -29,25 +29,23 @@ public class CrossTeleport extends CommandModule {
 
         if (onlineTarget != null) {
             MercuryAPI.INSTANCE.getDepends().getVanish().teleport(player, onlineTarget);
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().CROSS_TELEPORT_MESSAGE.replace("{player}", onlineTarget.getName()));
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().CROSS_TELEPORT_MESSAGE.replace("{player}", onlineTarget.getName()));
         } else {
             MercuryAPI.INSTANCE.getDepends().getBungeeAPI().getPlayerList("ALL").whenCompleteAsync((playerList, err1) -> {
                 if (playerList.stream().noneMatch(target::equalsIgnoreCase)) {
-                    ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_SERVER.replace("{search}", target));
+                    ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().NO_PLAYER_FOUND_SERVER.replace("{search}", target));
                 } else {
-                    MercuryAPI.INSTANCE.getDepends().getBungeeAPI().getServers().whenCompleteAsync((serverList, err2) -> {
-                        serverList.forEach(server -> {
-                            MercuryAPI.INSTANCE.getDepends().getBungeeAPI().getPlayerList(server).whenCompleteAsync((serverPlayers, err3) -> {
-                                if (serverPlayers.stream().anyMatch(target::equalsIgnoreCase)) {
-                                    Bukkit.getScheduler().runTaskLaterAsynchronously(MercuryAPI.INSTANCE.getPlugin(), () -> {
-                                        byte[] data = (player.getName() + "," + target).getBytes();
-                                        MercuryAPI.INSTANCE.getDepends().getBungeeAPI().forward(server, channelName, data);
-                                        MercuryAPI.INSTANCE.getDepends().getBungeeAPI().connect(player, server);
-                                    } , MercuryAPI.INSTANCE.getConfig().CROSS_TELEPORT_SEND_DELAY);
-                                }
-                            });
-                        });
-                    });
+                    MercuryAPI.INSTANCE.getDepends().getBungeeAPI().getServers().whenCompleteAsync((serverList, err2) ->
+                            serverList.forEach(server ->
+                                    MercuryAPI.INSTANCE.getDepends().getBungeeAPI().getPlayerList(server).whenCompleteAsync((serverPlayers, err3) -> {
+                                        if (serverPlayers.stream().anyMatch(target::equalsIgnoreCase)) {
+                                            Bukkit.getScheduler().runTaskLaterAsynchronously(MercuryAPI.INSTANCE.getPlugin(), () -> {
+                                                byte[] data = (player.getName() + "," + target).getBytes();
+                                                MercuryAPI.INSTANCE.getDepends().getBungeeAPI().forward(server, channelName, data);
+                                                MercuryAPI.INSTANCE.getDepends().getBungeeAPI().connect(player, server);
+                                            }, MercuryAPI.INSTANCE.getConfigManager().getValues().CROSS_TELEPORT_SENDING_DELAY);
+                                        }
+                                    })));
                 }
             });
         }

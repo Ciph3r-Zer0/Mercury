@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Speed")
 public class Speed extends CommandModule {
     public Speed() {
-        super("Speed", MercuryAPI.INSTANCE.getConfig().SPEED_ENABLED);
+        super("Speed", MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_ENABLED);
         setCommandNameAndSyntax("/Speed", "<Walk, Fly, Reset> [0-10] [player]");
     }
 
@@ -29,7 +29,7 @@ public class Speed extends CommandModule {
     @CommandCompletion("3 @players")
     public void onWalk(Player player, @Conditions("limits:min=0,max=10") Float speed) {
         player.setWalkSpeed(speed / 10);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_WALK_MESSAGE.replace("{amount}", String.valueOf(speed)));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_WALK.replace("{amount}", String.valueOf(speed)));
     }
 
     @Syntax("[0-10] [player]")
@@ -38,7 +38,7 @@ public class Speed extends CommandModule {
     @CommandCompletion("3 @players")
     public void onWalkOthers(CommandSender player, @Conditions("limits:min=0,max=10") Float speed, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setWalkSpeed(speed / 10);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_WALK_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{amount}", String.valueOf(speed)));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_FLY_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{amount}", String.valueOf(speed)));
     }
 
     @Syntax("[0-10] [player]")
@@ -47,7 +47,7 @@ public class Speed extends CommandModule {
     @CommandCompletion("3 @players")
     public void onFly(Player player, @Conditions("limits:min=0,max=10") Float speed) {
         player.setFlySpeed(speed / 10);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_FLY_MESSAGE.replace("{amount}", String.valueOf(speed)));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_FLY.replace("{amount}", String.valueOf(speed)));
     }
 
     @Syntax("[0-10] [player]")
@@ -56,7 +56,7 @@ public class Speed extends CommandModule {
     @CommandCompletion("3 @players")
     public void onFlyOthers(CommandSender player, @Conditions("limits:min=0,max=10") Float speed, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setFlySpeed(speed / 10);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_FLY_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{amount}", String.valueOf(speed)));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_FLY_OTHERS.replace("{target}", target.getPlayer().getName()).replace("{amount}", String.valueOf(speed)));
     }
 
     @Syntax("[player]")
@@ -66,7 +66,7 @@ public class Speed extends CommandModule {
     public void onReset(Player player, @Optional @Conditions("noAdmin") OnlinePlayer target) {
         player.setWalkSpeed(0.2f);
         player.setFlySpeed(0.1f);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_RESET_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_RESET);
     }
 
     @Syntax("[player]")
@@ -76,6 +76,6 @@ public class Speed extends CommandModule {
     public void onResetOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setWalkSpeed(0.2f);
         target.getPlayer().setFlySpeed(0.1f);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPEED_RESET_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPEED_RESET_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 }

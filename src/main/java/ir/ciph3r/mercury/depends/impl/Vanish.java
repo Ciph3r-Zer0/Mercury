@@ -1,4 +1,4 @@
-package ir.ciph3r.mercury.dependency.impl;
+package ir.ciph3r.mercury.depends.impl;
 
 import de.myzelyam.api.vanish.VanishAPI;
 import ir.ciph3r.mercury.utility.Logger;

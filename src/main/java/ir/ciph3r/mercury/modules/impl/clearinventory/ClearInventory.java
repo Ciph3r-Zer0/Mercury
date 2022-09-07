@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Clearinventory|CI|ClearINV")
 public class ClearInventory extends CommandModule {
     public ClearInventory() {
-        super("ClearInventory", MercuryAPI.INSTANCE.getConfig().CLEAR_INVENTORY_ENABLED);
+        super("ClearInventory", MercuryAPI.INSTANCE.getConfigManager().getValues().CLEAR_INVENTORY_ENABLED);
         setCommandNameAndSyntax("/ClearInventory", "[player]");
     }
 
@@ -21,7 +21,7 @@ public class ClearInventory extends CommandModule {
     @CommandCompletion("@players")
     public void onClearInventory(Player sender) {
         sender.getInventory().clear();
-        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().CLEAR_INVENTORY_MESSAGE);
+        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().CLEAR_INVENTORY_MESSAGE);
     }
 
     @Default
@@ -30,7 +30,7 @@ public class ClearInventory extends CommandModule {
     @CommandCompletion("@players")
     public void onClearInventoryOthers(CommandSender sender, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().getInventory().clear();
-        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().CLEAR_INVENTORY_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().CLEAR_INVENTORY_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 
 }

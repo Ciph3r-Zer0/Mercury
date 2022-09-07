@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Heal")
 public class Heal extends CommandModule {
     public Heal() {
-        super("Heal", MercuryAPI.INSTANCE.getConfig().HEAL_ENABLED);
+        super("Heal", MercuryAPI.INSTANCE.getConfigManager().getValues().HEAL_ENABLED);
         setCommandNameAndSyntax("/Heal", "[player]");
     }
 
@@ -22,7 +22,7 @@ public class Heal extends CommandModule {
     public void onHeal(Player player) {
         player.setHealth(20);
         player.setFoodLevel(20);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().HEAL_MESSAGE);
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().HEAL_MESSAGE);
     }
 
     @Default
@@ -32,6 +32,6 @@ public class Heal extends CommandModule {
     public void onHealOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
         target.getPlayer().setHealth(20);
         target.getPlayer().setFoodLevel(20);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().HEAL_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().HEAL_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
     }
 }

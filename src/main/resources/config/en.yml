@@ -1,17 +1,19 @@
-update_checker:
-  notify_on_join: true
-  check_delay: 1
+config-version: 1
 
-modules:
+update-checker:
+  notify-on-join: true
+  check-interval: 1
+
+modules-configs:
   broadcast:
     enabled: true
-  clear_inventory:
+  clear-inventory:
     enabled: true
   coordinates:
     enabled: true
-  cross_teleport:
+  cross-teleport:
     enabled: true
-    send_delay: 1
+    sending_delay: 1
   feed:
     enabled: true
   fly:
@@ -26,12 +28,13 @@ modules:
     enabled: true
   lightning:
     enabled: true
-  messages:
-    join: true
-    quit: true
-  plugin_list:
+  join-message:
     enabled: true
-  private_chat:
+  quit-message:
+    enabled: true
+  plugin-list:
+    enabled: true
+  private-chat:
     enabled: true
   rotate:
     enabled: true
@@ -39,9 +42,9 @@ modules:
     enabled: true
   spawn:
     enabled: true
-    on_join: true
-    on_void: true
-    on_respawn: true
+    on-join: true
+    on-void: true
+    on-respawn: true
     location: ''
   speed:
     enabled: true

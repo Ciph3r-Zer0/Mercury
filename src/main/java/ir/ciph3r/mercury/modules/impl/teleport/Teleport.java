@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Teleport|TP")
 public class Teleport extends CommandModule {
     public Teleport() {
-        super("Teleport", MercuryAPI.INSTANCE.getConfig().TELEPORT_ENABLED);
+        super("Teleport", MercuryAPI.INSTANCE.getConfigManager().getValues().TELEPORT_ENABLED);
         setCommandNameAndSyntax("/Teleport", "<player, location> [player]");
     }
 
@@ -30,7 +30,7 @@ public class Teleport extends CommandModule {
     @CommandCompletion("@players")
     public void onTeleportPlayer(Player player, @Conditions("noAdmin") OnlinePlayer target) {
         player.teleport(target.getPlayer().getLocation());
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TELEPORT_MESSAGE.replace("{player}", target.getPlayer().getName()));
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TELEPORT_MESSAGE.replace("{target}", target.getPlayer().getName()));
     }
 
     @Default
@@ -39,7 +39,7 @@ public class Teleport extends CommandModule {
     @CommandCompletion("@players @players")
     public void onTeleportPlayerToPlayer(CommandSender player, @Conditions("noAdmin") OnlinePlayer target1, @Conditions("noAdmin") OnlinePlayer target2) {
         target1.getPlayer().teleport(target2.getPlayer().getLocation());
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TELEPORT_MESSAGE_OTHERS
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TELEPORT_MESSAGE_OTHERS
                 .replace("{player}", target1.getPlayer().getName())
                 .replace("{target}", target2.getPlayer().getName()));
     }
@@ -51,7 +51,7 @@ public class Teleport extends CommandModule {
     public void onTeleportXYZ(Player player, double x, double y, double z) {
         Location location = new Location(player.getWorld(), x, y, z);
         player.teleport(location);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TELEPORT_MESSAGE_LOCATION_OTHERS
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TELEPORT_MESSAGE_LOCATION_OTHERS
                 .replace("{x}", String.valueOf(location.getX()))
                 .replace("{y}", String.valueOf(location.getY()))
                 .replace("{z}", String.valueOf(location.getZ())));
@@ -64,8 +64,8 @@ public class Teleport extends CommandModule {
     public void onTeleportPlayerToXYZ(Player player, @Conditions("noAdmin") OnlinePlayer target, double x, double y, double z) {
         Location location = new Location(player.getWorld(), x, y, z);
         target.getPlayer().teleport(location);
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().TELEPORT_MESSAGE_LOCATION
-                .replace("{player}", target.getPlayer().getName())
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().TELEPORT_MESSAGE_LOCATION
+                .replace("{target}", target.getPlayer().getName())
                 .replace("{x}", String.valueOf(location.getX()))
                 .replace("{y}", String.valueOf(location.getY()))
                 .replace("{z}", String.valueOf(location.getZ())));

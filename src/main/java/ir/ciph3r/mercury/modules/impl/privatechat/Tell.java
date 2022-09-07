@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Tell|T|Whisper|Message|MSG")
 public class Tell extends CommandModule {
     public Tell() {
-        super("PrivateChat", MercuryAPI.INSTANCE.getConfig().PRIVATE_CHAT_ENABLED);
+        super("PrivateChat", MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_ENABLED);
         setCommandNameAndSyntax("/Tell", "<player> <message>");
         addListeners(new PrivateChatListener());
     }
@@ -23,12 +23,12 @@ public class Tell extends CommandModule {
     @CommandCompletion("@players")
     public void onTell(Player player, @Conditions("notYourSelf") OnlinePlayer target, String[] args){
         String msg = ArrayUtils.createStringFromArray(args, 0, args.length);
-        ChatUtils.sendColorizedMSG(target.getPlayer(), MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE
+        ChatUtils.sendColorizedMSG(target.getPlayer(), MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_MESSAGE
                 .replace("{sender}", player.getName())
                 .replace("{receiver}", target.getPlayer().getName())
                 .replace("{message}", msg));
 
-        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().PRIVATE_CHAT_MESSAGE
+        ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_MESSAGE
                 .replace("{sender}", player.getName())
                 .replace("{receiver}", target.getPlayer().getName())
                 .replace("{message}", msg));

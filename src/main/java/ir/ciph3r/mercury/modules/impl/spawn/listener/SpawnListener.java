@@ -16,40 +16,40 @@ public class SpawnListener implements Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        if (!(MercuryAPI.INSTANCE.getConfig().SPAWN_ON_JOIN)) return;
-        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) {
+        if (!(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_ON_JOIN)) return;
+        if (MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION.equalsIgnoreCase("")) {
             if (event.getPlayer().hasPermission("mercury.events.spawn.notify")) {
-                ChatUtils.sendColorizedMSG(event.getPlayer(), MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_NOT_SET);
+                ChatUtils.sendColorizedMSG(event.getPlayer(), MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_NOT_SET);
             }
             return;
         }
 
         Player player = event.getPlayer();
-        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION);
 
         player.teleport(spawnLocation);
     }
 
     @EventHandler
     public void onRespawn(PlayerRespawnEvent event) {
-        if (!(MercuryAPI.INSTANCE.getConfig().SPAWN_ON_RESPAWN)) return;
-        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) return;
+        if (!(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_ON_RESPAWN)) return;
+        if (MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION.equalsIgnoreCase("")) return;
 
         Player player = event.getPlayer();
-        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION);
 
         event.setRespawnLocation(spawnLocation);
     }
 
     @EventHandler
     public void onVoid(EntityDamageEvent event) {
-        if (!(MercuryAPI.INSTANCE.getConfig().SPAWN_ON_VOID)) return;
-        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) return;
+        if (!(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_ON_VOID)) return;
+        if (MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION.equalsIgnoreCase("")) return;
         if (!(event.getCause() == EntityDamageEvent.DamageCause.VOID)) return;
         if (!(event.getEntity() instanceof Player)) return;
 
         Player player = (Player) event.getEntity();
-        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+        Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION);
 
         event.setCancelled(true);
 

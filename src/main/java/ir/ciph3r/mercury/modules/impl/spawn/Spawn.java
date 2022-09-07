@@ -14,7 +14,7 @@ import org.bukkit.entity.Player;
 @CommandAlias("Spawn")
 public class Spawn extends CommandModule {
     public Spawn() {
-        super("Spawn", MercuryAPI.INSTANCE.getConfig().SPAWN_ENABLED);
+        super("Spawn", MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_ENABLED);
         setCommandNameAndSyntax("Spawn", "[player]");
         addListeners(new SpawnListener());
     }
@@ -24,12 +24,12 @@ public class Spawn extends CommandModule {
     @CommandPermission("mercury.commands.spawn")
     @CommandCompletion("@players")
     public void onSpawn(Player player) {
-        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) {
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_NOT_SET);
+        if (MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION.equalsIgnoreCase("")) {
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_NOT_SET);
         } else {
-            Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+            Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION);
             player.teleport(spawnLocation);
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE);
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_MESSAGE);
         }
     }
 
@@ -38,12 +38,12 @@ public class Spawn extends CommandModule {
     @CommandPermission("mercury.commands.spawn.others")
     @CommandCompletion("@players")
     public void onSpawnOthers(CommandSender player, @Conditions("noAdmin") OnlinePlayer target) {
-        if (MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION.equalsIgnoreCase("")) {
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_NOT_SET);
+        if (MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION.equalsIgnoreCase("")) {
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_NOT_SET);
         } else {
-            Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfig().SPAWN_LOCATION);
+            Location spawnLocation = LocationUtils.deserializeLocation(MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_LOCATION);
             target.getPlayer().teleport(spawnLocation);
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().SPAWN_MESSAGE_OTHERS.replace("{player}", target.getPlayer().getName()));
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_MESSAGE_OTHERS.replace("{target}", target.getPlayer().getName()));
         }
     }
 }

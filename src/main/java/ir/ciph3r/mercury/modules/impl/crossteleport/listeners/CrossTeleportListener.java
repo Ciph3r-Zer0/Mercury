@@ -20,10 +20,10 @@ public class CrossTeleportListener implements Listener {
         Player target = Bukkit.getPlayer(toBeTeleported.get(player.getName()));
 
         if (target == null) {
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().NO_PLAYER_FOUND_OFFLINE.replace("{search}", toBeTeleported.get(player.getName())));
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().NO_PLAYER_FOUND_OFFLINE.replace("{search}", toBeTeleported.get(player.getName())));
         } else {
             MercuryAPI.INSTANCE.getDepends().getVanish().teleport(player, target);
-            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getMessages().CROSS_TELEPORT_MESSAGE.replace("{player}", target.getName()));
+            ChatUtils.sendColorizedMSG(player, MercuryAPI.INSTANCE.getConfigManager().getValues().CROSS_TELEPORT_MESSAGE.replace("{target}", target.getName()));
             toBeTeleported.remove(player.getName());
         }
     }

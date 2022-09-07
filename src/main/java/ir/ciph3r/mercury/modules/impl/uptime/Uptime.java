@@ -13,7 +13,7 @@ import java.time.Duration;
 @CommandAlias("Uptime")
 public class Uptime extends CommandModule {
     public Uptime() {
-        super(" Uptime", MercuryAPI.INSTANCE.getConfig().UPTIME_ENABLED);
+        super(" Uptime", MercuryAPI.INSTANCE.getConfigManager().getValues().UPTIME_ENABLED);
         setCommandNameAndSyntax("/Uptime", null);
 
         this.startupTime = System.currentTimeMillis();
@@ -32,7 +32,7 @@ public class Uptime extends CommandModule {
         long s = seconds % 60;
 
 
-        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getMessages().UPTIME_MESSAGE
+        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().UPTIME_MESSAGE
                 .replace("{hour}", String.valueOf(h))
                 .replace("{minute}", String.valueOf(m))
                 .replace("{second}", String.valueOf(s)));
