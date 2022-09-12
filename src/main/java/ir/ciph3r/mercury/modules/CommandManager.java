@@ -86,7 +86,7 @@ public class CommandManager {
             modules.add(new Time());
             modules.add(new Uptime());
 
-            Logger.log("&7Registering &aModules &7...");
+            Logger.log("&7Registering &aModules&7...");
 
             for (CommandModule module : modules) {
                 registerModule(module);

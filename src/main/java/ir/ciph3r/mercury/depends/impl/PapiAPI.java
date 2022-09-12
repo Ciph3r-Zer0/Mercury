@@ -13,9 +13,9 @@ public class PapiAPI {
     public PapiAPI() {
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             this.enabled = true;
-            Logger.log("&7Hooking into &apapiAPI&7.");
+            Logger.log("&7Found &apapiAPI&7, Hooking....");
         } else {
-            Logger.log("&7Cloud not found &cpapiAPI&7 &7skipping...");
+            Logger.log("&7Cloud not find &cpapiAPI&7 &7skipping...");
         }
     }
 

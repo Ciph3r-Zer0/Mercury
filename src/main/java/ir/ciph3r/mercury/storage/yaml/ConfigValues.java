@@ -81,9 +81,8 @@ public class ConfigValues {
             JOIN_MESSAGE,
             JOIN_MESSAGE_FIRST_JOIN,
             QUIT_MESSAGE,
-            PLUGIN_LIST_FIRST_LINE,
             PLUGIN_LIST_LIST_DESIGN,
-            PLUGIN_LIST_LAST_LINE,
+            PLUGIN_LIST_MESSAGE,
             PRIVATE_CHAT_MESSAGE,
             PRIVATE_CHAT_MESSAGE_SELF,
             PRIVATE_CHAT_CAN_NOT_SEND_SELF,
@@ -181,9 +180,8 @@ public class ConfigValues {
         JOIN_MESSAGE = dynamicConfig.getString("modules-messages.join-message.message").replace("{prefix}", PREFIX);
         JOIN_MESSAGE_FIRST_JOIN = dynamicConfig.getString("modules-messages.join-message.first-join").replace("{prefix}", PREFIX);
         QUIT_MESSAGE = dynamicConfig.getString("modules-messages.quit-message.message").replace("{prefix}", PREFIX);
-        PLUGIN_LIST_FIRST_LINE = dynamicConfig.getString("modules-messages.plugin-list.first-line").replace("{prefix}", PREFIX);
         PLUGIN_LIST_LIST_DESIGN = dynamicConfig.getString("modules-messages.plugin-list.list-design").replace("{prefix}", PREFIX);
-        PLUGIN_LIST_LAST_LINE = dynamicConfig.getString("modules-messages.plugin-list.last-line").replace("{prefix}", PREFIX);
+        PLUGIN_LIST_MESSAGE = dynamicConfig.getString("modules-messages.plugin-list.message").replace("{prefix}", PREFIX);
         PRIVATE_CHAT_MESSAGE = dynamicConfig.getString("modules-messages.private-chat.message").replace("{prefix}", PREFIX);
         PRIVATE_CHAT_MESSAGE_SELF = dynamicConfig.getString("modules-messages.private-chat.message-self").replace("{prefix}", PREFIX);
         PRIVATE_CHAT_CAN_NOT_SEND_SELF = dynamicConfig.getString("modules-messages.private-chat.can-not-send-self").replace("{prefix}", PREFIX);

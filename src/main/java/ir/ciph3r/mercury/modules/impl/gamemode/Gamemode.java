@@ -25,7 +25,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Creative|C")
+    @Subcommand("Creative|C|1")
     @CommandAlias("GMC")
     @CommandPermission("mercury.commands.gamemode.creative")
     @CommandCompletion("@players")
@@ -35,7 +35,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Creative|C")
+    @Subcommand("Creative|C|1")
     @CommandAlias("GMC")
     @CommandPermission("mercury.commands.gamemode.creative.others")
     @CommandCompletion("@players")
@@ -45,7 +45,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Survival|S")
+    @Subcommand("Survival|S|0")
     @CommandAlias("GMS")
     @CommandPermission("mercury.commands.gamemode.survival")
     @CommandCompletion("@players")
@@ -55,7 +55,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Survival|S")
+    @Subcommand("Survival|S|0")
     @CommandAlias("GMS")
     @CommandPermission("mercury.commands.gamemode.survival.others")
     @CommandCompletion("@players")
@@ -65,7 +65,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Adventure|A")
+    @Subcommand("Adventure|A|2")
     @CommandAlias("GMA")
     @CommandPermission("mercury.commands.gamemode.adventure")
     @CommandCompletion("@players")
@@ -75,7 +75,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Adventure|A")
+    @Subcommand("Adventure|A|2")
     @CommandAlias("GMA")
     @CommandPermission("mercury.commands.gamemode.adventure.others")
     @CommandCompletion("@players")
@@ -85,7 +85,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Spectator|SP")
+    @Subcommand("Spectator|SP|3")
     @CommandAlias("GMSP")
     @CommandPermission("mercury.commands.gamemode.spectator")
     @CommandCompletion("@players")
@@ -95,7 +95,7 @@ public class Gamemode extends CommandModule {
     }
 
     @Syntax("[player]")
-    @Subcommand("Spectator|SP")
+    @Subcommand("Spectator|SP|3")
     @CommandAlias("GMSP")
     @CommandPermission("mercury.commands.gamemode.spectator.others")
     @CommandCompletion("@players")

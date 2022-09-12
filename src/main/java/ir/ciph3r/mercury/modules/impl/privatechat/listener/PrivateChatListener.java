@@ -9,7 +9,7 @@ public class PrivateChatListener implements org.bukkit.event.Listener {
     public static HashMap<String, String> replyList = new HashMap<>();
 
     @EventHandler
-    public void onJoin(PlayerQuitEvent event) {
+    public void onQuit(PlayerQuitEvent event) {
         replyList.remove(event.getPlayer().getName());
         replyList.values().remove(event.getPlayer().getName());
     }

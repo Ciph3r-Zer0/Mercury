@@ -34,7 +34,7 @@ public class ConfigManager {
 
         reload();
         cacheValues();
-        Logger.log("&7Caching &aconfig values...");
+        Logger.log("&7Caching &aconfig &7values...");
     }
 
     public void cacheValues() {

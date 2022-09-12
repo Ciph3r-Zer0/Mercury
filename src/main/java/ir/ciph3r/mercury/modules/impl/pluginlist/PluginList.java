@@ -22,16 +22,16 @@ public class PluginList extends CommandModule {
     @CommandPermission("mercury.commands.pluginlist")
     public void onPluginList(CommandSender sender) {
         Plugin[] plugins = Bukkit.getServer().getPluginManager().getPlugins();
+        String list = MercuryAPI.INSTANCE.getConfigManager().getValues().PLUGIN_LIST_MESSAGE.replace("{amount}", String.valueOf(plugins.length));
+        StringBuilder pluginList = new StringBuilder();
 
-        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().PLUGIN_LIST_FIRST_LINE.replace("{amount}", String.valueOf(plugins.length)));
-
-        for (Plugin pl : plugins) {
-            ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().PLUGIN_LIST_LIST_DESIGN
-                    .replace("{plugin}", handlePluginActivity(pl))
-                    .replace("{version}", pl.getDescription().getVersion()));
+        for (Plugin p: plugins) {
+            pluginList.append(MercuryAPI.INSTANCE.getConfigManager().getValues().PLUGIN_LIST_LIST_DESIGN
+                    .replace("{plugin}", handlePluginActivity(p))
+                    .replace("{version}", p.getDescription().getVersion())).append("\n");
         }
 
-        ChatUtils.sendColorizedMSG(sender, MercuryAPI.INSTANCE.getConfigManager().getValues().PLUGIN_LIST_LAST_LINE.replace("{amount}", String.valueOf(plugins.length)));
+        ChatUtils.sendColorizedMSG(sender, list.replace("{list_design}", pluginList.toString()));
     }
 
     private String handlePluginActivity(Plugin plugin) {

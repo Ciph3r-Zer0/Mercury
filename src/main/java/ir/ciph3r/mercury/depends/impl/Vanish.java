@@ -13,9 +13,9 @@ public class Vanish {
     public Vanish() {
         if (Bukkit.getPluginManager().isPluginEnabled("SuperVanish") || Bukkit.getPluginManager().isPluginEnabled("PremiumVanish")) {
             this.enabled = true;
-            Logger.log("&7Hooking into &aVanishAPI&7.");
+            Logger.log("&7Found &aVanishAPI&7, Hooking....");
         } else {
-            Logger.log("&7Cloud not found &cVanishAPI&7 &7skipping...");
+            Logger.log("&7Cloud not find &cVanishAPI&7 &7skipping...");
         }
     }
 

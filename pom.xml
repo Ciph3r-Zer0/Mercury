@@ -35,13 +35,12 @@
                 <configuration>
                     <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
                     <relocations>
-                        <relocation><pattern>alexh</pattern><shadedPattern>ir.ciph3r.mercury.shaded.alexh</shadedPattern></relocation>
-                        <relocation><pattern>co</pattern><shadedPattern>ir.ciph3r.mercury.shaded.co</shadedPattern></relocation>
-                        <relocation><pattern>com</pattern><shadedPattern>ir.ciph3r.mercury.shaded.com</shadedPattern></relocation>
-                        <relocation><pattern>github</pattern><shadedPattern>ir.ciph3r.mercury.shaded.github</shadedPattern></relocation>
-                        <relocation><pattern>io</pattern><shadedPattern>ir.ciph3r.mercury.shaded.io</shadedPattern></relocation>
-                        <relocation><pattern>junit</pattern><shadedPattern>ir.ciph3r.mercury.shaded.junit</shadedPattern></relocation>
-                        <relocation><pattern>org</pattern><shadedPattern>ir.ciph3r.mercury.shaded.org</shadedPattern></relocation>
+                        <relocation><pattern>org.bstats</pattern><shadedPattern>ir.ciph3r.mercury.shaded.org.bstats</shadedPattern></relocation>
+                        <relocation><pattern>co.aikar.commands</pattern><shadedPattern>ir.ciph3r.mercury.shaded.co.aikar.commands</shadedPattern></relocation>
+                        <relocation><pattern>co.aikar.locales</pattern><shadedPattern>ir.ciph3r.mercury.shaded.co.aikar.locales</shadedPattern></relocation>
+                        <relocation><pattern>com.jeff_media.updatechecker</pattern><shadedPattern>ir.ciph3r.mercury.shaded.com.jeff_media.updatechecker</shadedPattern></relocation>
+                        <relocation><pattern>io.github.leonardosnt.bungeechannelapi</pattern><shadedPattern>ir.ciph3r.mercury.shaded.io.github.leonardosnt.bungeechannelapi</shadedPattern></relocation>
+                        <relocation><pattern>github.scarsz.configuralize</pattern><shadedPattern>ir.ciph3r.mercury.shaded.io.github.scarsz.configuralize</shadedPattern></relocation>
                     </relocations>
                 </configuration>
                 <executions>

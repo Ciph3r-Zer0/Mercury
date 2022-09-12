@@ -17,7 +17,7 @@ reload_message: "{prefix} &7Config reload {status}"
 
 modules-messages:
   broadcast:
-    message: "{message}"
+    message: "&8[&bBroadcast&8] &f{message}"
   chat-format:
     message: "&7{player} &b>> &f{message}"
   clear-inventory:
@@ -48,17 +48,19 @@ modules-messages:
     message: "{prefix} &7Lightning struck"
     message-others: "{prefix} &c{target} &7struck by lightning"
   join-message:
-    message: "&a&l[+] &c{player} &7joined the server."
-    first-join: "&a&l[+] &c{player} &7joined the server for the first time."
+    message: "&a&l[+] &f{player} &7joined the server."
+    first-join: "&a&l[+] &5{player} &7joined the server for the first time."
   quit-message:
-    message: "&4&l[-] &c{player} &7left the server."
+    message: "&4&l[-] &f{player} &7left the server."
   plugin-list:
-    first-line: "&8*-----------&7[&5Plugins&7]&8-----------*"
-    list-design: " &7* {plugin} &8[&7{version}&8]"
-    last-line: "&8*------------&7(&c{amount}&7)&8------------*"
+    list-design: "    &7* {plugin} &8[&7{version}&8]"
+    message: |
+      &7*&8-----------&7[&5Plugins&7]&8-----------&7*
+      {list_design}
+      &7*&8--------------&7[&5{amount}&7]&8-------------&7*
   private-chat:
-    message: "&c{sender} &7-> &5{receiver} &7>> &f{message}"
-    message-self: "&c{sender} &7-> &5{receiver} &7>> &f{message}"
+    message: "&8[&a✉&8] &8[&f{sender} &7-> &f{receiver}&8] &f{message}"
+    message-self: "&8[&a✉&8] &8[&f{sender} &7-> &f{receiver}&8] &f{message}"
     can-not-send-self: "{prefix} &7Can not send message to yourself."
     no-one-to-reply: "{prefix} &7There is no one to reply."
   rotate:
