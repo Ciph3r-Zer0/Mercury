@@ -14,12 +14,12 @@ import java.util.Locale;
 public class MercuryCMD extends CommandModule {
     public MercuryCMD() {
         super("Mercury", true);
-        setCommandNameAndSyntax("/Mercury", "[Reload]");
+        setCommandNameAndSyntax("/Mercury", "[Reload, GUI]");
     }
 
     @Default
-    @Syntax("[Reload]")
-    @CommandCompletion("reload")
+    @Syntax("[Reload, GUI]")
+    @CommandCompletion("reload|gui")
     public void onMercury(CommandSender sender) {
         ChatUtils.sendColorizedMSG(sender, "&5Mercury &8&k||&r &cMercury &7version &c" + MercuryAPI.INSTANCE.getPlugin().getDescription().getVersion() + " &7made by &cCiph3r");
     }
@@ -38,4 +38,9 @@ public class MercuryCMD extends CommandModule {
             e.printStackTrace();
         }
     }
+
+//    @Subcommand("gui")
+//    @CommandPermission("mercury.commands.gui")
+//    public void onGUI(Player player) {
+//    }
 }

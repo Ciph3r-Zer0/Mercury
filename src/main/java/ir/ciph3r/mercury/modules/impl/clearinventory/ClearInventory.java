@@ -8,7 +8,7 @@ import ir.ciph3r.mercury.utility.ChatUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("Clearinventory|CI|ClearINV")
+@CommandAlias("Clearinventory|ClearINV|CI")
 public class ClearInventory extends CommandModule {
     public ClearInventory() {
         super("ClearInventory", MercuryAPI.INSTANCE.getConfigManager().getValues().CLEAR_INVENTORY_ENABLED);

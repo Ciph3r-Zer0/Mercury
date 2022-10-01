@@ -15,6 +15,7 @@ import java.nio.file.Files;
 public class ConfigManager {
     private DynamicConfig config;
     private ConfigValues values;
+    private ConfigUpgrades configUpgrades;
     private final File configFile = new File(MercuryAPI.INSTANCE.getPlugin().getDataFolder(), "config.yml");
     private final File messagesFile = new File(MercuryAPI.INSTANCE.getPlugin().getDataFolder(), "messages.yml");
     private final File globalFile = new File(MercuryAPI.INSTANCE.getPlugin().getDataFolder(), "global.yml");
@@ -24,6 +25,8 @@ public class ConfigManager {
     }
 
     public void load() {
+        upgrade();
+
         MercuryAPI.INSTANCE.getPlugin().getDataFolder().mkdirs();
 
         config = new DynamicConfig();
@@ -53,14 +56,24 @@ public class ConfigManager {
     }
 
     public void setSpawnPoint(String location) {
-        File config = new File(MercuryAPI.INSTANCE.getPlugin().getDataFolder(), "config.yml");
+        //File config = new File(MercuryAPI.INSTANCE.getPlugin().getDataFolder(), "config.yml");
         String configString;
-        if (config.exists()) {
+        if (configFile.exists()) {
             try {
-                configString = new String(Files.readAllBytes(config.toPath()));
+                configString = new String(Files.readAllBytes(configFile.toPath()));
                 configString = configString.replaceAll("location: .*", "location: \"" + location + "\"");
-                Files.write(config.toPath(), configString.getBytes());
+                Files.write(configFile.toPath(), configString.getBytes());
             } catch (IOException ignored) {}
+        }
+    }
+
+    private void upgrade() {
+        try {
+            if (configFile.exists() && messagesFile.exists()) {
+                this.configUpgrades = new ConfigUpgrades(configFile, messagesFile);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

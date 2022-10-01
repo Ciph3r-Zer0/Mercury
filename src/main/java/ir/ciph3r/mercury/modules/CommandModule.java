@@ -33,4 +33,8 @@ public abstract class CommandModule extends BaseCommand {
     public void addListeners(Listener... listeners) {
         Collections.addAll(this.listeners, listeners);
     }
+
+//    public void shutdown() {
+//        //shutdown
+//    }
 }

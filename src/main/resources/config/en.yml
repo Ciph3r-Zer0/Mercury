@@ -1,4 +1,4 @@
-config-version: 1
+config-version: 2
 
 update-checker:
   notify-on-join: true
@@ -8,6 +8,8 @@ modules-configs:
   broadcast:
     enabled: true
   chat-format:
+    enabled: true
+  clear-chat:
     enabled: true
   clear-inventory:
     enabled: true
@@ -22,6 +24,8 @@ modules-configs:
     enabled: true
   gamemode:
     enabled: true
+  god:
+    enabled: true
   heal:
     enabled: true
   kill:
@@ -30,6 +34,9 @@ modules-configs:
     enabled: true
   lightning:
     enabled: true
+  motd:
+    enabled: true
+    on-join: true
   join-message:
     enabled: true
   quit-message:

@@ -20,6 +20,9 @@ modules-messages:
     message: "&8[&bBroadcast&8] &f{message}"
   chat-format:
     message: "&7{player} &b>> &f{message}"
+  clear-chat:
+    message: "{prefix} &7chat has been cleared."
+    message-others: "{prefix} &7chat has been cleared for &c{target}&7."
   clear-inventory:
     message: "{prefix} &7Inventory cleared."
     message-others: "{prefix} &7Inventory of &c{target} &7has been cleared."
@@ -37,6 +40,9 @@ modules-messages:
   gamemode:
     message: "{prefix} &7Gamemode changed to &c{gamemode}"
     message-others: "{prefix} &c{target} &7gamemode changed to &c{gamemode}"
+  god:
+    message: "{prefix} &7God mode {status}"
+    message-others: "{prefix} &7God mode {status} &7for &c{target}"
   heal:
     message: "{prefix} &7You've been healed"
     message-others: "{prefix} &c{target} &7healed"
@@ -47,6 +53,13 @@ modules-messages:
   lightning:
     message: "{prefix} &7Lightning struck"
     message-others: "{prefix} &c{target} &7struck by lightning"
+  motd:
+    message: |
+      &8<>&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m&8<>
+                              &7Welcome &c&l%player_name%
+      
+              &7There are currently &c&l%server_online% &7players online
+      &8<>&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m&8<>
   join-message:
     message: "&a&l[+] &f{player} &7joined the server."
     first-join: "&a&l[+] &5{player} &7joined the server for the first time."

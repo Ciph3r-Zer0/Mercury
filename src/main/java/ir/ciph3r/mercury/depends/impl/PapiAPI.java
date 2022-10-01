@@ -25,7 +25,8 @@ public class PapiAPI {
         } else {
             return message
                     .replace("{player}", player.getName())
-                    .replace("%player_name%", player.getName());
+                    .replace("%player_name%", player.getName())
+                    .replace("%server_online%", String.valueOf(Bukkit.getServer().getOnlinePlayers().size()));
         }
     }
 }

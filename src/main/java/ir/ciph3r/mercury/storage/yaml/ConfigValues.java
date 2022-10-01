@@ -12,16 +12,20 @@ public class ConfigValues {
             UPDATE_CHECKER_NOTIFY_ON_JOIN,
             BROADCAST_ENABLED,
             CHAT_FORMAT_ENABLED,
+            CLEAR_CHAT_ENABLED,
             CLEAR_INVENTORY_ENABLED,
             COORDINATED_ENABLED,
             CROSS_TELEPORT_ENABLED,
             FEED_ENABLED,
             FLY_ENABLED,
             GAMEMODE_ENABLED,
+            GOD_ENABLED,
             HEAL_ENABLED,
             KILL_ENABLED,
             KNOCKBACK_ENABLED,
             LIGHTNING_ENABLED,
+            MOTD_ENABLED,
+            MOTD_ON_JOIN,
             JOIN_MESSAGE_ENABLED,
             QUIT_MESSAGE_ENABLED,
             PLUGIN_LIST_ENABLED,
@@ -61,6 +65,8 @@ public class ConfigValues {
 
             BROADCAST_MESSAGE,
             CHAT_FORMAT_MESSAGE,
+            CLEAR_CHAT_MESSAGE,
+            CLEAR_CHAT_MESSAGE_OTHERS,
             CLEAR_INVENTORY_MESSAGE,
             CLEAR_INVENTORY_MESSAGE_OTHERS,
             COORDINATES_MESSAGE,
@@ -72,12 +78,15 @@ public class ConfigValues {
             FLY_MESSAGE_OTHERS,
             GAMEMODE_MESSAGE,
             GAMEMODE_MESSAGE_OTHERS,
+            GOD_MESSAGE,
+            GOD_MESSAGE_OTHERS,
             HEAL_MESSAGE,
             HEAL_MESSAGE_OTHERS,
             KILL_MESSAGE,
             KNOCKBACK_MESSAGE,
             LIGHTNING_MESSAGE,
             LIGHTNING_MESSAGE_OTHERS,
+            MOTD_MESSAGE,
             JOIN_MESSAGE,
             JOIN_MESSAGE_FIRST_JOIN,
             QUIT_MESSAGE,
@@ -113,6 +122,7 @@ public class ConfigValues {
         UPDATE_CHECKER_INTERVAL = dynamicConfig.getInt("update-checker.check-interval");
         BROADCAST_ENABLED = dynamicConfig.getBoolean("modules-configs.broadcast.enabled");
         CHAT_FORMAT_ENABLED = dynamicConfig.getBoolean("modules-configs.chat-format.enabled");
+        CLEAR_CHAT_ENABLED = dynamicConfig.getBoolean("modules-configs.clear-chat.enabled");
         CLEAR_INVENTORY_ENABLED = dynamicConfig.getBoolean("modules-configs.clear-inventory.enabled");
         COORDINATED_ENABLED = dynamicConfig.getBoolean("modules-configs.coordinates.enabled");
         CROSS_TELEPORT_ENABLED = dynamicConfig.getBoolean("modules-configs.cross-teleport.enabled");
@@ -120,10 +130,13 @@ public class ConfigValues {
         FEED_ENABLED = dynamicConfig.getBoolean("modules-configs.feed.enabled");
         FLY_ENABLED = dynamicConfig.getBoolean("modules-configs.fly.enabled");
         GAMEMODE_ENABLED = dynamicConfig.getBoolean("modules-configs.gamemode.enabled");
+        GOD_ENABLED = dynamicConfig.getBoolean("modules-configs.god.enabled");
         HEAL_ENABLED = dynamicConfig.getBoolean("modules-configs.heal.enabled");
         KILL_ENABLED = dynamicConfig.getBoolean("modules-configs.kill.enabled");
         KNOCKBACK_ENABLED = dynamicConfig.getBoolean("modules-configs.knockback.enabled");
         LIGHTNING_ENABLED = dynamicConfig.getBoolean("modules-configs.lightning.enabled");
+        MOTD_ENABLED = dynamicConfig.getBoolean("modules-configs.motd.enabled");
+        MOTD_ON_JOIN = dynamicConfig.getBoolean("modules-configs.motd.on-join");
         JOIN_MESSAGE_ENABLED = dynamicConfig.getBoolean("modules-configs.join-message.enabled");
         QUIT_MESSAGE_ENABLED = dynamicConfig.getBoolean("modules-configs.quit-message.enabled");
         PLUGIN_LIST_ENABLED = dynamicConfig.getBoolean("modules-configs.plugin-list.enabled");
@@ -160,6 +173,8 @@ public class ConfigValues {
 
         BROADCAST_MESSAGE = dynamicConfig.getString("modules-messages.broadcast.message").replace("{prefix}", PREFIX);
         CHAT_FORMAT_MESSAGE = dynamicConfig.getString("modules-messages.chat-format.message").replace("{prefix}", PREFIX);
+        CLEAR_CHAT_MESSAGE = dynamicConfig.getString("modules-messages.clear-chat.message").replace("{prefix}", PREFIX);
+        CLEAR_CHAT_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.clear-chat.message-others").replace("{prefix}", PREFIX);
         CLEAR_INVENTORY_MESSAGE = dynamicConfig.getString("modules-messages.clear-inventory.message").replace("{prefix}", PREFIX);
         CLEAR_INVENTORY_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.clear-inventory.message-others").replace("{prefix}", PREFIX);
         COORDINATES_MESSAGE = dynamicConfig.getString("modules-messages.coordinates.message").replace("{prefix}", PREFIX);
@@ -171,12 +186,15 @@ public class ConfigValues {
         FLY_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.fly.message-others").replace("{prefix}", PREFIX);
         GAMEMODE_MESSAGE = dynamicConfig.getString("modules-messages.gamemode.message").replace("{prefix}", PREFIX);
         GAMEMODE_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.gamemode.message-others").replace("{prefix}", PREFIX);
+        GOD_MESSAGE = dynamicConfig.getString("modules-messages.god.message").replace("{prefix}", PREFIX);
+        GOD_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.god.message-others").replace("{prefix}", PREFIX);
         HEAL_MESSAGE = dynamicConfig.getString("modules-messages.heal.message").replace("{prefix}", PREFIX);
         HEAL_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.heal.message-others").replace("{prefix}", PREFIX);
         KILL_MESSAGE = dynamicConfig.getString("modules-messages.kill.message").replace("{prefix}", PREFIX);
         KNOCKBACK_MESSAGE = dynamicConfig.getString("modules-messages.knockback.message").replace("{prefix}", PREFIX);
         LIGHTNING_MESSAGE = dynamicConfig.getString("modules-messages.lightning.message").replace("{prefix}", PREFIX);
         LIGHTNING_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.lightning.message-others").replace("{prefix}", PREFIX);
+        MOTD_MESSAGE = dynamicConfig.getString("modules-messages.motd.message").replace("{prefix}", PREFIX);
         JOIN_MESSAGE = dynamicConfig.getString("modules-messages.join-message.message").replace("{prefix}", PREFIX);
         JOIN_MESSAGE_FIRST_JOIN = dynamicConfig.getString("modules-messages.join-message.first-join").replace("{prefix}", PREFIX);
         QUIT_MESSAGE = dynamicConfig.getString("modules-messages.quit-message.message").replace("{prefix}", PREFIX);

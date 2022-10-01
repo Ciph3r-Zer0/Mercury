@@ -34,7 +34,7 @@ public enum MercuryAPI {
                 .setNotifyOpsOnJoin(getConfigManager().getValues().UPDATE_CHECKER_NOTIFY_ON_JOIN)
                 .checkEveryXHours(getConfigManager().getValues().UPDATE_CHECKER_INTERVAL)
                 .setDownloadLink("https://github.com/Ciph3r-Zer0/Mercury/releases")
-                .setUsedVersion("3.0.0")
+                .setUsedVersion(getPlugin().getDescription().getVersion())
                 .checkNow();
 
         new Metrics(getPlugin(), 14640);

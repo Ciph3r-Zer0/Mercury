@@ -8,7 +8,8 @@ public final class Mercury extends JavaPlugin {
 	//TODO: add setMaxPlayers module
 	//TODO: add TPA module
 	//TODO: add CommandSpy module
-	//TODO: add ClearChat module
+	//TODO: add Weather module
+	//TODO: add ClearChat module [done]
 
 	@Override
 	public void onEnable() {

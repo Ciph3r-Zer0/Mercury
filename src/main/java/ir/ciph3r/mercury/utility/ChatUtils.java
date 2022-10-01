@@ -28,9 +28,11 @@ public class ChatUtils {
     }
 
     public static void broadcastToWorld(Player player, String msg) {
-        player.getWorld().getPlayers().forEach(p -> {
-            sendColorizedMSG(p, msg);
-        });
+        player.getWorld().getPlayers().forEach(p -> sendColorizedMSG(p, msg));
+    }
+
+    public static String repeat(String msg, int count) {
+        return String.valueOf(msg).repeat(Math.max(0, count + 1));
     }
 
     public static void printSplashScreen() {

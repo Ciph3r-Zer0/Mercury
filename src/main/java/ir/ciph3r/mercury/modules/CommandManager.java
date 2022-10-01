@@ -8,18 +8,21 @@ import co.aikar.commands.bukkit.contexts.OnlinePlayer;
 import ir.ciph3r.mercury.MercuryAPI;
 import ir.ciph3r.mercury.modules.impl.broadcast.Broadcast;
 import ir.ciph3r.mercury.modules.impl.chatformat.ChatFormat;
+import ir.ciph3r.mercury.modules.impl.clearchat.ClearChat;
 import ir.ciph3r.mercury.modules.impl.clearinventory.ClearInventory;
 import ir.ciph3r.mercury.modules.impl.coordinates.Coordinates;
 import ir.ciph3r.mercury.modules.impl.crossteleport.CrossTeleport;
 import ir.ciph3r.mercury.modules.impl.feed.Feed;
 import ir.ciph3r.mercury.modules.impl.fly.Fly;
 import ir.ciph3r.mercury.modules.impl.gamemode.Gamemode;
+import ir.ciph3r.mercury.modules.impl.god.God;
 import ir.ciph3r.mercury.modules.impl.heal.Heal;
 import ir.ciph3r.mercury.modules.impl.kill.Kill;
 import ir.ciph3r.mercury.modules.impl.knockback.Knockback;
 import ir.ciph3r.mercury.modules.impl.lightning.Lightning;
 import ir.ciph3r.mercury.modules.impl.mercurycmd.MercuryCMD;
 import ir.ciph3r.mercury.modules.impl.joinmessage.JoinMessage;
+import ir.ciph3r.mercury.modules.impl.motd.Motd;
 import ir.ciph3r.mercury.modules.impl.quitmessage.QuitMessage;
 import ir.ciph3r.mercury.modules.impl.pluginlist.PluginList;
 import ir.ciph3r.mercury.modules.impl.privatechat.Reply;
@@ -45,7 +48,7 @@ import java.util.Locale;
 public class CommandManager {
     public ArrayList<CommandModule> modules = new ArrayList<>();
     public final PaperCommandManager commandManager = new PaperCommandManager(MercuryAPI.INSTANCE.getPlugin());
-    private int registeredCount = 0;
+    public static int registeredCount = 0;
 
     public CommandManager() {
         register();
@@ -61,16 +64,19 @@ public class CommandManager {
             modules.add(new MercuryCMD());
             modules.add(new Broadcast());
             modules.add(new ChatFormat());
+            modules.add(new ClearChat());
             modules.add(new ClearInventory());
             modules.add(new Coordinates());
             modules.add(new CrossTeleport());
             modules.add(new Feed());
             modules.add(new Fly());
             modules.add(new Gamemode());
+            modules.add(new God());
             modules.add(new Heal());
             modules.add(new Kill());
             modules.add(new Knockback());
             modules.add(new Lightning());
+            modules.add(new Motd());
             modules.add(new JoinMessage());
             modules.add(new QuitMessage());
             modules.add(new PluginList());
@@ -110,10 +116,15 @@ public class CommandManager {
         }
     }
 
+    //TODO: make a command context to return a list of online players
+//    private void registerMethodContexts() {}
+
     private void registerConditions() {
         commandManager.getCommandConditions().addCondition(OnlinePlayer.class, "noAdmin", (context, execContext, value) -> {
             if (value == null) return;
-            if ((!context.getIssuer().hasPermission("mercury.admin")) && value.getPlayer().hasPermission("mercury.commands.exempt")) {
+            if (context.getIssuer().hasPermission("mercury.admin")) return;
+
+            if (value.getPlayer().hasPermission("mercury." + execContext.getCmd().getCommand() + ".exempt")) {
                 throw new ConditionFailedException(MercuryAPI.INSTANCE.getConfigManager().getValues().NOT_TO_ADMIN);
             }
         });
