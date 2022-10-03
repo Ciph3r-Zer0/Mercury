@@ -85,14 +85,11 @@ public class ConfigUpgrades {
                 "    on-join: true";
 
         messagesString += "\n" +
-                "  motd:\n" +
-                "    message: |\n" +
-                "      Test in line 1\n" +
-                "      Test in line 2\n" +
-                "      Test in line 3\n" +
-                "      Test in line 4\n" +
-                "      Test in line 5\n" +
-                "      Test in line 6";
+                "      &8<>&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m&8<>\n" +
+                "                              &7Welcome &c&l%player_name%\n" +
+                "      \n" +
+                "              &7There are currently &c&l%server_online% &7players online\n" +
+                "      &8<>&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m-&b&l&m-&8&l&m&8<>";
 
         Files.write(configFile.toPath(), configString.getBytes());
         Files.write(messagesFile.toPath(), messagesString.getBytes());
