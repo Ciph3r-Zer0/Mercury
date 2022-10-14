@@ -1,7 +1,6 @@
 name: Mercury
-version: '${project.version}'
+version: '${version}'
 main: ir.ciph3r.mercury.Mercury
-api-version: 1.13
-authors: [ Ciph3r ]
-softdepend: [SuperVanish, PremiumVanish, PlaceholderAPI]
-description: A server core plugin made to make life easier.
+api-version: 1.19
+authors: [ Cipher ]
+description: A core plugin made to make life easier
