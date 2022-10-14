@@ -15,6 +15,7 @@ public class Tell extends CommandModule {
         super("PrivateChat", MercuryAPI.INSTANCE.getConfigManager().getValues().PRIVATE_CHAT_ENABLED);
         setCommandNameAndSyntax("/Tell", "<player> <message>");
         addListeners(new PrivateChatListener());
+        addSubModules(new Reply());
     }
 
     @Default

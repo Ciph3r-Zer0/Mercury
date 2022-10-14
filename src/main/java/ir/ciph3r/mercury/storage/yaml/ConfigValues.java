@@ -39,6 +39,7 @@ public class ConfigValues {
             SPEED_ENABLED,
             SUDO_ENABLED,
             TELEPORT_ENABLED,
+            TELEPORT_ASK_ENABLED,
             TIME_ENABLED,
             UPTIME_ENABLED;
 
@@ -113,6 +114,8 @@ public class ConfigValues {
             TELEPORT_MESSAGE_OTHERS,
             TELEPORT_MESSAGE_LOCATION,
             TELEPORT_MESSAGE_LOCATION_OTHERS,
+            TELEPORT_ASK_MESSAGE,
+            TELEPORT_ASK_MESSAGE_OTHERS,
             TIME_MESSAGE,
             UPTIME_MESSAGE;
 
@@ -151,6 +154,7 @@ public class ConfigValues {
         SPEED_ENABLED = dynamicConfig.getBoolean("modules-configs.speed.enabled");
         SUDO_ENABLED = dynamicConfig.getBoolean("modules-configs.sudo.enabled");
         TELEPORT_ENABLED = dynamicConfig.getBoolean("modules-configs.teleport.enabled");
+        TELEPORT_ASK_ENABLED = dynamicConfig.getBoolean("modules-configs.teleport-ask.enabled");
         TIME_ENABLED = dynamicConfig.getBoolean("modules-configs.time.enabled");
         UPTIME_ENABLED = dynamicConfig.getBoolean("modules-configs.uptime.enabled");
 
@@ -221,6 +225,8 @@ public class ConfigValues {
         TELEPORT_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.teleport.message-others").replace("{prefix}", PREFIX);
         TELEPORT_MESSAGE_LOCATION = dynamicConfig.getString("modules-messages.teleport.message-location").replace("{prefix}", PREFIX);
         TELEPORT_MESSAGE_LOCATION_OTHERS = dynamicConfig.getString("modules-messages.teleport.message-location-others").replace("{prefix}", PREFIX);
+        TELEPORT_ASK_MESSAGE = dynamicConfig.getString("modules-messages.teleport-ask.message").replace("{prefix}", PREFIX);
+        TELEPORT_ASK_MESSAGE_OTHERS = dynamicConfig.getString("modules-messages.teleport-ask.message-others").replace("{prefix}", PREFIX);
         TIME_MESSAGE = dynamicConfig.getString("modules-messages.time.message").replace("{prefix}", PREFIX);
         UPTIME_MESSAGE = dynamicConfig.getString("modules-messages.uptime.message").replace("{prefix}", PREFIX);
     }

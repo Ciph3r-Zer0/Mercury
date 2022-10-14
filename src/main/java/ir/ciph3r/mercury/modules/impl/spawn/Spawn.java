@@ -17,6 +17,7 @@ public class Spawn extends CommandModule {
         super("Spawn", MercuryAPI.INSTANCE.getConfigManager().getValues().SPAWN_ENABLED);
         setCommandNameAndSyntax("Spawn", "[player]");
         addListeners(new SpawnListener());
+        addSubModules(new SetSpawn());
     }
 
     @Default

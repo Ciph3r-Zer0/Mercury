@@ -99,6 +99,9 @@ modules-messages:
     message-others: "{prefix} &7Teleported &c{player} &7to &c{target}"
     message-location: "{prefix} &7You've been teleported to &c{x}&7, &c{y}&7, &7{z}"
     message-location-others: "{prefix} &7Teleported &c{target} &7to &c{x}&7, &c{y}&7, &7{z}"
+  teleport-ask:
+    message: "{prefix} &7Teleport request sent to &c{target}"
+    message-others: "{prefix} &c{target} &7wants to teleport to you."
   time:
     message: "{prefix} &7time changed."
   uptime:

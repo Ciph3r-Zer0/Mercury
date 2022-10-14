@@ -34,6 +34,7 @@ import ir.ciph3r.mercury.modules.impl.speed.Speed;
 import ir.ciph3r.mercury.modules.impl.sudo.Sudo;
 import ir.ciph3r.mercury.modules.impl.teleport.Teleport;
 import ir.ciph3r.mercury.modules.impl.privatechat.Tell;
+import ir.ciph3r.mercury.modules.impl.teleportask.TeleportAsk;
 import ir.ciph3r.mercury.modules.impl.time.Time;
 import ir.ciph3r.mercury.modules.impl.uptime.Uptime;
 import ir.ciph3r.mercury.utility.Logger;
@@ -81,14 +82,15 @@ public class CommandManager {
             modules.add(new QuitMessage());
             modules.add(new PluginList());
             modules.add(new Tell());
-            modules.add(new Reply());
+            //modules.add(new Reply());
             modules.add(new Rotate());
             modules.add(new Shuffle());
-            modules.add(new SetSpawn());
+            //modules.add(new SetSpawn());
             modules.add(new Spawn());
             modules.add(new Speed());
             modules.add(new Sudo());
             modules.add(new Teleport());
+            modules.add(new TeleportAsk());
             modules.add(new Time());
             modules.add(new Uptime());
 
@@ -107,9 +109,14 @@ public class CommandManager {
     private void registerModule(CommandModule module) {
         if (module.isEnabled()) {
             commandManager.registerCommand(module);
-            if (!(module.getListeners().size() == 0)) {
+            if (!(module.getListeners().isEmpty())) {
                 for (Listener listener : module.getListeners()) {
                     Bukkit.getServer().getPluginManager().registerEvents(listener, MercuryAPI.INSTANCE.getPlugin());
+                }
+            }
+            if (!(module.getSubModules().isEmpty())) {
+                for (CommandModule subModule : module.getSubModules()) {
+                    commandManager.registerCommand(subModule);
                 }
             }
             registeredCount++;

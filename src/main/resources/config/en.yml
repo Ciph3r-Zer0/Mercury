@@ -61,6 +61,8 @@ modules-configs:
     enabled: true
   teleport:
     enabled: true
+  teleport-ask:
+    enabled: true
   time:
     enabled: true
   uptime:

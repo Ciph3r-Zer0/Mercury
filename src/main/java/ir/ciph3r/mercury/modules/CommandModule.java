@@ -13,6 +13,7 @@ public abstract class CommandModule extends BaseCommand {
     private final String moduleName;
     private final boolean enabled;
     private final ArrayList<Listener> listeners = new ArrayList<>();
+    private final ArrayList<CommandModule> subModules = new ArrayList<>();
     private String commandName = null;
     private String commandSyntax = null;
 
@@ -32,6 +33,10 @@ public abstract class CommandModule extends BaseCommand {
 
     public void addListeners(Listener... listeners) {
         Collections.addAll(this.listeners, listeners);
+    }
+
+    public void addSubModules(CommandModule... subModules) {
+        Collections.addAll(this.subModules, subModules);
     }
 
 //    public void shutdown() {
