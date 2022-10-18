@@ -1,27 +1,31 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.20'
+    id "com.github.johnrengelman.shadow" version "7.0.0"
 }
 
 group = 'ir.ciph3r'
 version = '4.0.0'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
-    maven {
-        name = 'spigotmc-repo'
-        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
-    }
-    maven {
-        name = 'sonatype'
-        url = 'https://oss.sonatype.org/content/groups/public/'
-    }
+    maven {url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'}
+    maven {url = 'https://oss.sonatype.org/content/groups/public/'}
+    maven {url = "https://repo.triumphteam.dev/snapshots/" }
+    maven {url = 'https://nexus.scarsz.me/content/groups/public/'}
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
+    compileOnly 'org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "net.kyori:adventure-text-minimessage:4.11.0"
+    implementation "dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT"
+    implementation "github.scarsz:configuralize:1.4.0"
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 11
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
@@ -43,5 +47,18 @@ processResources {
     filteringCharset 'UTF-8'
     filesMatching('plugin.yml') {
         expand props
+    }
+}
+
+shadowJar {
+    minimize()
+    relocate("dev.triumphteam", "ir.ciph3r.mercury.shaded.dev.triumphteam")
+    relocate("github.scarsz.configuralize", "ir.ciph3r.mercury.shaded.github.scarsz.configuralize")
+    archiveFileName = "${project.name}-${project.version}.jar"
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
